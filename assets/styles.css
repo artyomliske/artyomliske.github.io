@@ -1135,3 +1135,33 @@ a { color: inherit; }
 .limits li:first-child::before { top: .1rem; }
 .limits h3 { font-size: var(--step-1); }
 .limits p { color: var(--ink-2); }
+
+
+/* ── условия работы и связь ───────────────────────────────── */
+.terms { display: grid; margin-bottom: clamp(1.6rem, 1.2rem + 1vw, 2.2rem); }
+.terms > div {
+  display: grid;
+  gap: .2rem .5rem;
+  padding-block: .95rem;
+  border-top: 1px solid var(--rule);
+}
+.terms > div:first-child { border-top: 0; padding-top: 0; }
+@media (min-width: 40rem) {
+  .terms > div { grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); align-items: baseline; }
+}
+.terms dt {
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.terms dd { font-size: var(--step-1); color: var(--ink); line-height: 1.4; }
+
+.contact__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .7rem;
+  margin-bottom: clamp(1.6rem, 1.2rem + 1vw, 2.2rem);
+}
+.contact li:first-child { border-top: 0; padding-top: 0; }
