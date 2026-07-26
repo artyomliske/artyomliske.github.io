@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="ru" data-lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Артём Лиске — автоматизация бизнес-процессов</title>
+<meta name="description" content="Проектирую и собираю CRM, Telegram-ботов и личные кабинеты под конкретный процесс — от технического задания до боевого сервера.">
+<meta name="color-scheme" content="dark light">
+<meta property="og:title" content="Артём Лиске — автоматизация бизнес-процессов">
+<meta property="og:description" content="CRM, Telegram-боты и личные кабинеты под конкретный процесс. От ТЗ до боевого сервера.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D1214'/%3E%3Crect x='4' y='9' width='13' height='5' fill='%2358A79C'/%3E%3Crect x='19' y='9' width='9' height='5' fill='%23223032'/%3E%3Crect x='4' y='18' width='7' height='5' fill='%23223032'/%3E%3Crect x='13' y='18' width='15' height='5' fill='%23E4A244'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<a class="skip" href="#cases"><span lang="ru">К проектам</span><span lang="en">Skip to work</span></a>
+
+<header class="topbar">
+  <div class="wrap topbar__inner">
+    <a class="mark" href="#top">
+      <span class="mark__glyph" aria-hidden="true"></span>
+      <span class="mark__name">Артём Лиске</span>
+    </a>
+    <div class="controls">
+      <button type="button" class="ctl" id="lang-toggle" aria-label="Switch language">
+        <span class="ctl__on">RU</span><span class="ctl__sep">/</span><span class="ctl__off">EN</span>
+      </button>
+      <button type="button" class="ctl" id="theme-toggle" aria-label="Сменить тему">
+        <span id="theme-label">Светлая</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ─────────────────────────────  HERO  ───────────────────────────── -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">
+      <span lang="ru">Автоматизация бизнес-процессов</span>
+      <span lang="en">Business process automation</span>
+    </p>
+
+    <h1 class="hero__title">
+      <span lang="ru">Перевожу процессы<br>из блокнота<br>в систему</span>
+      <span lang="en">I move business<br>processes out of<br>the notebook</span>
+    </h1>
+
+    <div class="hero__body">
+      <p lang="ru">Проектирую и собираю CRM, Telegram-ботов и личные кабинеты под конкретный процесс — от технического задания до боевого сервера. Шесть систем для контент-студии, покерного клуба, театра, стройки и контент-маркетинга.</p>
+      <p lang="en">I design and build CRMs, Telegram bots and customer portals around one specific process — from the written spec to the production server. Six systems for a content studio, a poker club, a theatre, a construction firm and content marketing.</p>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="#cases"><span lang="ru">Смотреть кейсы</span><span lang="en">See the work</span></a>
+        <a class="btn" href="#contact"><span lang="ru">Обсудить задачу</span><span lang="en">Discuss a project</span></a>
+      </div>
+    </div>
+
+    <!-- живая демонстрация: слот, который нельзя занять дважды -->
+    <figure class="board" id="board">
+      <figcaption class="board__head">
+        <span class="board__title" lang="ru">Зал студии · вторник</span>
+        <span class="board__title" lang="en">Studio room · Tuesday</span>
+        <button type="button" class="board__replay" id="board-replay">
+          <span lang="ru">Повторить</span><span lang="en">Replay</span>
+        </button>
+      </figcaption>
+
+      <div class="board__scale" aria-hidden="true">
+        <span>10</span><span>12</span><span>14</span><span>16</span><span>18</span><span>20</span><span>22</span>
+      </div>
+
+      <div class="board__row">
+        <span class="board__label">A</span>
+        <div class="board__track">
+          <div class="slot" data-delay="0" style="--from:0%; --to:25%"><span lang="ru">Съёмка</span><span lang="en">Shoot</span></div>
+          <div class="slot slot--buffer" data-delay="1" style="--from:25%; --to:29%" aria-hidden="true"></div>
+          <div class="slot" data-delay="2" style="--from:29%; --to:54%"><span lang="ru">Съёмка</span><span lang="en">Shoot</span></div>
+          <div class="slot slot--buffer" data-delay="2" style="--from:54%; --to:58%" aria-hidden="true"></div>
+          <div class="slot" data-delay="3" style="--from:58%; --to:88%"><span lang="ru">Съёмка</span><span lang="en">Shoot</span></div>
+        </div>
+      </div>
+
+      <div class="board__row board__row--attempt">
+        <span class="board__label board__label--alert">!</span>
+        <div class="board__track">
+          <div class="slot slot--clash" data-delay="4" style="--from:42%; --to:70%">
+            <span lang="ru">Отклонено</span><span lang="en">Rejected</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="board__note">
+        <span lang="ru">Четвёртая бронь заходит на время второй. Её отклоняет сама база данных, а не проверка в коде, — двойная запись физически невозможна, даже если два менеджера нажали «сохранить» одновременно. Штриховкой показаны буферы на уборку: они тоже считаются занятым временем.</span>
+        <span lang="en">The fourth booking runs into the second one’s time. It is rejected by the database itself, not by a check in the code — a double booking is physically impossible, even if two managers hit “save” at the same moment. The hatched gaps are cleanup buffers: they count as occupied time too.</span>
+      </p>
+    </figure>
+
+    <ul class="facts">
+      <li><b>6</b><span lang="ru">систем собрано</span><span lang="en">systems built</span></li>
+      <li><b>5</b><span lang="ru">отраслей</span><span lang="en">industries</span></li>
+      <li><b><span lang="ru">ТЗ → сервер</span><span lang="en">Spec → live</span></b><span lang="ru">полный цикл работы</span><span lang="en">the full cycle</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ─────────────────────────────  УСЛУГИ  ───────────────────────────── -->
+<section class="band" id="services">
+  <div class="wrap cols">
+    <h2 class="colhead">
+      <span lang="ru">Что я делаю</span><span lang="en">What I do</span>
+    </h2>
+    <div class="colbody">
+      <ul class="services">
+        <li>
+          <span class="tag">CRM</span>
+          <h3><span lang="ru">Система под ваш процесс</span><span lang="en">A system shaped to your process</span></h3>
+          <p lang="ru">Не коробка, которую придётся обходить, а маршрут вашей заявки: этапы, статусы, ответственные, сроки. Работает так, как у вас уже заведено, только без ручной сверки.</p>
+          <p lang="en">Not an off-the-shelf box you work around, but your own route for an order: stages, statuses, owners, deadlines. It matches how you already work — minus the manual reconciliation.</p>
+        </li>
+        <li>
+          <span class="tag">BOT</span>
+          <h3><span lang="ru">Telegram-боты для клиентов и сотрудников</span><span lang="en">Telegram bots for clients and staff</span></h3>
+          <p lang="ru">Запись, подтверждение, напоминания, приём заявок, модерация публикаций. Клиент делает всё в переписке, вы получаете готовую запись в системе.</p>
+          <p lang="en">Booking, confirmation, reminders, incoming requests, publication approval. The client does it all in chat; you get a finished record in the system.</p>
+        </li>
+        <li>
+          <span class="tag">PWA</span>
+          <h3><span lang="ru">Личные кабинеты и приложения</span><span lang="en">Customer portals and apps</span></h3>
+          <p lang="ru">Клиент сам видит свой статус, расписание, историю и документы — и перестаёт спрашивать «а когда?». Устанавливается на телефон как обычное приложение.</p>
+          <p lang="en">Clients see their own status, schedule, history and documents — and stop asking “when?”. Installs on a phone like a native app.</p>
+        </li>
+        <li>
+          <span class="tag"><span lang="ru">ДЕНЬГИ</span><span lang="en">MONEY</span></span>
+          <h3><span lang="ru">Деньги и отчётность</span><span lang="en">Money and reporting</span></h3>
+          <p lang="ru">Оплаты, долги, возвраты, смены и кассы, сводки за период. Каждое действие с деньгами записывается: кто, когда и что изменил — разбор спора занимает минуту.</p>
+          <p lang="en">Payments, debts, refunds, shifts and cash desks, period summaries. Every money action is logged — who changed what and when — so a dispute takes a minute to settle.</p>
+        </li>
+        <li>
+          <span class="tag"><span lang="ru">ЗАПУСК</span><span lang="en">LAUNCH</span></span>
+          <h3><span lang="ru">Запуск и сопровождение</span><span lang="en">Launch and support</span></h3>
+          <p lang="ru">Сервер, домен, перенос старых данных, резервные копии, обновления без простоя. Система не остаётся папкой с кодом — она работает.</p>
+          <p lang="en">Server, domain, migration of old data, backups, zero-downtime updates. The system does not stay a folder of code — it runs.</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────  КЕЙСЫ  ───────────────────────────── -->
+<section class="band band--cases" id="cases">
+  <div class="wrap cols">
+    <h2 class="colhead"><span lang="ru">Кейсы</span><span lang="en">Selected work</span></h2>
+    <div class="colbody">
+
+      <!-- 1 -->
+      <article class="case">
+        <p class="case__meta"><span lang="ru">Контент-студия</span><span lang="en">Content studio</span> · CRM + <span lang="ru">бот</span><span lang="en">bot</span> · 2026</p>
+        <h3 class="case__title"><span lang="ru">Полный цикл студии: от брони до денег</span><span lang="en">The studio’s full cycle: from booking to money</span></h3>
+        <div class="case__grid">
+          <div class="case__prose">
+            <h4><span lang="ru">Было</span><span lang="en">Before</span></h4>
+            <p lang="ru">Брони жили в блокноте и таблице. Два клиента могли занять один зал; между «посмотрел, свободно» и «записал» проходили минуты. Прайс поднимали — и старые брони пересчитывались задним числом. Судьба предоплаты при отмене зависела от настроения.</p>
+            <p lang="en">Bookings lived in a notebook and a spreadsheet. Two clients could take the same room; minutes passed between “looks free” and “written down”. Raise the price list and old bookings were silently repriced. Whether a deposit was kept on cancellation depended on someone’s mood.</p>
+            <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
+            <p lang="ru">Один сервис ведёт весь маршрут: бронь → оплата → съёмка → монтаж → выдача → деньги. Пересечение броней отклоняет сама база — с учётом буферов на уборку между съёмками. Цена и буферы фиксируются снимком в момент брони, история не переписывается. Политику отмены считает система, а ручное отступление от неё видно в журнале. Клиент бронирует в Telegram-боте без анкет и получает напоминания.</p>
+            <p lang="en">One service runs the whole route: booking → payment → shoot → editing → delivery → money. Overlaps are rejected by the database itself, including the cleanup buffers between shoots. Price and buffers are snapshotted at booking time, so history is never rewritten. The cancellation policy is computed by the system, and any manual override is visible in the log. Clients book in a Telegram bot without filling forms, and get reminders.</p>
+          </div>
+          <dl class="spec">
+            <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>Python · FastAPI · PostgreSQL · aiogram</dd></div>
+            <div><dt lang="ru">Объём</dt><dt lang="en">Size</dt><dd>8 600 <span lang="ru">строк кода</span><span lang="en">lines of code</span></dd></div>
+            <div><dt lang="ru">API</dt><dt lang="en">API</dt><dd>62 <span lang="ru">эндпоинта</span><span lang="en">endpoints</span></dd></div>
+            <div><dt lang="ru">Проверки</dt><dt lang="en">Checks</dt><dd>265 <span lang="ru">автотестов на каждый коммит</span><span lang="en">automated tests per commit</span></dd></div>
+            <div><dt lang="ru">Контуры</dt><dt lang="en">Surfaces</dt><dd><span lang="ru">админка · бот · публичная страница брони</span><span lang="en">admin · bot · public booking page</span></dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 2 -->
+      <article class="case">
+        <p class="case__meta"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span> · CRM + <span lang="ru">табло</span><span lang="en">live display</span> · 2026</p>
+        <h3 class="case__title"><span lang="ru">Турнир, который ведёт себя сам</span><span lang="en">A tournament that runs itself</span></h3>
+        <div class="case__grid">
+          <div class="case__prose">
+            <h4><span lang="ru">Было</span><span lang="en">Before</span></h4>
+            <p lang="ru">Рассадку по столам, подсчёт очков и рейтинг вели вручную. Табло с уровнями блайндов — отдельный ноутбук и человек рядом с ним. Оргвзносы и призовые сходились в конце вечера, если сходились.</p>
+            <p lang="en">Seating, scoring and rankings were done by hand. The blind-level display meant a separate laptop and a person next to it. Fees and prize money added up at the end of the night — when they added up at all.</p>
+            <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
+            <p lang="ru">Турнир ведётся с планшета: регистрация, рассадка и балансировка столов, вылеты, призовые. Телевизоры в зале — отдельный экран системы: уровни, таймер, места, план зала; обновляется мгновенно, без перезагрузки. Очки, рейтинг сезона и взносы считаются по правилам клуба, вынесенным в отдельный проверяемый модуль. Чеки и отчёты формируются из системы.</p>
+            <p lang="en">The tournament is run from a tablet: registration, seating and table balancing, bust-outs, payouts. The TVs in the room are a dedicated system screen — levels, timer, places, floor plan — updating instantly with no refresh. Points, season standings and fees follow the club’s own rules, isolated in a separately tested module. Receipts and reports are generated by the system.</p>
+          </div>
+          <dl class="spec">
+            <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>TypeScript · NestJS · React · PostgreSQL · Socket.IO</dd></div>
+            <div><dt lang="ru">Объём</dt><dt lang="en">Size</dt><dd>21 <span lang="ru">модуль бэкенда</span><span lang="en">backend modules</span></dd></div>
+            <div><dt lang="ru">База</dt><dt lang="en">Database</dt><dd>20 <span lang="ru">миграций</span><span lang="en">migrations</span></dd></div>
+            <div><dt lang="ru">История</dt><dt lang="en">History</dt><dd>350 <span lang="ru">коммитов</span><span lang="en">commits</span></dd></div>
+            <div><dt lang="ru">Статус</dt><dt lang="en">Status</dt><dd lang="ru">работает на боевом сервере</dd><dd lang="en">running in production</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 3 -->
+      <article class="case">
+        <p class="case__meta"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span> · PWA · 2026</p>
+        <h3 class="case__title"><span lang="ru">Приложение игрока на общем движке клуба</span><span lang="en">A player app on the club’s own engine</span></h3>
+        <div class="case__grid">
+          <div class="case__prose">
+            <h4><span lang="ru">Задача</span><span lang="en">Brief</span></h4>
+            <p lang="ru">Дать игрокам то, за чем они всё равно писали администратору: место в рейтинге, трофеи, расписание турниров и запись.</p>
+            <p lang="en">Give players what they messaged the admin for anyway: their standing, trophies, the tournament schedule and self-registration.</p>
+            <h4><span lang="ru">Решение</span><span lang="en">Solution</span></h4>
+            <p lang="ru">Приложение ставится на телефон с сайта, без магазинов приложений. Рейтинг с подсветкой «это я», значки за достижения, публичный профиль, запись на турнир до старта. Данные берутся из той же базы, что и CRM клуба, — администратору не нужно ничего дублировать, а игрок видит актуальное состояние.</p>
+            <p lang="en">Installs on a phone straight from the site, no app stores. Standings with a “this is me” highlight, achievement badges, a public profile, self-registration up to start time. It reads the same database as the club CRM — nothing to duplicate for the admin, and the player always sees the current state.</p>
+          </div>
+          <dl class="spec">
+            <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>React · TypeScript · Vite · Tailwind · PWA</dd></div>
+            <div><dt lang="ru">Экраны</dt><dt lang="en">Screens</dt><dd>13</dd></div>
+            <div><dt lang="ru">Основа</dt><dt lang="en">Backend</dt><dd lang="ru">общая с CRM клуба</dd><dd lang="en">shared with the club CRM</dd></div>
+            <div><dt lang="ru">Вход</dt><dt lang="en">Auth</dt><dd lang="ru">почта, подтверждение, восстановление</dd><dd lang="en">email, verification, recovery</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 4 -->
+      <article class="case">
+        <p class="case__meta"><span lang="ru">Семейный театр</span><span lang="en">Family theatre</span> · <span lang="ru">сайт + CRM</span><span lang="en">site + CRM</span> · 2026</p>
+        <h3 class="case__title"><span lang="ru">Билеты, сертификаты и три кабинета</span><span lang="en">Tickets, gift certificates and three back offices</span></h3>
+        <div class="case__grid">
+          <div class="case__prose">
+            <h4><span lang="ru">Задача</span><span lang="en">Brief</span></h4>
+            <p lang="ru">Театр продавал билеты и подарочные сертификаты вручную, а сведение смен и выручки жило в переписке.</p>
+            <p lang="en">The theatre sold tickets and gift certificates by hand, and reconciling shifts and revenue lived in chat threads.</p>
+            <h4><span lang="ru">Решение</span><span lang="en">Solution</span></h4>
+            <p lang="ru">Публичный сайт с афишей и покупкой, кабинет клиента с его билетами и сертификатами, кабинет администратора — смены, продажи от стойки, проверка и погашение сертификата, — и кабинет руководителя: все продажи, клиентская база, аналитика, отчёты по сменам.</p>
+            <p lang="en">A public site with the programme and purchase flow, a client account with their tickets and certificates, an admin office — shifts, front-desk sales, certificate validation and redemption — and an owner’s office: all sales, the customer base, analytics and shift reports.</p>
+          </div>
+          <dl class="spec">
+            <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>Node.js · Express · PostgreSQL · Prisma</dd></div>
+            <div><dt lang="ru">Страницы</dt><dt lang="en">Pages</dt><dd>11</dd></div>
+            <div><dt lang="ru">Роли</dt><dt lang="en">Roles</dt><dd lang="ru">клиент · администратор · руководитель</dd><dd lang="en">client · admin · owner</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 5 -->
+      <article class="case">
+        <p class="case__meta"><span lang="ru">Строительство</span><span lang="en">Construction</span> · <span lang="ru">внутренний сервис</span><span lang="en">internal tool</span> · 2026</p>
+        <h3 class="case__title"><span lang="ru">Смета за пять минут вместо вечера в Excel</span><span lang="en">An estimate in five minutes instead of an evening in Excel</span></h3>
+        <div class="case__grid">
+          <div class="case__prose">
+            <h4><span lang="ru">Было</span><span lang="en">Before</span></h4>
+            <p lang="ru">Каждую смету собирали заново в Excel, цены брали из головы и старых файлов, у разных менеджеров получались разные суммы за одну и ту же работу.</p>
+            <p lang="en">Every estimate was rebuilt from scratch in Excel, prices came from memory and old files, and two managers quoted different totals for identical work.</p>
+            <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
+            <p lang="ru">Менеджер отвечает на короткий опросник — тип объекта, площадь, состояние, уровень отделки — и получает черновик сметы с объёмами и ценами из общего каталога. Дальше правит разделы и позиции, итоги считаются сами, готовое уходит клиенту в PDF или Excel. Чужие сметы и прайсы подтягиваются импортом из Excel, PDF, Word и CSV — каталог не нужно набивать руками.</p>
+            <p lang="en">The manager answers a short questionnaire — property type, area, condition, finish level — and gets a draft estimate with quantities and prices from the shared catalogue. They then adjust sections and line items, totals recalculate themselves, and the result goes to the client as PDF or Excel. Third-party estimates and price lists are pulled in from Excel, PDF, Word and CSV — no manual data entry.</p>
+          </div>
+          <dl class="spec">
+            <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>React · TypeScript · Express</dd></div>
+            <div><dt lang="ru">Импорт</dt><dt lang="en">Import</dt><dd>Excel · PDF · Word · CSV</dd></div>
+            <div><dt lang="ru">Экспорт</dt><dt lang="en">Export</dt><dd>PDF · Excel</dd></div>
+            <div><dt lang="ru">Развёртывание</dt><dt lang="en">Deploy</dt><dd lang="ru">одна команда на сервере</dd><dd lang="en">one command on the server</dd></div>
+          </dl>
+        </div>
+      </article>
+
+      <!-- 6 -->
+      <article class="case">
+        <p class="case__meta"><span lang="ru">Контент-маркетинг</span><span lang="en">Content marketing</span> · <span lang="ru">бот</span><span lang="en">bot</span> · 2026</p>
+        <h3 class="case__title"><span lang="ru">Ежедневный пост без ежедневного человека</span><span lang="en">A daily post without a daily person</span></h3>
+        <div class="case__grid">
+          <div class="case__prose">
+            <h4><span lang="ru">Задача</span><span lang="en">Brief</span></h4>
+            <p lang="ru">Канал требует поста каждый день. Придумывать, писать и оформлять — час в сутки, который всегда откладывается.</p>
+            <p lang="en">The channel needs a post every day. Thinking it up, writing it and making the image is an hour a day that always gets postponed.</p>
+            <h4><span lang="ru">Решение</span><span lang="en">Solution</span></h4>
+            <p lang="ru">Бот по расписанию сам готовит текст и картинку по каталогу товаров и присылает владельцу на модерацию: «Одобрить» или «Заново». Публикация в канал — по кнопке. Роль владельца сокращается до одного нажатия.</p>
+            <p lang="en">On a schedule, the bot writes the copy and generates the image from the product catalogue, then sends it to the owner for approval: “Publish” or “Try again”. Publishing to the channel is one tap. The owner’s job shrinks to a single press.</p>
+          </div>
+          <dl class="spec">
+            <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>Python · aiogram · APScheduler</dd></div>
+            <div><dt lang="ru">Цикл</dt><dt lang="en">Cycle</dt><dd lang="ru">генерация → модерация → публикация</dd><dd lang="en">generate → approve → publish</dd></div>
+            <div><dt lang="ru">Участие</dt><dt lang="en">Human input</dt><dd lang="ru">одно нажатие в сутки</dd><dd lang="en">one tap per day</dd></div>
+          </dl>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────  ПРОЦЕСС  ───────────────────────────── -->
+<section class="band" id="process">
+  <div class="wrap cols">
+    <h2 class="colhead"><span lang="ru">Как я работаю</span><span lang="en">How I work</span></h2>
+    <div class="colbody">
+      <ol class="steps">
+        <li>
+          <h3><span lang="ru">Разбираем процесс и пишем ТЗ</span><span lang="en">We map the process and write the spec</span></h3>
+          <p lang="ru">До первой строчки кода на бумаге появляется, что система делает, чего она делать не будет и по каким правилам считает деньги. Это дешевле любой переделки.</p>
+          <p lang="en">Before the first line of code, it is written down what the system does, what it deliberately will not do, and by which rules it counts money. That is cheaper than any rework.</p>
+        </li>
+        <li>
+          <h3><span lang="ru">Собираем этапами</span><span lang="en">We build in stages</span></h3>
+          <p lang="ru">Каждый этап — работающая часть, которую можно открыть и потрогать, а не обещание к концу проекта. Приоритет у того, что снимает боль сегодня.</p>
+          <p lang="en">Each stage is a working piece you can open and use, not a promise for the end of the project. Whatever removes today’s pain goes first.</p>
+        </li>
+        <li>
+          <h3><span lang="ru">Правила защищаем проверками</span><span lang="en">Rules are protected by checks</span></h3>
+          <p lang="ru">Ключевые правила — занятость слота, расчёт цены, судьба предоплаты — закрыты автоматическими тестами, которые прогоняются на каждое изменение. «Вроде работает» заменяется на «проверено».</p>
+          <p lang="en">The critical rules — slot availability, price calculation, what happens to a deposit — are covered by automated tests that run on every change. “Seems to work” becomes “verified”.</p>
+        </li>
+        <li>
+          <h3><span lang="ru">Ставим в работу и остаёмся на связи</span><span lang="en">We go live and I stay reachable</span></h3>
+          <p lang="ru">Сервер, домен, перенос старых данных, обучение сотрудников. Дальше — доработки по мере того, как процесс меняется, потому что он меняется.</p>
+          <p lang="en">Server, domain, migration of old data, training the team. Then changes as the process evolves — because it will.</p>
+        </li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────  СТЕК  ───────────────────────────── -->
+<section class="band" id="stack">
+  <div class="wrap cols">
+    <h2 class="colhead"><span lang="ru">Инструменты</span><span lang="en">Tools</span></h2>
+    <div class="colbody">
+      <p class="stack__intro" lang="ru">Выбираю под задачу, а не под моду. То, на чём собраны системы выше:</p>
+      <p class="stack__intro" lang="en">Chosen to fit the task, not the trend. What the systems above are built on:</p>
+      <ul class="stack">
+        <li><span class="stack__k" lang="ru">Бэкенд</span><span class="stack__k" lang="en">Backend</span><span class="stack__v">Python · FastAPI · Node.js · NestJS · Express</span></li>
+        <li><span class="stack__k" lang="ru">Фронтенд</span><span class="stack__k" lang="en">Frontend</span><span class="stack__v">TypeScript · React · Vite · Tailwind · PWA</span></li>
+        <li><span class="stack__k" lang="ru">Данные</span><span class="stack__k" lang="en">Data</span><span class="stack__v">PostgreSQL · Prisma · SQLAlchemy · Alembic</span></li>
+        <li><span class="stack__k" lang="ru">Боты и реальное время</span><span class="stack__k" lang="en">Bots &amp; realtime</span><span class="stack__v">aiogram · Socket.IO · APScheduler</span></li>
+        <li><span class="stack__k" lang="ru">Эксплуатация</span><span class="stack__k" lang="en">Operations</span><span class="stack__v">Docker · nginx · GitHub Actions · Linux</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────────────────  КОНТАКТ  ───────────────────────────── -->
+<section class="band band--contact" id="contact">
+  <div class="wrap cols">
+    <h2 class="colhead"><span lang="ru">Связаться</span><span lang="en">Get in touch</span></h2>
+    <div class="colbody">
+      <p class="contact__lead" lang="ru">Расскажите, как устроен процесс сейчас и что в нём болит. Отвечу, что имеет смысл автоматизировать в первую очередь, сколько это займёт и где выгоднее ничего не трогать.</p>
+      <p class="contact__lead" lang="en">Tell me how the process works today and where it hurts. I will tell you what is worth automating first, how long it takes, and where you are better off leaving things alone.</p>
+      <ul class="contact">
+        <li>
+          <span class="contact__k" lang="ru">Почта</span><span class="contact__k" lang="en">Email</span>
+          <a href="mailto:artyomliske@gmail.com">artyomliske@gmail.com</a>
+        </li>
+        <!-- Добавьте свои каналы связи: раскомментируйте и впишите значения.
+        <li>
+          <span class="contact__k">Telegram</span>
+          <a href="https://t.me/USERNAME" rel="noopener">@USERNAME</a>
+        </li>
+        <li>
+          <span class="contact__k" lang="ru">Телефон</span><span class="contact__k" lang="en">Phone</span>
+          <a href="tel:+70000000000">+7 000 000-00-00</a>
+        </li>
+        -->
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot__inner">
+    <span>© 2026 <span lang="ru">Артём Лиске</span><span lang="en">Artyom Liske</span></span>
+    <span lang="ru">Исходный код проектов закрыт — детали разбираю на созвоне.</span>
+    <span lang="en">Project source is private — happy to walk through the details on a call.</span>
+  </div>
+</footer>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
