@@ -18,16 +18,12 @@
     ru: {
       toLight: 'Светлая', toDark: 'Тёмная',
       themeHint: ' тема', langHint: ' — переключить язык',
-      deck: 'Кейсы, листается вправо и влево',
-      prevCase: 'Предыдущий кейс', nextCase: 'Следующий кейс', caseN: 'Кейс ',
       dialog: 'Экран проекта',
       prevShot: 'Предыдущий экран', nextShot: 'Следующий экран', close: 'Закрыть'
     },
     en: {
       toLight: 'Light', toDark: 'Dark',
       themeHint: ' theme', langHint: ' — switch language',
-      deck: 'Case studies, swipe left and right',
-      prevCase: 'Previous case', nextCase: 'Next case', caseN: 'Case ',
       dialog: 'Project screen',
       prevShot: 'Previous screen', nextShot: 'Next screen', close: 'Close'
     }
@@ -49,7 +45,7 @@
     if (hint) hint.textContent = l.langHint;
 
     /* Кейсы, миниатюры: имена берём из тех же данных, что и видимые подписи. */
-    Array.prototype.forEach.call(document.querySelectorAll('.case'), function (el) {
+    Array.prototype.forEach.call(document.querySelectorAll('.spread[data-label-ru]'), function (el) {
       var name = el.getAttribute('data-label-' + lang);
       if (name) el.setAttribute('aria-label', name);
     });
@@ -116,123 +112,62 @@
   }
   darkMedia.addEventListener('change', syncThemeLabel);
 
-  /* ── колода кейсов ────────────────────────────────────── */
-  var deck = document.getElementById('deck');
-  if (deck) {
-    var slides = Array.prototype.slice.call(deck.children);
-    var counter = document.getElementById('deck-counter');
-    var prev = document.getElementById('deck-prev');
-    var next = document.getElementById('deck-next');
-    var ticks = document.getElementById('deck-ticks');
-    var index = 0;
+  /* ── развороты продуктов ──────────────────────────────────
+     Кейсы идут вертикальной чередой полноэкранных разворотов, каждый
+     в палитре своего проекта. Шапка липкая, поэтому она забирает себе
+     палитру того разворота, над которым сейчас стоит: иначе бумажная
+     плашка висела бы поверх чёрно-золотого театра. Палитра — обычный
+     класс .pal-*, он же переопределяет токены внутри разворота.        */
+  (function () {
+    var topbar = document.querySelector('.topbar');
+    var now = document.getElementById('topbar-now');
+    var spreads = Array.prototype.slice.call(document.querySelectorAll('.spread'));
+    if (!topbar || !spreads.length) return;
 
-    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
-
-    slides.forEach(function (slide, i) {
-      var li = document.createElement('li');
-      var btn = document.createElement('button');
-      btn.type = 'button';
-      btn.setAttribute('aria-label', 'Кейс ' + (i + 1));
-      btn.addEventListener('click', function () { go(i); });
-      li.appendChild(btn);
-      ticks.appendChild(li);
-    });
-    var tickItems = Array.prototype.slice.call(ticks.children);
-
-    /* Ленивая загрузка оставляла пустые рамки на первом кадре после переключения.
-       Снимаем lazy только у соседей — грузить все 26 сразу дорого для мобильного. */
-    function preload(i) {
-      [i, i - 1, i + 1].forEach(function (k) {
-        var slide = slides[k];
-        if (!slide) return;
-        Array.prototype.forEach.call(slide.querySelectorAll('img[loading="lazy"]'), function (im) {
-          im.removeAttribute('loading');
-        });
-      });
-    }
-
-    function step() {
-      if (slides.length < 2) return deck.clientWidth;
-      return slides[1].offsetLeft - slides[0].offsetLeft;
-    }
-
-    function go(i) {
-      index = Math.max(0, Math.min(slides.length - 1, i));
-      deck.scrollTo({
-        left: index * step(),
-        behavior: reduced.matches ? 'auto' : 'smooth'
-      });
-      sync();
-    }
-
-    /* Колода держит высоту активного кейса, а не самого длинного:
-       иначе под коротким кейсом зияет пустота на пол-экрана. */
-    function setHeight() {
-      var el = slides[index];
-      if (el) deck.style.height = el.offsetHeight + 'px';
-    }
-
-    var watcher = 'ResizeObserver' in window ? new ResizeObserver(setHeight) : null;
-
-    function sync() {
-      setHeight();
-      if (watcher) { watcher.disconnect(); watcher.observe(slides[index]); }
-      if (counter) counter.innerHTML = pad(index + 1) + '&thinsp;/&thinsp;' + pad(slides.length);
-      if (prev && prev.disabled !== (index === 0)) {
-        if (document.activeElement === prev && index === 0) deck.focus();
-        prev.disabled = index === 0;
-      }
-      if (next && next.disabled !== (index === slides.length - 1)) {
-        if (document.activeElement === next && index === slides.length - 1) deck.focus();
-        next.disabled = index === slides.length - 1;
-      }
-      tickItems.forEach(function (li, i) {
-        li.classList.toggle('is-active', i === index);
-        li.firstChild.setAttribute('aria-current', i === index ? 'true' : 'false');
-      });
-      preload(index);
-    }
-
-    localizers.push(function (l) {
-      deck.setAttribute('aria-label', l.deck);
-      if (prev) prev.setAttribute('aria-label', l.prevCase);
-      if (next) next.setAttribute('aria-label', l.nextCase);
-      tickItems.forEach(function (li, i) {
-        li.firstChild.setAttribute('aria-label', l.caseN + (i + 1));
-      });
-    });
-    localizers[localizers.length - 1](LABELS[currentLang()]);
-
-    if (prev) prev.addEventListener('click', function () { go(index - 1); });
-    if (next) next.addEventListener('click', function () { go(index + 1); });
-
-    /* Стрелки листают колоду только когда сфокусирована она сама: иначе
-       ползунки и селекты внутри кейсов теряли нативное управление. */
-    deck.addEventListener('keydown', function (e) {
-      if (e.target !== deck) return;
-      if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
-      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
-    });
-
+    var palOf = function (el) {
+      var m = /(^|\s)(pal-[\w-]+)/.exec(el.className);
+      return m ? m[2] : '';
+    };
+    var current = '';
     var ticking = false;
-    deck.addEventListener('scroll', function () {
+
+    function apply(force) {
+      /* Якорь приземляется не в ноль: у документа есть scroll-padding-top,
+         оставленный ради фокуса под липкой шапкой. Если опрашивать разворот
+         по высоте шапки, в момент приезда попадаешь ещё в предыдущий — и
+         шапка называет не тот продукт. Линию опроса держим ниже приземления. */
+      var pad = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+      var line = Math.max(topbar.offsetHeight, pad) + 8;
+      var hit = null;
+      for (var i = 0; i < spreads.length; i++) {
+        var r = spreads[i].getBoundingClientRect();
+        if (r.top <= line && r.bottom > line) { hit = spreads[i]; break; }
+      }
+      var pal = hit ? palOf(hit) : '';
+      if (pal === current && !force) return;
+      /* класс палитры на шапке ровно один: собираем имя целиком,
+         иначе при смене языка старая палитра оставалась висеть */
+      topbar.className = pal ? 'topbar ' + pal : 'topbar';
+      current = pal;
+      if (now) {
+        var lang = root.getAttribute('data-lang') === 'en' ? 'en' : 'ru';
+        var label = hit && hit.getAttribute('data-label-' + lang);
+        now.textContent = label ? (hit.getAttribute('data-no') || '') + ' · ' + label : '';
+        now.classList.toggle('is-on', !!label);
+      }
+    }
+
+    function onScroll() {
       if (ticking) return;
       ticking = true;
-      requestAnimationFrame(function () {
-        ticking = false;
-        var s = step();
-        var i = s ? Math.round(deck.scrollLeft / s) : 0;
-        if (i !== index) { index = Math.max(0, Math.min(slides.length - 1, i)); sync(); }
-      });
-    }, { passive: true });
+      requestAnimationFrame(function () { ticking = false; apply(); });
+    }
 
-    window.addEventListener('resize', sync);
-    window.addEventListener('load', setHeight);
-    Array.prototype.forEach.call(deck.querySelectorAll('img'), function (im) {
-      if (!im.complete) im.addEventListener('load', setHeight, { once: true });
-    });
-    sync();
-  }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    window.addEventListener('langchange', function () { apply(true); });
+    apply();
+  })();
 
 
   /* ── просмотр экранов во весь экран ───────────────────── */
