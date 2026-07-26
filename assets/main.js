@@ -15,23 +15,58 @@
     en: 'Artyom Liske — business process automation'
   };
   var LABELS = {
-    ru: { toLight: 'Светлая', toDark: 'Тёмная', theme: 'Сменить тему', lang: 'Switch to English' },
-    en: { toLight: 'Light',   toDark: 'Dark',   theme: 'Switch theme', lang: 'Переключить на русский' }
+    ru: {
+      toLight: 'Светлая', toDark: 'Тёмная',
+      themeHint: ' тема', langHint: ' — переключить язык',
+      deck: 'Кейсы, листается вправо и влево',
+      prevCase: 'Предыдущий кейс', nextCase: 'Следующий кейс', caseN: 'Кейс ',
+      dialog: 'Экран проекта',
+      prevShot: 'Предыдущий экран', nextShot: 'Следующий экран', close: 'Закрыть'
+    },
+    en: {
+      toLight: 'Light', toDark: 'Dark',
+      themeHint: ' theme', langHint: ' — switch language',
+      deck: 'Case studies, swipe left and right',
+      prevCase: 'Previous case', nextCase: 'Next case', caseN: 'Case ',
+      dialog: 'Project screen',
+      prevShot: 'Previous screen', nextShot: 'Next screen', close: 'Close'
+    }
   };
+
+  /* Подписи, которые живут в других блоках, обновляются через это событие. */
+  var localizers = [];
 
   function currentLang() { return root.getAttribute('data-lang') === 'en' ? 'en' : 'ru'; }
 
   function applyLang(lang) {
+    var l = LABELS[lang];
     root.setAttribute('data-lang', lang);
     root.setAttribute('lang', lang);
     document.title = TITLES[lang];
     syncThemeLabel();
-    var langBtn = document.getElementById('lang-toggle');
-    if (langBtn) langBtn.setAttribute('aria-label', LABELS[lang].lang);
+
+    var hint = document.getElementById('lang-hint');
+    if (hint) hint.textContent = l.langHint;
+
+    /* Кейсы, миниатюры: имена берём из тех же данных, что и видимые подписи. */
+    Array.prototype.forEach.call(document.querySelectorAll('.case'), function (el) {
+      var name = el.getAttribute('data-label-' + lang);
+      if (name) el.setAttribute('aria-label', name);
+    });
+    Array.prototype.forEach.call(document.querySelectorAll('.shot__btn'), function (btn) {
+      var name = btn.getAttribute('data-title-' + lang);
+      if (name) btn.setAttribute('aria-label', name);
+    });
+
+    localizers.forEach(function (fn) { fn(l, lang); });
     window.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
   }
 
-  var savedLang = store.get('lang');
+  /* Приоритет: адрес → прошлый выбор → русский. Адрес важнее, чтобы ссылка
+     на английскую версию открывалась по-английски у любого читателя. */
+  var fromUrl = null;
+  try { fromUrl = new URLSearchParams(location.search).get('lang'); } catch (e) {}
+  var savedLang = fromUrl === 'ru' || fromUrl === 'en' ? fromUrl : store.get('lang');
   if (savedLang !== 'ru' && savedLang !== 'en') savedLang = 'ru';
   applyLang(savedLang);
 
@@ -41,6 +76,11 @@
       var next = currentLang() === 'ru' ? 'en' : 'ru';
       applyLang(next);
       store.set('lang', next);
+      try {
+        var u = new URL(location.href);
+        u.searchParams.set('lang', next);
+        history.replaceState(null, '', u);
+      } catch (e) {}
     });
   }
 
@@ -58,7 +98,8 @@
   function syncThemeLabel() {
     var l = LABELS[currentLang()];
     if (themeLabel) themeLabel.textContent = effectiveTheme() === 'dark' ? l.toLight : l.toDark;
-    if (themeToggle) themeToggle.setAttribute('aria-label', l.theme);
+    var hint = document.getElementById('theme-hint');
+    if (hint) hint.textContent = l.themeHint;
   }
 
   var savedTheme = store.get('theme');
@@ -98,6 +139,18 @@
     });
     var tickItems = Array.prototype.slice.call(ticks.children);
 
+    /* Ленивая загрузка оставляла пустые рамки на первом кадре после переключения.
+       Снимаем lazy только у соседей — грузить все 26 сразу дорого для мобильного. */
+    function preload(i) {
+      [i, i - 1, i + 1].forEach(function (k) {
+        var slide = slides[k];
+        if (!slide) return;
+        Array.prototype.forEach.call(slide.querySelectorAll('img[loading="lazy"]'), function (im) {
+          im.removeAttribute('loading');
+        });
+      });
+    }
+
     function step() {
       if (slides.length < 2) return deck.clientWidth;
       return slides[1].offsetLeft - slides[0].offsetLeft;
@@ -125,15 +178,38 @@
       setHeight();
       if (watcher) { watcher.disconnect(); watcher.observe(slides[index]); }
       if (counter) counter.innerHTML = pad(index + 1) + '&thinsp;/&thinsp;' + pad(slides.length);
-      if (prev) prev.disabled = index === 0;
-      if (next) next.disabled = index === slides.length - 1;
-      tickItems.forEach(function (li, i) { li.classList.toggle('is-active', i === index); });
+      if (prev && prev.disabled !== (index === 0)) {
+        if (document.activeElement === prev && index === 0) deck.focus();
+        prev.disabled = index === 0;
+      }
+      if (next && next.disabled !== (index === slides.length - 1)) {
+        if (document.activeElement === next && index === slides.length - 1) deck.focus();
+        next.disabled = index === slides.length - 1;
+      }
+      tickItems.forEach(function (li, i) {
+        li.classList.toggle('is-active', i === index);
+        li.firstChild.setAttribute('aria-current', i === index ? 'true' : 'false');
+      });
+      preload(index);
     }
+
+    localizers.push(function (l) {
+      deck.setAttribute('aria-label', l.deck);
+      if (prev) prev.setAttribute('aria-label', l.prevCase);
+      if (next) next.setAttribute('aria-label', l.nextCase);
+      tickItems.forEach(function (li, i) {
+        li.firstChild.setAttribute('aria-label', l.caseN + (i + 1));
+      });
+    });
+    localizers[localizers.length - 1](LABELS[currentLang()]);
 
     if (prev) prev.addEventListener('click', function () { go(index - 1); });
     if (next) next.addEventListener('click', function () { go(index + 1); });
 
+    /* Стрелки листают колоду только когда сфокусирована она сама: иначе
+       ползунки и селекты внутри кейсов теряли нативное управление. */
     deck.addEventListener('keydown', function (e) {
+      if (e.target !== deck) return;
       if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
       if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
     });
@@ -168,17 +244,17 @@
     box.className = 'lb';
     box.setAttribute('role', 'dialog');
     box.setAttribute('aria-modal', 'true');
-    box.setAttribute('aria-label', 'Экран проекта');
+    box.setAttribute('aria-label', LABELS[currentLang()].dialog);
     box.innerHTML =
       '<div class="lb__stage"><img alt=""></div>' +
       '<div class="lb__bar">' +
         '<span class="lb__title"></span>' +
         '<span class="lb__cap"></span>' +
-        '<span class="lb__count"></span>' +
+        '<span class="lb__count" role="status" aria-atomic="true"></span>' +
         '<span class="lb__nav">' +
-          '<button type="button" class="navbtn" data-lb="prev" aria-label="Предыдущий экран">&#8592;</button>' +
-          '<button type="button" class="navbtn" data-lb="next" aria-label="Следующий экран">&#8594;</button>' +
-          '<button type="button" class="navbtn" data-lb="close" aria-label="Закрыть">&#10005;</button>' +
+          '<button type="button" class="navbtn" data-lb="prev">&#8592;</button>' +
+          '<button type="button" class="navbtn" data-lb="next">&#8594;</button>' +
+          '<button type="button" class="navbtn" data-lb="close">&#10005;</button>' +
         '</span>' +
       '</div>';
     document.body.appendChild(box);
@@ -202,6 +278,22 @@
       elCount.textContent = (at + 1) + ' / ' + group.length;
     }
 
+    /* Остальная страница выключается на время просмотра: без этого Tab первым же
+       нажатием уходил под оверлей, хотя диалог объявлен модальным. */
+    function shield(on) {
+      Array.prototype.forEach.call(document.body.children, function (el) {
+        if (el !== box) el.inert = on;
+      });
+    }
+
+    localizers.push(function (l) {
+      box.setAttribute('aria-label', l.dialog);
+      box.querySelector('[data-lb="prev"]').setAttribute('aria-label', l.prevShot);
+      box.querySelector('[data-lb="next"]').setAttribute('aria-label', l.nextShot);
+      box.querySelector('[data-lb="close"]').setAttribute('aria-label', l.close);
+    });
+    localizers[localizers.length - 1](LABELS[currentLang()]);
+
     function open(btn) {
       var gallery = btn.closest('[data-gallery]');
       group = gallery ? Array.prototype.slice.call(gallery.querySelectorAll('.shot__btn')) : [btn];
@@ -209,12 +301,14 @@
       opener = btn;
       fill();
       box.classList.add('is-open');
+      shield(true);
       document.body.style.overflow = 'hidden';
       box.querySelector('[data-lb="close"]').focus();
     }
 
     function close() {
       box.classList.remove('is-open');
+      shield(false);
       document.body.style.overflow = '';
       img.removeAttribute('src');
       if (opener) opener.focus();

@@ -10,9 +10,15 @@
 <html lang="ru">
 <head>
 <meta charset="utf-8">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Golos+Text:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  /* Шрифты берутся из assets/fonts — те же, что и на сайте, без похода в сеть. */
+  @font-face { font-family: 'Oswald'; font-weight: 500; font-display: block;
+    src: url('../assets/fonts/Oswald-500-cyrillic.woff2') format('woff2'); }
+  @font-face { font-family: 'Golos Text'; font-weight: 400; font-display: block;
+    src: url('../assets/fonts/GolosText-400-cyrillic.woff2') format('woff2'); }
+  @font-face { font-family: 'JetBrains Mono'; font-weight: 400; font-display: block;
+    src: url('../assets/fonts/JetBrainsMono-400-cyrillic.woff2') format('woff2'); }
+</style>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html, body { width: 1200px; height: 630px; overflow: hidden; }

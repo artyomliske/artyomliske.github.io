@@ -27,6 +27,8 @@ python3 -m http.server 8777
 | `assets/shots/` | снимки экранов проектов: `<имя>.jpg` — полный кадр, `<имя>-t.jpg` — плитка |
 | `tools/shots.sh` | пережимает PNG из headless Chrome в оба размера |
 | `tools/og.html` + `og.sh` | шаблон и сборка `assets/og.jpg` — превью ссылки в мессенджерах |
+| `assets/fonts/` | шрифты лежат у себя, а не на fonts.googleapis.com (см. `tools/fonts.sh`) |
+| `404.html`, `robots.txt`, `sitemap.xml` | служебные файлы сайта |
 | `.github/workflows/pages.yml` | публикация на GitHub Pages при пуше в `main` |
 
 **Два языка.** Каждый переводимый блок продублирован с атрибутом `lang="ru"` /

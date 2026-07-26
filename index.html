@@ -8,7 +8,12 @@
 <meta name="color-scheme" content="dark light">
 <meta property="og:title" content="Артём Лиске — автоматизация бизнес-процессов">
 <meta property="og:description" content="CRM, Telegram-боты и личные кабинеты под конкретный процесс. От ТЗ до боевого сервера.">
+<link rel="alternate" hreflang="ru" href="https://artyomliske.github.io/?lang=ru">
+<link rel="alternate" hreflang="en" href="https://artyomliske.github.io/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://artyomliske.github.io/">
 <meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:locale:alternate" content="en_US">
 <meta property="og:url" content="https://artyomliske.github.io/">
 <meta property="og:site_name" content="Артём Лиске">
 <meta property="og:image" content="https://artyomliske.github.io/assets/og.jpg">
@@ -16,9 +21,8 @@
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Перевожу процессы из блокнота в систему — CRM, Telegram-боты и личные кабинеты">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/Oswald-500-cyrillic.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/GolosText-400-cyrillic.woff2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -46,7 +50,7 @@
 }
 </script>
 <link rel="stylesheet" href="assets/styles.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D1214'/%3E%3Crect x='4' y='9' width='13' height='5' fill='%2358A79C'/%3E%3Crect x='19' y='9' width='9' height='5' fill='%23223032'/%3E%3Crect x='4' y='18' width='7' height='5' fill='%23223032'/%3E%3Crect x='13' y='18' width='15' height='5' fill='%23E4A244'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230D1214'/%3E%3Crect%20x='4'%20y='9'%20width='13'%20height='5'%20fill='%2358A79C'/%3E%3Crect%20x='19'%20y='9'%20width='9'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='4'%20y='18'%20width='7'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='13'%20y='18'%20width='15'%20height='5'%20fill='%23E4A244'/%3E%3C/svg%3E">
 </head>
 <body>
 
@@ -59,11 +63,11 @@
       <span class="mark__name">Артём Лиске</span>
     </a>
     <div class="controls">
-      <button type="button" class="ctl" id="lang-toggle" aria-label="Switch language">
-        <span class="ctl__on">RU</span><span class="ctl__sep">/</span><span class="ctl__off">EN</span>
+      <button type="button" class="ctl" id="lang-toggle">
+        <span class="ctl__on">RU</span><span class="ctl__sep">/</span><span class="ctl__off">EN</span><span class="vh" id="lang-hint"> — переключить язык</span>
       </button>
-      <button type="button" class="ctl" id="theme-toggle" aria-label="Сменить тему">
-        <span id="theme-label">Светлая</span>
+      <button type="button" class="ctl" id="theme-toggle">
+        <span id="theme-label">Светлая</span><span class="vh" id="theme-hint"> тема</span>
       </button>
     </div>
   </div>
@@ -166,42 +170,42 @@
     <div class="deck" id="deck" tabindex="0" role="group" aria-label="Кейсы, листается вправо и влево">
 
       <!-- 1 ───────────────────────────────────────────────── -->
-      <article class="case" aria-label="StudioCRM" style="--case-dark:#E09140;--case-light:#A85D12">
+      <article class="case" data-label-ru="StudioCRM" data-label-en="StudioCRM" style="--case-dark:#E09140;--case-light:#90500F">
         <p class="case__meta"><span lang="ru">Контент-студия</span><span lang="en">Content studio</span> · CRM + <span lang="ru">бот</span><span lang="en">bot</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Полный цикл студии: от брони до денег</span><span lang="en">The studio’s full cycle: from booking to money</span></h3>
         <div class="shots" data-gallery>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/studio-calendar.jpg"
                     data-ru="Неделя по залу: буферы штриховкой, статусы цветом" data-en="A week per room: buffers hatched, status by colour" data-title-ru="Календарь броней" data-title-en="Booking calendar">
-              <img src="assets/shots/studio-calendar-t.jpg" alt="Календарь броней" loading="lazy" decoding="async">
+              <img src="assets/shots/studio-calendar-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Календарь броней</span><span lang="en">Booking calendar</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/studio-booking-card.jpg"
                     data-ru="Перенос, оплата, недоплата, причина отмены в аудит" data-en="Reschedule, payment, shortfall, cancellation reason logged" data-title-ru="Карточка брони" data-title-en="Booking card">
-              <img src="assets/shots/studio-booking-card-t.jpg" alt="Карточка брони" loading="lazy" decoding="async">
+              <img src="assets/shots/studio-booking-card-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Карточка брони</span><span lang="en">Booking card</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/studio-montage.jpg"
                     data-ru="Статусы роликов и счётчик правок сверх оплаченных" data-en="Clip statuses and a counter of revisions beyond the paid limit" data-title-ru="Монтажная доска" data-title-en="Editing board">
-              <img src="assets/shots/studio-montage-t.jpg" alt="Монтажная доска" loading="lazy" decoding="async">
+              <img src="assets/shots/studio-montage-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Монтажная доска</span><span lang="en">Editing board</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/studio-finance.jpg"
                     data-ru="Месяц, доли партнёров, дебиторка с телефонами" data-en="The month, partner shares, receivables with phone numbers" data-title-ru="Финансы" data-title-en="Finance">
-              <img src="assets/shots/studio-finance-t.jpg" alt="Финансы" loading="lazy" decoding="async">
+              <img src="assets/shots/studio-finance-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Финансы</span><span lang="en">Finance</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/studio-public-booking.jpg"
                     data-ru="Полоса занятости дня и сетка свободных слотов" data-en="The day’s occupancy bar and a grid of free slots" data-title-ru="Страница брони" data-title-en="Public booking page">
-              <img src="assets/shots/studio-public-booking-t.jpg" alt="Страница брони" loading="lazy" decoding="async">
+              <img src="assets/shots/studio-public-booking-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Страница брони</span><span lang="en">Public booking page</span></figcaption>
           </figure>
@@ -288,7 +292,7 @@ WHERE (status IN ('pending_payment', 'confirmed', 'in_progress'))</code></pre>
                 </button>
               </div>
               <div class="stage__view" data-view></div>
-              <div class="stage__out" data-out></div>
+              <div class="stage__out" data-out role="status" aria-atomic="true"></div>
             </div>
           </div>
           <p class="lab__note">
@@ -299,35 +303,35 @@ WHERE (status IN ('pending_payment', 'confirmed', 'in_progress'))</code></pre>
       </article>
 
       <!-- 2 ───────────────────────────────────────────────── -->
-      <article class="case" aria-label="Chip House CRM" style="--case-dark:#E2AE62;--case-light:#7A1B2E">
+      <article class="case" data-label-ru="Chip House CRM" data-label-en="Chip House CRM" style="--case-dark:#E2AE62;--case-light:#7A1B2E">
         <p class="case__meta"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span> · CRM + <span lang="ru">табло</span><span lang="en">live display</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Турнир, который ведёт себя сам</span><span lang="en">A tournament that runs itself</span></h3>
         <div class="shots" data-gallery>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/crm-display.jpg"
                     data-ru="Уровень, таймер, блайнды и статистика турнира" data-en="Level, timer, blinds and tournament stats" data-title-ru="ТВ-табло в зале" data-title-en="The room’s TV board">
-              <img src="assets/shots/crm-display-t.jpg" alt="ТВ-табло в зале" loading="lazy" decoding="async">
+              <img src="assets/shots/crm-display-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">ТВ-табло в зале</span><span lang="en">The room’s TV board</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/crm-seating.jpg"
                     data-ru="Ре-энтри, аддон, пересадка и чек игрока" data-en="Re-entry, add-on, table change and the player’s tab" data-title-ru="Рассадка за столом" data-title-en="Table seating">
-              <img src="assets/shots/crm-seating-t.jpg" alt="Рассадка за столом" loading="lazy" decoding="async">
+              <img src="assets/shots/crm-seating-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Рассадка за столом</span><span lang="en">Table seating</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/crm-dashboard.jpg"
                     data-ru="Оборот, явка и кто прямо сейчас в игре" data-en="Turnover, attendance and who is playing right now" data-title-ru="Сводка по клубу" data-title-en="Club dashboard">
-              <img src="assets/shots/crm-dashboard-t.jpg" alt="Сводка по клубу" loading="lazy" decoding="async">
+              <img src="assets/shots/crm-dashboard-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Сводка по клубу</span><span lang="en">Club dashboard</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/crm-standings.jpg"
                     data-ru="Очки, турниры, победы и фильтр по сериям" data-en="Points, entries, wins and a filter by series" data-title-ru="Рейтинг сезона" data-title-en="Season standings">
-              <img src="assets/shots/crm-standings-t.jpg" alt="Рейтинг сезона" loading="lazy" decoding="async">
+              <img src="assets/shots/crm-standings-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Рейтинг сезона</span><span lang="en">Season standings</span></figcaption>
           </figure>
@@ -409,7 +413,7 @@ WHERE (status IN ('pending_payment', 'confirmed', 'in_progress'))</code></pre>
                 <button type="button" class="runbtn" data-act="reset"><span lang="ru">Сброс</span><span lang="en">Reset</span></button>
               </div>
               <div class="stage__view" data-view></div>
-              <div class="stage__out" data-out></div>
+              <div class="stage__out" data-out role="status" aria-atomic="true"></div>
             </div>
           </div>
           <p class="lab__note">
@@ -420,49 +424,49 @@ WHERE (status IN ('pending_payment', 'confirmed', 'in_progress'))</code></pre>
       </article>
 
       <!-- 3 ───────────────────────────────────────────────── -->
-      <article class="case" aria-label="Chip House Club" style="--case-dark:#E9BA71;--case-light:#8C6520">
+      <article class="case" data-label-ru="Chip House Club" data-label-en="Chip House Club" style="--case-dark:#E9BA71;--case-light:#7D5A1C">
         <p class="case__meta"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span> · PWA · 2026</p>
         <h3 class="case__title"><span lang="ru">Приложение игрока на общем движке клуба</span><span lang="en">A player app on the club’s own engine</span></h3>
         <div class="shots shots--phone" data-gallery>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/club-home.jpg"
                     data-ru="Что идёт прямо сейчас и место в сезоне" data-en="What is running right now and your season standing" data-title-ru="Главная" data-title-en="Home">
-              <img src="assets/shots/club-home-t.jpg" alt="Главная" loading="lazy" decoding="async">
+              <img src="assets/shots/club-home-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Главная</span><span lang="en">Home</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/club-standings.jpg"
                     data-ru="Пьедестал и липкая плашка «ваше место»" data-en="The podium and a sticky “your place” bar" data-title-ru="Рейтинг" data-title-en="Standings">
-              <img src="assets/shots/club-standings-t.jpg" alt="Рейтинг" loading="lazy" decoding="async">
+              <img src="assets/shots/club-standings-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Рейтинг</span><span lang="en">Standings</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/club-trophies.jpg"
                     data-ru="Серебро → Золото → Бриллиант → Аметист" data-en="Silver → Gold → Diamond → Amethyst" data-title-ru="Достижения" data-title-en="Achievements">
-              <img src="assets/shots/club-trophies-t.jpg" alt="Достижения" loading="lazy" decoding="async">
+              <img src="assets/shots/club-trophies-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Достижения</span><span lang="en">Achievements</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/club-trophies-badges.jpg"
                     data-ru="Полученные и закрытые, с условием получения" data-en="Earned and locked, each with its condition" data-title-ru="Значки" data-title-en="Badges">
-              <img src="assets/shots/club-trophies-badges-t.jpg" alt="Значки" loading="lazy" decoding="async">
+              <img src="assets/shots/club-trophies-badges-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Значки</span><span lang="en">Badges</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/club-tournaments.jpg"
                     data-ru="Запись до старта и отсчёт времени" data-en="Sign-up until start, with a countdown" data-title-ru="Турниры" data-title-en="Tournaments">
-              <img src="assets/shots/club-tournaments-t.jpg" alt="Турниры" loading="lazy" decoding="async">
+              <img src="assets/shots/club-tournaments-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Турниры</span><span lang="en">Tournaments</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/club-profile.jpg"
                     data-ru="Уровень, стрик недель и статистика" data-en="Level, weekly streak and stats" data-title-ru="Профиль" data-title-en="Profile">
-              <img src="assets/shots/club-profile-t.jpg" alt="Профиль" loading="lazy" decoding="async">
+              <img src="assets/shots/club-profile-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Профиль</span><span lang="en">Profile</span></figcaption>
           </figure>
@@ -516,19 +520,19 @@ export function autoPoints(
               <div class="stage__controls stage__controls--range">
                 <label><span lang="ru">Место</span><span lang="en">Place</span>
                   <input type="range" data-in="place" min="1" max="60" value="3">
-                  <output data-outv="place">3</output>
+                  <span class="outv" data-outv="place" aria-hidden="true">3</span>
                 </label>
                 <label><span lang="ru">Игроков</span><span lang="en">Field</span>
                   <input type="range" data-in="field" min="2" max="120" value="48">
-                  <output data-outv="field">48</output>
+                  <span class="outv" data-outv="field" aria-hidden="true">48</span>
                 </label>
                 <label><span lang="ru">База</span><span lang="en">Base</span>
                   <input type="range" data-in="base" min="5" max="30" value="10">
-                  <output data-outv="base">10</output>
+                  <span class="outv" data-outv="base" aria-hidden="true">10</span>
                 </label>
               </div>
               <div class="stage__view" data-view></div>
-              <div class="stage__out" data-out></div>
+              <div class="stage__out" data-out role="status" aria-atomic="true"></div>
             </div>
           </div>
           <p class="lab__note">
@@ -539,42 +543,42 @@ export function autoPoints(
       </article>
 
       <!-- 4 ───────────────────────────────────────────────── -->
-      <article class="case" aria-label="Рублёвские сказки" style="--case-dark:#D9B878;--case-light:#8A6A1E">
+      <article class="case" data-label-ru="Рублёвские сказки" data-label-en="Rublyovskie Skazki family theatre" style="--case-dark:#D9B878;--case-light:#785C1A">
         <p class="case__meta"><span lang="ru">Семейный театр</span><span lang="en">Family theatre</span> · <span lang="ru">сайт + CRM</span><span lang="en">site + CRM</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Билеты, сертификаты и три кабинета</span><span lang="en">Tickets, gift certificates and three back offices</span></h3>
         <div class="shots" data-gallery>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/theatre-home.jpg"
                     data-ru="Первый экран сайта театра" data-en="The theatre site’s opening screen" data-title-ru="Главная" data-title-en="Home">
-              <img src="assets/shots/theatre-home-t.jpg" alt="Главная" loading="lazy" decoding="async">
+              <img src="assets/shots/theatre-home-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Главная</span><span lang="en">Home</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/theatre-afisha.jpg"
                     data-ru="Репертуар, возраст, длительность, сеансы" data-en="Repertoire, age rating, running time, showtimes" data-title-ru="Афиша" data-title-en="Programme">
-              <img src="assets/shots/theatre-afisha-t.jpg" alt="Афиша" loading="lazy" decoding="async">
+              <img src="assets/shots/theatre-afisha-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Афиша</span><span lang="en">Programme</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/theatre-booking.jpg"
                     data-ru="Карта зала: зоны, цены, занятые места" data-en="Seat map: zones, prices, taken seats" data-title-ru="Покупка билета" data-title-en="Ticket purchase">
-              <img src="assets/shots/theatre-booking-t.jpg" alt="Покупка билета" loading="lazy" decoding="async">
+              <img src="assets/shots/theatre-booking-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Покупка билета</span><span lang="en">Ticket purchase</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/theatre-kassa.jpg"
                     data-ru="Открытая смена и продажа с места" data-en="An open shift and a sale from the desk" data-title-ru="Касса от стойки" data-title-en="Front-desk till">
-              <img src="assets/shots/theatre-kassa-t.jpg" alt="Касса от стойки" loading="lazy" decoding="async">
+              <img src="assets/shots/theatre-kassa-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Касса от стойки</span><span lang="en">Front-desk till</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/theatre-admin.jpg"
                     data-ru="Все продажи в одной базе, отчёты, экспорт" data-en="Every sale in one base, reports, export" data-title-ru="Кабинет руководителя" data-title-en="Owner’s office">
-              <img src="assets/shots/theatre-admin-t.jpg" alt="Кабинет руководителя" loading="lazy" decoding="async">
+              <img src="assets/shots/theatre-admin-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Кабинет руководителя</span><span lang="en">Owner’s office</span></figcaption>
           </figure>
@@ -648,7 +652,7 @@ if (c &amp;&amp; !c.used &amp;&amp; certStatus(c) === 'active') {
                 <button type="button" class="runbtn" data-act="reset"><span lang="ru">Сброс</span><span lang="en">Reset</span></button>
               </div>
               <div class="stage__view" data-view></div>
-              <div class="stage__out" data-out></div>
+              <div class="stage__out" data-out role="status" aria-atomic="true"></div>
             </div>
           </div>
           <p class="lab__note">
@@ -659,49 +663,49 @@ if (c &amp;&amp; !c.used &amp;&amp; certStatus(c) === 'active') {
       </article>
 
       <!-- 5 ───────────────────────────────────────────────── -->
-      <article class="case" aria-label="Калькулятор смет" style="--case-dark:#6D9BFF;--case-light:#1D4ED8">
+      <article class="case" data-label-ru="Калькулятор смет" data-label-en="Construction estimate calculator" style="--case-dark:#6D9BFF;--case-light:#1D4ED8">
         <p class="case__meta"><span lang="ru">Строительство</span><span lang="en">Construction</span> · <span lang="ru">внутренний сервис</span><span lang="en">internal tool</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Смета за пять минут вместо вечера в Excel</span><span lang="en">An estimate in five minutes instead of an evening in Excel</span></h3>
         <div class="shots" data-gallery>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/estimate-editor.jpg"
                     data-ru="Разделы, позиции, итоги и автосохранение" data-en="Sections, line items, totals and autosave" data-title-ru="Редактор сметы" data-title-en="Estimate editor">
-              <img src="assets/shots/estimate-editor-t.jpg" alt="Редактор сметы" loading="lazy" decoding="async">
+              <img src="assets/shots/estimate-editor-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Редактор сметы</span><span lang="en">Estimate editor</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/estimate-wizard-step1.jpg"
                     data-ru="Объект, площадь, проёмы — вычет считается сразу" data-en="Property, area, openings — the deduction is computed live" data-title-ru="Опросник · шаг 1" data-title-en="Questionnaire · step 1">
-              <img src="assets/shots/estimate-wizard-step1-t.jpg" alt="Опросник · шаг 1" loading="lazy" decoding="async">
+              <img src="assets/shots/estimate-wizard-step1-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Опросник · шаг 1</span><span lang="en">Questionnaire · step 1</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/estimate-wizard-step3.jpg"
                     data-ru="Состав работ одним экраном" data-en="The scope of work on a single screen" data-title-ru="Опросник · шаг 3" data-title-en="Questionnaire · step 3">
-              <img src="assets/shots/estimate-wizard-step3-t.jpg" alt="Опросник · шаг 3" loading="lazy" decoding="async">
+              <img src="assets/shots/estimate-wizard-step3-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Опросник · шаг 3</span><span lang="en">Questionnaire · step 3</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/estimate-catalog.jpg"
                     data-ru="Импорт прайсов из Excel, CSV, Word и PDF" data-en="Price lists imported from Excel, CSV, Word and PDF" data-title-ru="Каталог работ" data-title-en="Work catalogue">
-              <img src="assets/shots/estimate-catalog-t.jpg" alt="Каталог работ" loading="lazy" decoding="async">
+              <img src="assets/shots/estimate-catalog-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Каталог работ</span><span lang="en">Work catalogue</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/estimate-analytics.jpg"
                     data-ru="Клиенты, месяцы и самые частые работы" data-en="Clients, months and the most frequent jobs" data-title-ru="Аналитика" data-title-en="Analytics">
-              <img src="assets/shots/estimate-analytics-t.jpg" alt="Аналитика" loading="lazy" decoding="async">
+              <img src="assets/shots/estimate-analytics-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Аналитика</span><span lang="en">Analytics</span></figcaption>
           </figure>
           <figure class="shot">
             <button type="button" class="shot__btn" data-full="assets/shots/estimate-list.jpg"
                     data-ru="Все сметы с заказчиком, адресом и суммой" data-en="Every estimate with client, address and total" data-title-ru="Список смет" data-title-en="Estimate list">
-              <img src="assets/shots/estimate-list-t.jpg" alt="Список смет" loading="lazy" decoding="async">
+              <img src="assets/shots/estimate-list-t.jpg" alt="" loading="lazy" decoding="async">
             </button>
             <figcaption><span lang="ru">Список смет</span><span lang="en">Estimate list</span></figcaption>
           </figure>
@@ -751,23 +755,23 @@ export function wallArea(a: WizardAnswers): number {
               <div class="stage__controls stage__controls--range">
                 <label><span lang="ru">Периметр, м</span><span lang="en">Perimeter, m</span>
                   <input type="range" data-in="perimeter" min="10" max="80" value="28">
-                  <output data-outv="perimeter">28</output>
+                  <span class="outv" data-outv="perimeter" aria-hidden="true">28</span>
                 </label>
                 <label><span lang="ru">Потолок, м</span><span lang="en">Ceiling, m</span>
                   <input type="range" data-in="height" min="20" max="45" value="27">
-                  <output data-outv="height">2.7</output>
+                  <span class="outv" data-outv="height" aria-hidden="true">2.7</span>
                 </label>
                 <label><span lang="ru">Окон</span><span lang="en">Windows</span>
                   <input type="range" data-in="windows" min="0" max="12" value="2">
-                  <output data-outv="windows">2</output>
+                  <span class="outv" data-outv="windows" aria-hidden="true">2</span>
                 </label>
                 <label><span lang="ru">Проёмов</span><span lang="en">Doorways</span>
                   <input type="range" data-in="doorways" min="0" max="12" value="3">
-                  <output data-outv="doorways">3</output>
+                  <span class="outv" data-outv="doorways" aria-hidden="true">3</span>
                 </label>
               </div>
               <div class="stage__view" data-view></div>
-              <div class="stage__out" data-out></div>
+              <div class="stage__out" data-out role="status" aria-atomic="true"></div>
             </div>
           </div>
           <p class="lab__note">
@@ -778,7 +782,7 @@ export function wallArea(a: WizardAnswers): number {
       </article>
 
       <!-- 6 ───────────────────────────────────────────────── -->
-      <article class="case" aria-label="SMM-бот" style="--case-dark:#4FC0F0;--case-light:#1B7FB8">
+      <article class="case" data-label-ru="SMM-бот" data-label-en="SMM bot" style="--case-dark:#4FC0F0;--case-light:#166693">
         <p class="case__meta"><span lang="ru">Контент-маркетинг</span><span lang="en">Content marketing</span> · <span lang="ru">бот</span><span lang="en">bot</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Ежедневный пост без ежедневного человека</span><span lang="en">A daily post without a daily person</span></h3>
         <div class="case__grid">
@@ -830,7 +834,7 @@ async def handle_approve(callback: CallbackQuery) -&gt; None:
             </div>
             <div class="stage">
               <div class="stage__view" data-view></div>
-              <div class="stage__out" data-out></div>
+              <div class="stage__out" data-out role="status" aria-atomic="true"></div>
             </div>
           </div>
           <p class="lab__note">

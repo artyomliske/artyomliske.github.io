@@ -6,13 +6,12 @@
 <title>Страница не найдена — Артём Лиске</title>
 <meta name="robots" content="noindex">
 <meta name="color-scheme" content="dark light">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600&family=Golos+Text:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/Oswald-500-cyrillic.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/GolosText-400-cyrillic.woff2">
 <!-- пути абсолютные: эта страница отдаётся в ответ на любой несуществующий адрес,
      в том числе вложенный, и относительные ссылки на нём сломались бы -->
 <link rel="stylesheet" href="/assets/styles.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230D1214'/%3E%3Crect x='4' y='9' width='13' height='5' fill='%2358A79C'/%3E%3Crect x='19' y='9' width='9' height='5' fill='%23223032'/%3E%3Crect x='4' y='18' width='7' height='5' fill='%23223032'/%3E%3Crect x='13' y='18' width='15' height='5' fill='%23E4A244'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230D1214'/%3E%3Crect%20x='4'%20y='9'%20width='13'%20height='5'%20fill='%2358A79C'/%3E%3Crect%20x='19'%20y='9'%20width='9'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='4'%20y='18'%20width='7'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='13'%20y='18'%20width='15'%20height='5'%20fill='%23E4A244'/%3E%3C/svg%3E">
 <style>
   .nf { display: grid; align-content: center; gap: 1.4rem; min-height: 68vh; }
   .nf__code { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
@@ -30,11 +29,11 @@
       <span class="mark__name">Артём Лиске</span>
     </a>
     <div class="controls">
-      <button type="button" class="ctl" id="lang-toggle" aria-label="Switch language">
-        <span class="ctl__on">RU</span><span class="ctl__sep">/</span><span class="ctl__off">EN</span>
+      <button type="button" class="ctl" id="lang-toggle">
+        <span class="ctl__on">RU</span><span class="ctl__sep">/</span><span class="ctl__off">EN</span><span class="vh" id="lang-hint"> — переключить язык</span>
       </button>
-      <button type="button" class="ctl" id="theme-toggle" aria-label="Сменить тему">
-        <span id="theme-label">Светлая</span>
+      <button type="button" class="ctl" id="theme-toggle">
+        <span id="theme-label">Светлая</span><span class="vh" id="theme-hint"> тема</span>
       </button>
     </div>
   </div>

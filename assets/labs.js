@@ -140,7 +140,7 @@
       var tryCls = 'tl__slot tl__slot--try' + (clash || over ? ' tl__slot--bad' : ' tl__slot--ok');
       var tryBlock = '<div class="' + tryCls + '" style="left:' + Math.max(0, pct(c.slot.start)) + '%;width:' +
         Math.max(4, Math.min(100, pct(c.slot.end)) - Math.max(0, pct(c.slot.start))) + '%">' +
-        fmt(c.shoot.start) + '–' + fmt(c.shoot.end) + '</div>';
+        fmt(c.shoot.start) + '</div>';
 
       view.innerHTML =
         '<div class="tl">' +
@@ -155,8 +155,8 @@
     function report(state, submitted) {
       var c = state.c;
       var head = '<b>slot_start</b> = ' + fmt(c.slot.start) + ' · <b>slot_end</b> = ' + fmt(c.slot.end) +
-        ' <span style="opacity:.65">(' + t({ ru: 'съёмка', en: 'shoot' }) + ' ' + fmt(c.shoot.start) + '–' + fmt(c.shoot.end) +
-        ', ' + t({ ru: 'буфер', en: 'buffer' }) + ' ' + c.buf + ')</span>';
+        ' (' + t({ ru: 'съёмка', en: 'shoot' }) + ' ' + fmt(c.shoot.start) + '–' + fmt(c.shoot.end) +
+        ', ' + t({ ru: 'буфер', en: 'buffer' }) + ' ' + c.buf + ')';
 
       if (!submitted) {
         out.innerHTML = head + '<br>' + t({
