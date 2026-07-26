@@ -28,6 +28,7 @@
     syncThemeLabel();
     var langBtn = document.getElementById('lang-toggle');
     if (langBtn) langBtn.setAttribute('aria-label', LABELS[lang].lang);
+    window.dispatchEvent(new CustomEvent('langchange', { detail: lang }));
   }
 
   var savedLang = store.get('lang');
@@ -108,9 +109,78 @@
     }
   }
 
+
+  /* ── колода кейсов ────────────────────────────────────── */
+  var deck = document.getElementById('deck');
+  if (deck) {
+    var slides = Array.prototype.slice.call(deck.children);
+    var counter = document.getElementById('deck-counter');
+    var prev = document.getElementById('deck-prev');
+    var next = document.getElementById('deck-next');
+    var ticks = document.getElementById('deck-ticks');
+    var index = 0;
+
+    var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+    slides.forEach(function (slide, i) {
+      var li = document.createElement('li');
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.setAttribute('aria-label', 'Кейс ' + (i + 1));
+      btn.addEventListener('click', function () { go(i); });
+      li.appendChild(btn);
+      ticks.appendChild(li);
+    });
+    var tickItems = Array.prototype.slice.call(ticks.children);
+
+    function step() {
+      if (slides.length < 2) return deck.clientWidth;
+      return slides[1].offsetLeft - slides[0].offsetLeft;
+    }
+
+    function go(i) {
+      index = Math.max(0, Math.min(slides.length - 1, i));
+      deck.scrollTo({
+        left: index * step(),
+        behavior: reduced.matches ? 'auto' : 'smooth'
+      });
+      sync();
+    }
+
+    function sync() {
+      if (counter) counter.innerHTML = pad(index + 1) + '&thinsp;/&thinsp;' + pad(slides.length);
+      if (prev) prev.disabled = index === 0;
+      if (next) next.disabled = index === slides.length - 1;
+      tickItems.forEach(function (li, i) { li.classList.toggle('is-active', i === index); });
+    }
+
+    if (prev) prev.addEventListener('click', function () { go(index - 1); });
+    if (next) next.addEventListener('click', function () { go(index + 1); });
+
+    deck.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index - 1); }
+    });
+
+    var ticking = false;
+    deck.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        ticking = false;
+        var s = step();
+        var i = s ? Math.round(deck.scrollLeft / s) : 0;
+        if (i !== index) { index = Math.max(0, Math.min(slides.length - 1, i)); sync(); }
+      });
+    }, { passive: true });
+
+    window.addEventListener('resize', sync);
+    sync();
+  }
+
   /* ── появление секций ─────────────────────────────────── */
   if ('IntersectionObserver' in window && !reduced.matches) {
-    var targets = document.querySelectorAll('.case, .services li, .steps li, .stack li, .facts');
+    var targets = document.querySelectorAll('.services li, .steps li, .stack li, .facts');
     var revealer = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {

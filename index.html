@@ -153,58 +153,202 @@
 
 <!-- ─────────────────────────────  КЕЙСЫ  ───────────────────────────── -->
 <section class="band band--cases" id="cases">
-  <div class="wrap cols">
-    <h2 class="colhead"><span lang="ru">Кейсы</span><span lang="en">Selected work</span></h2>
-    <div class="colbody">
+  <div class="wrap">
 
-      <!-- 1 -->
-      <article class="case">
+    <div class="deck__head">
+      <h2 class="colhead"><span lang="ru">Кейсы</span><span lang="en">Selected work</span></h2>
+      <p class="deck__hint">
+        <span lang="ru">В каждом кейсе — настоящий код проекта, который можно покрутить</span>
+        <span lang="en">Each case ships real project code you can play with</span>
+      </p>
+      <div class="deck__nav">
+        <span class="deck__counter" id="deck-counter">01&thinsp;/&thinsp;06</span>
+        <button type="button" class="navbtn" id="deck-prev" aria-label="Предыдущий кейс">&#8592;</button>
+        <button type="button" class="navbtn" id="deck-next" aria-label="Следующий кейс">&#8594;</button>
+      </div>
+    </div>
+
+    <div class="deck" id="deck" tabindex="0" role="group" aria-label="Кейсы, листается вправо и влево">
+
+      <!-- 1 ───────────────────────────────────────────────── -->
+      <article class="case" aria-label="StudioCRM">
         <p class="case__meta"><span lang="ru">Контент-студия</span><span lang="en">Content studio</span> · CRM + <span lang="ru">бот</span><span lang="en">bot</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Полный цикл студии: от брони до денег</span><span lang="en">The studio’s full cycle: from booking to money</span></h3>
         <div class="case__grid">
           <div class="case__prose">
             <h4><span lang="ru">Было</span><span lang="en">Before</span></h4>
-            <p lang="ru">Брони жили в блокноте и таблице. Два клиента могли занять один зал; между «посмотрел, свободно» и «записал» проходили минуты. Прайс поднимали — и старые брони пересчитывались задним числом. Судьба предоплаты при отмене зависела от настроения.</p>
-            <p lang="en">Bookings lived in a notebook and a spreadsheet. Two clients could take the same room; minutes passed between “looks free” and “written down”. Raise the price list and old bookings were silently repriced. Whether a deposit was kept on cancellation depended on someone’s mood.</p>
+            <p lang="ru">Брони жили в блокноте и таблице. Два клиента могли занять один зал; между «посмотрел, свободно» и «записал» проходили минуты. Прайс поднимали — и старые брони пересчитывались задним числом.</p>
+            <p lang="en">Bookings lived in a notebook and a spreadsheet. Two clients could take the same room; minutes passed between “looks free” and “written down”. Raise the price list and old bookings were silently repriced.</p>
             <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
-            <p lang="ru">Один сервис ведёт весь маршрут: бронь → оплата → съёмка → монтаж → выдача → деньги. Пересечение броней отклоняет сама база — с учётом буферов на уборку между съёмками. Цена и буферы фиксируются снимком в момент брони, история не переписывается. Политику отмены считает система, а ручное отступление от неё видно в журнале. Клиент бронирует в Telegram-боте без анкет и получает напоминания.</p>
-            <p lang="en">One service runs the whole route: booking → payment → shoot → editing → delivery → money. Overlaps are rejected by the database itself, including the cleanup buffers between shoots. Price and buffers are snapshotted at booking time, so history is never rewritten. The cancellation policy is computed by the system, and any manual override is visible in the log. Clients book in a Telegram bot without filling forms, and get reminders.</p>
+            <p lang="ru">Один сервис ведёт весь маршрут: бронь → оплата → съёмка → монтаж → выдача → деньги. Пересечение броней отклоняет сама база — с учётом буферов на уборку. Цена и буферы фиксируются снимком в момент брони. Клиент бронирует в Telegram-боте и получает напоминания.</p>
+            <p lang="en">One service runs the whole route: booking → payment → shoot → editing → delivery → money. Overlaps are rejected by the database itself, cleanup buffers included. Price and buffers are snapshotted at booking time. Clients book in a Telegram bot and get reminders.</p>
           </div>
           <dl class="spec">
             <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>Python · FastAPI · PostgreSQL · aiogram</dd></div>
             <div><dt lang="ru">Объём</dt><dt lang="en">Size</dt><dd>8 600 <span lang="ru">строк кода</span><span lang="en">lines of code</span></dd></div>
             <div><dt lang="ru">API</dt><dt lang="en">API</dt><dd>62 <span lang="ru">эндпоинта</span><span lang="en">endpoints</span></dd></div>
-            <div><dt lang="ru">Проверки</dt><dt lang="en">Checks</dt><dd>265 <span lang="ru">автотестов на каждый коммит</span><span lang="en">automated tests per commit</span></dd></div>
-            <div><dt lang="ru">Контуры</dt><dt lang="en">Surfaces</dt><dd><span lang="ru">админка · бот · публичная страница брони</span><span lang="en">admin · bot · public booking page</span></dd></div>
+            <div><dt lang="ru">Проверки</dt><dt lang="en">Checks</dt><dd>265 <span lang="ru">автотестов</span><span lang="en">automated tests</span></dd></div>
           </dl>
+        </div>
+
+        <div class="lab" data-lab="booking">
+          <div class="lab__head">
+            <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
+            <span class="lab__src">app/domain/scheduling.py · migrations/0001_initial.py</span>
+          </div>
+          <div class="lab__grid">
+            <div class="lab__code">
+              <pre class="code" data-code="py"><code>def occupied_interval(
+    starts_at: datetime,
+    ends_at: datetime,
+    buffer_before_min: int,
+    buffer_after_min: int,
+) -&gt; Interval:
+    # Интервал, который бронь реально занимает с учётом буферов (правило 4.1).
+    # Именно по нему БД проверяет пересечения, а не по времени съёмки.
+    ensure_aware(starts_at, "starts_at")
+    ensure_aware(ends_at, "ends_at")
+    if ends_at &lt;= starts_at:
+        raise InvalidInterval("ends_at должен быть строго позже starts_at")
+    if buffer_before_min &lt; 0 or buffer_after_min &lt; 0:
+        raise InvalidInterval("Буферы не могут быть отрицательными")
+
+    return Interval(
+        start=starts_at - timedelta(minutes=buffer_before_min),
+        end=ends_at + timedelta(minutes=buffer_after_min),
+    )</code></pre>
+              <pre class="code" data-code="sql"><code>ALTER TABLE bookings ADD CONSTRAINT bookings_no_overlap_resource
+EXCLUDE USING gist (
+    resource_id WITH =,
+    tstzrange(slot_start, slot_end) WITH &amp;&amp;
+)
+WHERE (status IN ('pending_payment', 'confirmed', 'in_progress'))</code></pre>
+            </div>
+            <div class="stage">
+              <div class="stage__controls">
+                <label><span lang="ru">Начало</span><span lang="en">Start</span>
+                  <select data-in="start">
+                    <option value="10">10:00</option><option value="11">11:00</option>
+                    <option value="12" selected>12:00</option><option value="13">13:00</option>
+                    <option value="14">14:00</option><option value="15">15:00</option>
+                    <option value="16">16:00</option><option value="17">17:00</option>
+                    <option value="18">18:00</option><option value="19">19:00</option>
+                  </select>
+                </label>
+                <label><span lang="ru">Часов</span><span lang="en">Hours</span>
+                  <select data-in="dur">
+                    <option>1</option><option selected>2</option><option>3</option><option>4</option>
+                  </select>
+                </label>
+                <label><span lang="ru">Буфер, мин</span><span lang="en">Buffer, min</span>
+                  <select data-in="buf">
+                    <option value="0">0</option><option value="15">15</option>
+                    <option value="30" selected>30</option><option value="60">60</option>
+                  </select>
+                </label>
+                <button type="button" class="runbtn" data-run>
+                  <span lang="ru">Забронировать</span><span lang="en">Book it</span>
+                </button>
+              </div>
+              <div class="stage__view" data-view></div>
+              <div class="stage__out" data-out></div>
+            </div>
+          </div>
+          <p class="lab__note">
+            <span lang="ru">Слева — код из репозитория. Справа он же и работает: границы считает <code>occupied_interval</code>, вердикт выносит <code>EXCLUDE</code>-ограничение.</span>
+            <span lang="en">The code on the left is from the repository. On the right it runs: <code>occupied_interval</code> computes the bounds, the <code>EXCLUDE</code> constraint delivers the verdict.</span>
+          </p>
         </div>
       </article>
 
-      <!-- 2 -->
-      <article class="case">
+      <!-- 2 ───────────────────────────────────────────────── -->
+      <article class="case" aria-label="Chip House CRM">
         <p class="case__meta"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span> · CRM + <span lang="ru">табло</span><span lang="en">live display</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Турнир, который ведёт себя сам</span><span lang="en">A tournament that runs itself</span></h3>
         <div class="case__grid">
           <div class="case__prose">
             <h4><span lang="ru">Было</span><span lang="en">Before</span></h4>
-            <p lang="ru">Рассадку по столам, подсчёт очков и рейтинг вели вручную. Табло с уровнями блайндов — отдельный ноутбук и человек рядом с ним. Оргвзносы и призовые сходились в конце вечера, если сходились.</p>
-            <p lang="en">Seating, scoring and rankings were done by hand. The blind-level display meant a separate laptop and a person next to it. Fees and prize money added up at the end of the night — when they added up at all.</p>
+            <p lang="ru">Рассадку по столам, подсчёт очков и рейтинг вели вручную. Табло с уровнями блайндов — отдельный ноутбук и человек рядом с ним. Оргвзносы сходились в конце вечера, если сходились.</p>
+            <p lang="en">Seating, scoring and rankings were done by hand. The blind-level display meant a separate laptop and a person next to it. Fees added up at the end of the night — when they added up at all.</p>
             <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
-            <p lang="ru">Турнир ведётся с планшета: регистрация, рассадка и балансировка столов, вылеты, призовые. Телевизоры в зале — отдельный экран системы: уровни, таймер, места, план зала; обновляется мгновенно, без перезагрузки. Очки, рейтинг сезона и взносы считаются по правилам клуба, вынесенным в отдельный проверяемый модуль. Чеки и отчёты формируются из системы.</p>
-            <p lang="en">The tournament is run from a tablet: registration, seating and table balancing, bust-outs, payouts. The TVs in the room are a dedicated system screen — levels, timer, places, floor plan — updating instantly with no refresh. Points, season standings and fees follow the club’s own rules, isolated in a separately tested module. Receipts and reports are generated by the system.</p>
+            <p lang="ru">Турнир ведётся с планшета: регистрация, рассадка и балансировка столов, вылеты, призовые. Телевизоры в зале — отдельный экран системы, обновляется мгновенно. Очки, рейтинг сезона и взносы считаются по правилам клуба, вынесенным в отдельный проверяемый модуль.</p>
+            <p lang="en">The tournament is run from a tablet: registration, seating and table balancing, bust-outs, payouts. The TVs in the room are a dedicated system screen, updating instantly. Points, standings and fees follow the club’s own rules, isolated in a separately tested module.</p>
           </div>
           <dl class="spec">
             <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>TypeScript · NestJS · React · PostgreSQL · Socket.IO</dd></div>
             <div><dt lang="ru">Объём</dt><dt lang="en">Size</dt><dd>21 <span lang="ru">модуль бэкенда</span><span lang="en">backend modules</span></dd></div>
             <div><dt lang="ru">База</dt><dt lang="en">Database</dt><dd>20 <span lang="ru">миграций</span><span lang="en">migrations</span></dd></div>
-            <div><dt lang="ru">История</dt><dt lang="en">History</dt><dd>350 <span lang="ru">коммитов</span><span lang="en">commits</span></dd></div>
             <div><dt lang="ru">Статус</dt><dt lang="en">Status</dt><dd lang="ru">работает на боевом сервере</dd><dd lang="en">running in production</dd></div>
           </dl>
         </div>
+
+        <div class="lab" data-lab="seating">
+          <div class="lab__head">
+            <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
+            <span class="lab__src">packages/shared/src/domain/seating.ts</span>
+          </div>
+          <div class="lab__grid">
+            <div class="lab__code">
+              <pre class="code" data-code="ts"><code>export function autoSeat(
+  tables: string[],
+  entries: AutoSeatEntry[],
+  seatsPerTable = SEATS_PER_TABLE,
+): SeatAssignment[] {
+  const occupancy = new Map&lt;string, Set&lt;number&gt;&gt;();
+  for (const t of tables) occupancy.set(t, new Set&lt;number&gt;());
+
+  for (const e of entries) {
+    if (e.status === "in" &amp;&amp; e.table &amp;&amp; e.seat != null) {
+      occupancy.get(e.table)?.add(e.seat);
+    }
+  }
+
+  const assignments: SeatAssignment[] = [];
+  const unseated = entries.filter((e) =&gt; e.status === "in" &amp;&amp; !e.table);
+
+  for (const e of unseated) {
+    // каждый следующий садится за наименее занятый стол
+    let bestTable: string | null = null;
+    let bestCount = Infinity;
+    for (const t of tables) {
+      const occ = occupancy.get(t);
+      if (occ &amp;&amp; occ.size &lt; seatsPerTable &amp;&amp; occ.size &lt; bestCount) {
+        bestTable = t;
+        bestCount = occ.size;
+      }
+    }
+    if (!bestTable) break; // свободных мест не осталось
+
+    const occ = occupancy.get(bestTable)!;
+    let seat = 1;
+    while (occ.has(seat)) seat++;
+    occ.add(seat);
+    assignments.push({ playerId: e.playerId, table: bestTable, seat });
+  }
+  return assignments;
+}</code></pre>
+            </div>
+            <div class="stage">
+              <div class="stage__controls">
+                <button type="button" class="runbtn" data-act="add">+ <span lang="ru">игрок</span><span lang="en">player</span></button>
+                <button type="button" class="runbtn" data-act="add10">+10</button>
+                <button type="button" class="runbtn" data-act="bust">— <span lang="ru">вылет</span><span lang="en">bust</span></button>
+                <button type="button" class="runbtn" data-act="table">+ <span lang="ru">стол</span><span lang="en">table</span></button>
+                <button type="button" class="runbtn" data-act="reset"><span lang="ru">Сброс</span><span lang="en">Reset</span></button>
+              </div>
+              <div class="stage__view" data-view></div>
+              <div class="stage__out" data-out></div>
+            </div>
+          </div>
+          <p class="lab__note">
+            <span lang="ru">Это та самая функция из проекта — в браузере выполняется она сама, без упрощений: столы заполняются по наименее занятому.</span>
+            <span lang="en">This is the project’s own function, running here unmodified: every next player takes a seat at the least-occupied table.</span>
+          </p>
+        </div>
       </article>
 
-      <!-- 3 -->
-      <article class="case">
+      <!-- 3 ───────────────────────────────────────────────── -->
+      <article class="case" aria-label="Chip House Club">
         <p class="case__meta"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span> · PWA · 2026</p>
         <h3 class="case__title"><span lang="ru">Приложение игрока на общем движке клуба</span><span lang="en">A player app on the club’s own engine</span></h3>
         <div class="case__grid">
@@ -213,20 +357,68 @@
             <p lang="ru">Дать игрокам то, за чем они всё равно писали администратору: место в рейтинге, трофеи, расписание турниров и запись.</p>
             <p lang="en">Give players what they messaged the admin for anyway: their standing, trophies, the tournament schedule and self-registration.</p>
             <h4><span lang="ru">Решение</span><span lang="en">Solution</span></h4>
-            <p lang="ru">Приложение ставится на телефон с сайта, без магазинов приложений. Рейтинг с подсветкой «это я», значки за достижения, публичный профиль, запись на турнир до старта. Данные берутся из той же базы, что и CRM клуба, — администратору не нужно ничего дублировать, а игрок видит актуальное состояние.</p>
-            <p lang="en">Installs on a phone straight from the site, no app stores. Standings with a “this is me” highlight, achievement badges, a public profile, self-registration up to start time. It reads the same database as the club CRM — nothing to duplicate for the admin, and the player always sees the current state.</p>
+            <p lang="ru">Приложение ставится на телефон с сайта, без магазинов приложений. Рейтинг с подсветкой «это я», значки за достижения, публичный профиль, запись на турнир до старта. Данные — из той же базы, что и CRM клуба.</p>
+            <p lang="en">Installs on a phone straight from the site, no app stores. Standings with a “this is me” highlight, achievement badges, a public profile, self-registration up to start time. It reads the same database as the club CRM.</p>
           </div>
           <dl class="spec">
             <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>React · TypeScript · Vite · Tailwind · PWA</dd></div>
             <div><dt lang="ru">Экраны</dt><dt lang="en">Screens</dt><dd>13</dd></div>
             <div><dt lang="ru">Основа</dt><dt lang="en">Backend</dt><dd lang="ru">общая с CRM клуба</dd><dd lang="en">shared with the club CRM</dd></div>
-            <div><dt lang="ru">Вход</dt><dt lang="en">Auth</dt><dd lang="ru">почта, подтверждение, восстановление</dd><dd lang="en">email, verification, recovery</dd></div>
           </dl>
+        </div>
+
+        <div class="lab" data-lab="points">
+          <div class="lab__head">
+            <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
+            <span class="lab__src">packages/shared/src/domain/points.ts</span>
+          </div>
+          <div class="lab__grid">
+            <div class="lab__code">
+              <pre class="code" data-code="ts"><code>export const DEFAULT_BASE_POINTS = 10;
+
+/**
+ * Очки за место по авто-формуле: base · √N / √place.
+ * Награждает за крупные турниры и высокие места.
+ */
+export function autoPoints(
+  place: number,
+  fieldSize: number,
+  base = DEFAULT_BASE_POINTS,
+): number {
+  const n = Math.max(1, Math.floor(Number(fieldSize) || 1));
+  const p = Math.max(1, Math.floor(Number(place) || 1));
+  const b = Number(base) || DEFAULT_BASE_POINTS;
+  return Math.round((b * Math.sqrt(n)) / Math.sqrt(p));
+}</code></pre>
+            </div>
+            <div class="stage">
+              <div class="stage__controls stage__controls--range">
+                <label><span lang="ru">Место</span><span lang="en">Place</span>
+                  <input type="range" data-in="place" min="1" max="60" value="3">
+                  <output data-outv="place">3</output>
+                </label>
+                <label><span lang="ru">Игроков</span><span lang="en">Field</span>
+                  <input type="range" data-in="field" min="2" max="120" value="48">
+                  <output data-outv="field">48</output>
+                </label>
+                <label><span lang="ru">База</span><span lang="en">Base</span>
+                  <input type="range" data-in="base" min="5" max="30" value="10">
+                  <output data-outv="base">10</output>
+                </label>
+              </div>
+              <div class="stage__view" data-view></div>
+              <div class="stage__out" data-out></div>
+            </div>
+          </div>
+          <p class="lab__note">
+            <span lang="ru">Формула клуба целиком: крупный турнир весит больше, но второе место никогда не догонит первое. Столбики — очки за места с 1-го по 12-е при выбранном поле.</span>
+            <span lang="en">The club’s whole formula: a bigger field weighs more, yet second place never catches first. The bars are points for places 1–12 at the chosen field size.</span>
+          </p>
         </div>
       </article>
 
-      <!-- 4 -->
-      <article class="case">
+      <!-- 4 ───────────────────────────────────────────────── -->
+      <article class="case" aria-label="Рублёвские сказки">
         <p class="case__meta"><span lang="ru">Семейный театр</span><span lang="en">Family theatre</span> · <span lang="ru">сайт + CRM</span><span lang="en">site + CRM</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Билеты, сертификаты и три кабинета</span><span lang="en">Tickets, gift certificates and three back offices</span></h3>
         <div class="case__grid">
@@ -244,10 +436,66 @@
             <div><dt lang="ru">Роли</dt><dt lang="en">Roles</dt><dd lang="ru">клиент · администратор · руководитель</dd><dd lang="en">client · admin · owner</dd></div>
           </dl>
         </div>
+
+        <div class="lab" data-lab="cert">
+          <div class="lab__head">
+            <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
+            <span class="lab__src">public/assets/app.js</span>
+          </div>
+          <div class="lab__grid">
+            <div class="lab__code">
+              <pre class="code" data-code="js"><code>// active | used | expired
+function certStatus(c) {
+  if (!c) return 'invalid';
+  if (c.used) return 'used';
+  if (c.expiresAt &amp;&amp; new Date(c.expiresAt) &lt; new Date()) return 'expired';
+  return 'active';
+}
+
+// погашение — разовое, списание целиком, остаток сгорает
+if (c &amp;&amp; !c.used &amp;&amp; certStatus(c) === 'active') {
+  c.used = true; c.status = 'used';
+  c.usedAt = order.createdAt;
+  c.usedOrder = order.number;
+  c.orderTotal = payload.total;
+  c.burned = Math.max(0, c.nominal - payload.total); // сгоревший остаток
+  c.appliedBy = payload.cashier
+    ? ('Касса · ' + payload.cashier)
+    : payload.email;
+}</code></pre>
+            </div>
+            <div class="stage">
+              <div class="stage__controls">
+                <label><span lang="ru">Сертификат</span><span lang="en">Certificate</span>
+                  <select data-in="cert">
+                    <option value="0">RS-8KQP-4M2X</option>
+                    <option value="1">RS-T3VN-9WQ7</option>
+                    <option value="2">RS-Z5HD-2LP4</option>
+                  </select>
+                </label>
+                <label><span lang="ru">Сумма заказа</span><span lang="en">Order total</span>
+                  <select data-in="total">
+                    <option value="2400">2 400 ₽</option>
+                    <option value="4000" selected>4 000 ₽</option>
+                    <option value="5600">5 600 ₽</option>
+                  </select>
+                </label>
+                <button type="button" class="runbtn" data-run><span lang="ru">Погасить</span><span lang="en">Redeem</span></button>
+                <button type="button" class="runbtn" data-act="reset"><span lang="ru">Сброс</span><span lang="en">Reset</span></button>
+              </div>
+              <div class="stage__view" data-view></div>
+              <div class="stage__out" data-out></div>
+            </div>
+          </div>
+          <p class="lab__note">
+            <span lang="ru">Правило театра: сертификат гасится один раз и целиком, остаток сгорает, и всё это фиксируется — кто погасил, каким заказом и сколько сгорело. Спор на стойке закрывается за минуту.</span>
+            <span lang="en">The theatre’s rule: a certificate is redeemed once and in full, the remainder burns, and all of it is recorded — who redeemed it, against which order, and how much burned. A front-desk dispute closes in a minute.</span>
+          </p>
+        </div>
       </article>
 
-      <!-- 5 -->
-      <article class="case">
+      <!-- 5 ───────────────────────────────────────────────── -->
+      <article class="case" aria-label="Калькулятор смет">
         <p class="case__meta"><span lang="ru">Строительство</span><span lang="en">Construction</span> · <span lang="ru">внутренний сервис</span><span lang="en">internal tool</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Смета за пять минут вместо вечера в Excel</span><span lang="en">An estimate in five minutes instead of an evening in Excel</span></h3>
         <div class="case__grid">
@@ -256,20 +504,68 @@
             <p lang="ru">Каждую смету собирали заново в Excel, цены брали из головы и старых файлов, у разных менеджеров получались разные суммы за одну и ту же работу.</p>
             <p lang="en">Every estimate was rebuilt from scratch in Excel, prices came from memory and old files, and two managers quoted different totals for identical work.</p>
             <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
-            <p lang="ru">Менеджер отвечает на короткий опросник — тип объекта, площадь, состояние, уровень отделки — и получает черновик сметы с объёмами и ценами из общего каталога. Дальше правит разделы и позиции, итоги считаются сами, готовое уходит клиенту в PDF или Excel. Чужие сметы и прайсы подтягиваются импортом из Excel, PDF, Word и CSV — каталог не нужно набивать руками.</p>
-            <p lang="en">The manager answers a short questionnaire — property type, area, condition, finish level — and gets a draft estimate with quantities and prices from the shared catalogue. They then adjust sections and line items, totals recalculate themselves, and the result goes to the client as PDF or Excel. Third-party estimates and price lists are pulled in from Excel, PDF, Word and CSV — no manual data entry.</p>
+            <p lang="ru">Менеджер отвечает на короткий опросник — тип объекта, площадь, состояние, уровень отделки — и получает черновик сметы с объёмами и ценами из общего каталога. Чужие сметы и прайсы подтягиваются импортом из Excel, PDF, Word и CSV.</p>
+            <p lang="en">The manager answers a short questionnaire — property type, area, condition, finish level — and gets a draft estimate with quantities and prices from the shared catalogue. Third-party estimates and price lists are pulled in from Excel, PDF, Word and CSV.</p>
           </div>
           <dl class="spec">
             <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>React · TypeScript · Express</dd></div>
             <div><dt lang="ru">Импорт</dt><dt lang="en">Import</dt><dd>Excel · PDF · Word · CSV</dd></div>
             <div><dt lang="ru">Экспорт</dt><dt lang="en">Export</dt><dd>PDF · Excel</dd></div>
-            <div><dt lang="ru">Развёртывание</dt><dt lang="en">Deploy</dt><dd lang="ru">одна команда на сервере</dd><dd lang="en">one command on the server</dd></div>
           </dl>
+        </div>
+
+        <div class="lab" data-lab="wall">
+          <div class="lab__head">
+            <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
+            <span class="lab__src">client/src/types/wizard.ts</span>
+          </div>
+          <div class="lab__grid">
+            <div class="lab__code">
+              <pre class="code" data-code="ts"><code>/** Площадь проёмов (окна + двери), м² */
+function openingsArea(a: WizardAnswers): number {
+  return (a.windows || 0) * 1.8 + (a.doorways || 0) * 2.0;
+}
+
+/** Чистая площадь стен за вычетом проёмов
+ *  (не опускается ниже 50% от валовой) */
+export function wallArea(a: WizardAnswers): number {
+  const gross = a.perimeter * a.ceilingHeight;
+  const net = gross - openingsArea(a);
+  return Math.max(net, gross * 0.5);
+}</code></pre>
+            </div>
+            <div class="stage">
+              <div class="stage__controls stage__controls--range">
+                <label><span lang="ru">Периметр, м</span><span lang="en">Perimeter, m</span>
+                  <input type="range" data-in="perimeter" min="10" max="80" value="28">
+                  <output data-outv="perimeter">28</output>
+                </label>
+                <label><span lang="ru">Потолок, м</span><span lang="en">Ceiling, m</span>
+                  <input type="range" data-in="height" min="20" max="45" value="27">
+                  <output data-outv="height">2.7</output>
+                </label>
+                <label><span lang="ru">Окон</span><span lang="en">Windows</span>
+                  <input type="range" data-in="windows" min="0" max="12" value="2">
+                  <output data-outv="windows">2</output>
+                </label>
+                <label><span lang="ru">Проёмов</span><span lang="en">Doorways</span>
+                  <input type="range" data-in="doorways" min="0" max="12" value="3">
+                  <output data-outv="doorways">3</output>
+                </label>
+              </div>
+              <div class="stage__view" data-view></div>
+              <div class="stage__out" data-out></div>
+            </div>
+          </div>
+          <p class="lab__note">
+            <span lang="ru">Из этих метров считается вся малярка и штукатурка сметы. Нижняя граница в 50% — защита от «периметра на глаз»: смета не обнулится, если менеджер напутал с проёмами.</span>
+            <span lang="en">All plastering and painting in the estimate is derived from these square metres. The 50% floor guards against a guessed perimeter: the estimate cannot collapse to nothing if the manager miscounts openings.</span>
+          </p>
         </div>
       </article>
 
-      <!-- 6 -->
-      <article class="case">
+      <!-- 6 ───────────────────────────────────────────────── -->
+      <article class="case" aria-label="SMM-бот">
         <p class="case__meta"><span lang="ru">Контент-маркетинг</span><span lang="en">Content marketing</span> · <span lang="ru">бот</span><span lang="en">bot</span> · 2026</p>
         <h3 class="case__title"><span lang="ru">Ежедневный пост без ежедневного человека</span><span lang="en">A daily post without a daily person</span></h3>
         <div class="case__grid">
@@ -278,8 +574,8 @@
             <p lang="ru">Канал требует поста каждый день. Придумывать, писать и оформлять — час в сутки, который всегда откладывается.</p>
             <p lang="en">The channel needs a post every day. Thinking it up, writing it and making the image is an hour a day that always gets postponed.</p>
             <h4><span lang="ru">Решение</span><span lang="en">Solution</span></h4>
-            <p lang="ru">Бот по расписанию сам готовит текст и картинку по каталогу товаров и присылает владельцу на модерацию: «Одобрить» или «Заново». Публикация в канал — по кнопке. Роль владельца сокращается до одного нажатия.</p>
-            <p lang="en">On a schedule, the bot writes the copy and generates the image from the product catalogue, then sends it to the owner for approval: “Publish” or “Try again”. Publishing to the channel is one tap. The owner’s job shrinks to a single press.</p>
+            <p lang="ru">Бот по расписанию сам готовит текст и картинку по каталогу товаров и присылает владельцу на модерацию: одобрить, перегенерировать, поправить текст или заменить фото. Публикация в канал — по кнопке.</p>
+            <p lang="en">On a schedule, the bot writes the copy and generates the image from the product catalogue, then sends it to the owner: approve, regenerate, edit the text or swap the photo. Publishing to the channel is one tap.</p>
           </div>
           <dl class="spec">
             <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>Python · aiogram · APScheduler</dd></div>
@@ -287,9 +583,53 @@
             <div><dt lang="ru">Участие</dt><dt lang="en">Human input</dt><dd lang="ru">одно нажатие в сутки</dd><dd lang="en">one tap per day</dd></div>
           </dl>
         </div>
+
+        <div class="lab" data-lab="moderation">
+          <div class="lab__head">
+            <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
+            <span class="lab__src">bot.py</span>
+          </div>
+          <div class="lab__grid">
+            <div class="lab__code">
+              <pre class="code" data-code="py"><code>@dp.callback_query(F.data == "approve")
+async def handle_approve(callback: CallbackQuery) -&gt; None:
+    # Кнопка ✅ Одобрить: публикует связку в канал из .env (CHANNEL_ID).
+    draft = _drafts.get(callback.message.message_id)
+    if draft is None:
+        await callback.answer(
+            "Черновик не найден (бот перезапускался). Сгенерируй заново.",
+            show_alert=True,
+        )
+        return
+
+    await callback.answer("Публикую в канал...")
+    try:
+        await _publish_to_channel(callback.bot, draft)
+    except TelegramAPIError as err:
+        logger.error("Ошибка публикации в канал: %s", err)
+        await callback.message.answer(_publish_error_text(err))
+        return
+
+    # успех: убираем кнопки (чтобы не опубликовать дважды)
+    await callback.message.edit_reply_markup(reply_markup=None)
+    await callback.message.answer("Опубликовано ✅")
+    _drafts.pop(callback.message.message_id, None)</code></pre>
+            </div>
+            <div class="stage">
+              <div class="stage__view" data-view></div>
+              <div class="stage__out" data-out></div>
+            </div>
+          </div>
+          <p class="lab__note">
+            <span lang="ru">Справа — то самое сообщение модерации. Нажмите «Одобрить»: кнопки снимаются тем же кодом, что и в боте, — чтобы один пост нельзя было опубликовать дважды.</span>
+            <span lang="en">On the right is the actual moderation message. Press “Approve”: the buttons are removed by the same code the bot runs — so one post can never be published twice.</span>
+          </p>
+        </div>
       </article>
 
     </div>
+
+    <ol class="deck__ticks" id="deck-ticks"></ol>
   </div>
 </section>
 
@@ -380,5 +720,6 @@
 </footer>
 
 <script src="assets/main.js"></script>
+<script src="assets/labs.js"></script>
 </body>
 </html>
