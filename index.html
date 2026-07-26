@@ -67,46 +67,6 @@
       </div>
     </div>
 
-    <!-- живая демонстрация: слот, который нельзя занять дважды -->
-    <figure class="board" id="board">
-      <figcaption class="board__head">
-        <span class="board__title" lang="ru">Зал студии · вторник</span>
-        <span class="board__title" lang="en">Studio room · Tuesday</span>
-        <button type="button" class="board__replay" id="board-replay">
-          <span lang="ru">Повторить</span><span lang="en">Replay</span>
-        </button>
-      </figcaption>
-
-      <div class="board__scale" aria-hidden="true">
-        <span>10</span><span>12</span><span>14</span><span>16</span><span>18</span><span>20</span><span>22</span>
-      </div>
-
-      <div class="board__row">
-        <span class="board__label">A</span>
-        <div class="board__track">
-          <div class="slot" data-delay="0" style="--from:0%; --to:25%"><span lang="ru">Съёмка</span><span lang="en">Shoot</span></div>
-          <div class="slot slot--buffer" data-delay="1" style="--from:25%; --to:29%" aria-hidden="true"></div>
-          <div class="slot" data-delay="2" style="--from:29%; --to:54%"><span lang="ru">Съёмка</span><span lang="en">Shoot</span></div>
-          <div class="slot slot--buffer" data-delay="2" style="--from:54%; --to:58%" aria-hidden="true"></div>
-          <div class="slot" data-delay="3" style="--from:58%; --to:88%"><span lang="ru">Съёмка</span><span lang="en">Shoot</span></div>
-        </div>
-      </div>
-
-      <div class="board__row board__row--attempt">
-        <span class="board__label board__label--alert">!</span>
-        <div class="board__track">
-          <div class="slot slot--clash" data-delay="4" style="--from:42%; --to:70%">
-            <span lang="ru">Отклонено</span><span lang="en">Rejected</span>
-          </div>
-        </div>
-      </div>
-
-      <p class="board__note">
-        <span lang="ru">Четвёртая бронь заходит на время второй. Её отклоняет сама база данных, а не проверка в коде, — двойная запись физически невозможна, даже если два менеджера нажали «сохранить» одновременно. Штриховкой показаны буферы на уборку: они тоже считаются занятым временем.</span>
-        <span lang="en">The fourth booking runs into the second one’s time. It is rejected by the database itself, not by a check in the code — a double booking is physically impossible, even if two managers hit “save” at the same moment. The hatched gaps are cleanup buffers: they count as occupied time too.</span>
-      </p>
-    </figure>
-
     <ul class="facts">
       <li><b>6</b><span lang="ru">систем собрано</span><span lang="en">systems built</span></li>
       <li><b>5</b><span lang="ru">отраслей</span><span lang="en">industries</span></li>

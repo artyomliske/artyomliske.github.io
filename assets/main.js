@@ -75,41 +75,6 @@
   }
   darkMedia.addEventListener('change', syncThemeLabel);
 
-  /* ── табло занятости ──────────────────────────────────── */
-  var board = document.getElementById('board');
-  if (board) {
-    var slots = Array.prototype.slice.call(board.querySelectorAll('.slot'));
-    slots.forEach(function (slot) {
-      var step = parseFloat(slot.getAttribute('data-delay')) || 0;
-      var d = reduced.matches ? 0 : step * 0.32;
-      slot.style.setProperty('--d', d + 's');
-      slot.style.setProperty('--ad', (d + 0.5) + 's');
-    });
-
-    var run = function () { board.classList.add('is-running'); };
-
-    if ('IntersectionObserver' in window) {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) { run(); io.disconnect(); }
-        });
-      }, { threshold: 0.35 });
-      io.observe(board);
-    } else {
-      run();
-    }
-
-    var replay = document.getElementById('board-replay');
-    if (replay) {
-      replay.addEventListener('click', function () {
-        board.classList.remove('is-running');
-        void board.offsetWidth; /* сброс анимации */
-        run();
-      });
-    }
-  }
-
-
   /* ── колода кейсов ────────────────────────────────────── */
   var deck = document.getElementById('deck');
   if (deck) {
