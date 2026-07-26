@@ -1,0 +1,94 @@
+<!doctype html>
+<!--
+  Шаблон превью для мессенджеров и соцсетей. Рендерится в assets/og.jpg:
+
+    tools/og.sh
+
+  Размер жёстко 1200×630 — это то, что Telegram, WhatsApp и остальные
+  показывают в развороте ссылки. Стиль повторяет первый экран сайта.
+-->
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Golos+Text:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: #0D1214;
+    color: #E7E8E3;
+    font-family: "Golos Text", sans-serif;
+    display: grid;
+    grid-template-columns: 1.04fr .96fr;
+    align-items: center;
+    gap: 48px;
+    padding: 56px 60px;
+    position: relative;
+  }
+  .eyebrow {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: #E4A244;
+    margin-bottom: 26px;
+  }
+  h1 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 500;
+    font-size: 74px;
+    line-height: .95;
+    text-transform: uppercase;
+    letter-spacing: -.005em;
+  }
+  .lead {
+    margin-top: 26px;
+    font-size: 21px;
+    line-height: 1.45;
+    color: #9FA9A8;
+    max-width: 25ch;
+  }
+  .who {
+    position: absolute;
+    left: 60px;
+    bottom: 42px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "JetBrains Mono", monospace;
+    font-size: 15px;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #6E7A79;
+  }
+  .who b { color: #E7E8E3; font-weight: 400; }
+  .glyph {
+    width: 22px; height: 10px;
+    background: linear-gradient(to right, #58A79C 0 55%, transparent 55% 68%, #E4A244 68% 100%);
+  }
+  .shots { display: grid; grid-template-columns: repeat(12, 1fr); gap: 8px; }
+  figure { border: 1px solid #223032; overflow: hidden; background: #161F21; }
+  figure img { display: block; width: 100%; height: auto; }
+  .a { grid-area: 1 / 1 / 2 / 9; }
+  .b { grid-area: 2 / 1 / 3 / 9; }
+  .c { grid-area: 1 / 9 / 3 / 13; align-self: start; }
+</style>
+</head>
+<body>
+  <div>
+    <p class="eyebrow">Автоматизация бизнес-процессов</p>
+    <h1>Перевожу<br>процессы<br>из блокнота<br>в систему</h1>
+    <p class="lead">CRM, Telegram-боты и личные кабинеты — от ТЗ до боевого сервера</p>
+  </div>
+
+  <div class="shots">
+    <figure class="a"><img src="../assets/shots/theatre-home-t.jpg" alt=""></figure>
+    <figure class="b"><img src="../assets/shots/crm-display-t.jpg" alt=""></figure>
+    <figure class="c"><img src="../assets/shots/club-home-t.jpg" alt=""></figure>
+  </div>
+
+  <div class="who"><span class="glyph"></span><b>Артём Лиске</b> · artyomliske.github.io</div>
+</body>
+</html>
