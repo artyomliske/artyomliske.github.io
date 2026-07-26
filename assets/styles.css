@@ -937,6 +937,20 @@ a { color: inherit; }
 }
 .hero__lead { min-width: 0; }
 
+/* Пока колонок две, коллаж живёт в своей колонке. Когда вёрстка схлопывается
+   в одну, он падает под заголовок — и без ограничения занимает весь экран,
+   оставаясь тремя картинками без объяснения. Отсюда предел ширины и подпись. */
+.hero__aside { min-width: 0; }
+@media (max-width: 67.99rem) {
+  .hero__aside { max-width: 30rem; }
+}
+.hero__caption {
+  margin-top: .7rem;
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  line-height: 1.45;
+  color: var(--ink-3);
+}
 .hero__collage {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
