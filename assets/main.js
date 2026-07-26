@@ -147,7 +147,18 @@
       sync();
     }
 
+    /* Колода держит высоту активного кейса, а не самого длинного:
+       иначе под коротким кейсом зияет пустота на пол-экрана. */
+    function setHeight() {
+      var el = slides[index];
+      if (el) deck.style.height = el.offsetHeight + 'px';
+    }
+
+    var watcher = 'ResizeObserver' in window ? new ResizeObserver(setHeight) : null;
+
     function sync() {
+      setHeight();
+      if (watcher) { watcher.disconnect(); watcher.observe(slides[index]); }
       if (counter) counter.innerHTML = pad(index + 1) + '&thinsp;/&thinsp;' + pad(slides.length);
       if (prev) prev.disabled = index === 0;
       if (next) next.disabled = index === slides.length - 1;
@@ -175,8 +186,110 @@
     }, { passive: true });
 
     window.addEventListener('resize', sync);
+    window.addEventListener('load', setHeight);
+    Array.prototype.forEach.call(deck.querySelectorAll('img'), function (im) {
+      if (!im.complete) im.addEventListener('load', setHeight, { once: true });
+    });
     sync();
   }
+
+
+  /* ── просмотр экранов во весь экран ───────────────────── */
+  (function () {
+    var buttons = Array.prototype.slice.call(document.querySelectorAll('.shot__btn'));
+    if (!buttons.length) return;
+
+    var box = document.createElement('div');
+    box.className = 'lb';
+    box.setAttribute('role', 'dialog');
+    box.setAttribute('aria-modal', 'true');
+    box.setAttribute('aria-label', 'Экран проекта');
+    box.innerHTML =
+      '<div class="lb__stage"><img alt=""></div>' +
+      '<div class="lb__bar">' +
+        '<span class="lb__title"></span>' +
+        '<span class="lb__cap"></span>' +
+        '<span class="lb__count"></span>' +
+        '<span class="lb__nav">' +
+          '<button type="button" class="navbtn" data-lb="prev" aria-label="Предыдущий экран">&#8592;</button>' +
+          '<button type="button" class="navbtn" data-lb="next" aria-label="Следующий экран">&#8594;</button>' +
+          '<button type="button" class="navbtn" data-lb="close" aria-label="Закрыть">&#10005;</button>' +
+        '</span>' +
+      '</div>';
+    document.body.appendChild(box);
+
+    var img = box.querySelector('img');
+    var elTitle = box.querySelector('.lb__title');
+    var elCap = box.querySelector('.lb__cap');
+    var elCount = box.querySelector('.lb__count');
+    var group = [];
+    var at = 0;
+    var opener = null;
+
+    function fill() {
+      var btn = group[at];
+      if (!btn) return;
+      var l = root.getAttribute('data-lang') === 'en' ? 'en' : 'ru';
+      img.src = btn.getAttribute('data-full');
+      img.alt = btn.getAttribute('data-title-' + l) || '';
+      elTitle.textContent = btn.getAttribute('data-title-' + l) || '';
+      elCap.textContent = btn.getAttribute('data-' + l) || '';
+      elCount.textContent = (at + 1) + ' / ' + group.length;
+    }
+
+    function open(btn) {
+      var gallery = btn.closest('[data-gallery]');
+      group = gallery ? Array.prototype.slice.call(gallery.querySelectorAll('.shot__btn')) : [btn];
+      at = group.indexOf(btn);
+      opener = btn;
+      fill();
+      box.classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+      box.querySelector('[data-lb="close"]').focus();
+    }
+
+    function close() {
+      box.classList.remove('is-open');
+      document.body.style.overflow = '';
+      img.removeAttribute('src');
+      if (opener) opener.focus();
+      opener = null;
+    }
+
+    function step(d) {
+      if (!group.length) return;
+      at = (at + d + group.length) % group.length;
+      fill();
+    }
+
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () { open(btn); });
+    });
+
+    box.addEventListener('click', function (e) {
+      var act = e.target.closest('[data-lb]');
+      if (act) {
+        var a = act.getAttribute('data-lb');
+        if (a === 'close') close();
+        if (a === 'prev') step(-1);
+        if (a === 'next') step(1);
+        return;
+      }
+      if (e.target === img) { step(1); return; }
+      close();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (!box.classList.contains('is-open')) return;
+      if (e.key === 'Escape') { e.stopPropagation(); close(); }
+      if (e.key === 'ArrowRight') { e.stopPropagation(); e.preventDefault(); step(1); }
+      if (e.key === 'ArrowLeft') { e.stopPropagation(); e.preventDefault(); step(-1); }
+    }, true);
+
+    window.addEventListener('langchange', function () {
+      if (box.classList.contains('is-open')) fill();
+    });
+  })();
 
   /* ── появление секций ─────────────────────────────────── */
   if ('IntersectionObserver' in window && !reduced.matches) {
