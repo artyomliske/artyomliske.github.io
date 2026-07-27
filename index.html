@@ -1209,6 +1209,34 @@ async def handle_approve(callback: CallbackQuery) -&gt; None:
         </div>
       </dl>
 
+      <!-- Заявка. Пока data-endpoint пуст, форма не показывается: адрес
+           приёмника ставится один раз после того, как поднят tools/lead-proxy.
+           Токен бота в статике не лежит и лежать не может. -->
+      <form class="lead" id="lead" data-endpoint="" novalidate hidden>
+        <p class="lead__head">
+          <span lang="ru">Или оставьте заявку — прочитаю в тот же день</span>
+          <span lang="en">Or leave a note — I read it the same day</span>
+        </p>
+        <label class="lead__field">
+          <span class="lead__k"><span lang="ru">Как к вам обращаться</span><span lang="en">Your name</span></span>
+          <input name="name" type="text" maxlength="80" autocomplete="name" required>
+        </label>
+        <label class="lead__field">
+          <span class="lead__k"><span lang="ru">Telegram, телефон или почта</span><span lang="en">Telegram, phone or email</span></span>
+          <input name="contact" type="text" maxlength="120" required>
+        </label>
+        <label class="lead__field lead__field--wide">
+          <span class="lead__k"><span lang="ru">Что за процесс и где болит</span><span lang="en">What the process is and where it hurts</span></span>
+          <textarea name="task" rows="4" maxlength="1500" required></textarea>
+        </label>
+        <!-- ловушка для ботов: человек этого поля не видит и не заполнит -->
+        <input class="lead__trap" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button type="submit" class="btn btn--primary lead__send">
+          <span lang="ru">Отправить</span><span lang="en">Send</span>
+        </button>
+        <p class="lead__out" role="status" aria-live="polite"></p>
+      </form>
+
       <div class="contact__cta">
         <a class="btn btn--primary" href="https://t.me/artyomliske" rel="noopener">
           <span lang="ru">Написать в Telegram</span><span lang="en">Message me on Telegram</span>

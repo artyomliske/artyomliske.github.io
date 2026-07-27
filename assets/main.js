@@ -384,6 +384,74 @@
     });
   })();
 
+  /* ── заявка ───────────────────────────────────────────────
+     Форма живёт только тогда, когда у неё есть куда отправлять: адрес
+     приёмника стоит в data-endpoint (см. tools/lead-proxy). Пустой адрес —
+     формы нет вовсе, вместо неё те же Telegram, телефон и почта ниже.  */
+  (function () {
+    var form = document.getElementById('lead');
+    if (!form) return;
+    var endpoint = (form.getAttribute('data-endpoint') || '').trim();
+    if (!endpoint) return;
+    form.removeAttribute('hidden');
+
+    var out = form.querySelector('.lead__out');
+    var send = form.querySelector('.lead__send');
+    var SAY = {
+      ru: {
+        empty: 'Заполните все три поля — иначе мне не с чем к вам вернуться.',
+        going: 'Отправляю…',
+        ok: 'Заявка ушла. Отвечу в тот же день — а если срочно, напишите в Telegram.',
+        bad: 'Не отправилось. Напишите в Telegram @artyomliske — так точно дойдёт.'
+      },
+      en: {
+        empty: 'Please fill in all three fields — otherwise I have nothing to reply to.',
+        going: 'Sending…',
+        ok: 'Sent. I will reply the same day — if it is urgent, message me on Telegram.',
+        bad: 'It did not go through. Message me on Telegram @artyomliske — that always arrives.'
+      }
+    };
+
+    var last = '';
+
+    function say(kind) {
+      last = kind;
+      out.textContent = SAY[currentLang()][kind];
+      out.setAttribute('data-state', kind === 'bad' || kind === 'empty' ? 'bad' : 'ok');
+    }
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var data = {
+        name: form.elements.name.value.trim(),
+        contact: form.elements.contact.value.trim(),
+        task: form.elements.task.value.trim(),
+        website: form.elements.website.value,
+        lang: currentLang()
+      };
+      if (!data.name || !data.contact || !data.task) { say('empty'); return; }
+
+      send.disabled = true;
+      say('going');
+
+      fetch(endpoint, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data)
+      }).then(function (r) {
+        if (!r.ok) throw new Error(r.status);
+        say('ok');
+        form.reset();
+      }).catch(function () {
+        say('bad');
+        send.disabled = false;
+      });
+    });
+
+    /* язык переключили после отправки — ответ формы переезжает вместе с ним */
+    localizers.push(function () { if (last) say(last); });
+  })();
+
   /* ── появление секций ─────────────────────────────────── */
   if ('IntersectionObserver' in window && !reduced.matches) {
     var targets = document.querySelectorAll('.services li, .steps li, .stack li, .facts');

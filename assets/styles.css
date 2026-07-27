@@ -1543,6 +1543,59 @@ a { color: inherit; }
 }
 .terms dd { font-size: var(--step-1); color: var(--ink); line-height: 1.4; }
 
+/* ── заявка ───────────────────────────────────────────────
+   Не все пишут первыми в мессенджер: три поля и кнопка снимают этот
+   порог. Поля наследуют палитру контактного разворота, как и всё
+   остальное на нём, — форма не выглядит вставленной из чужого сайта.
+   ─────────────────────────────────────────────────────── */
+.lead {
+  display: grid;
+  gap: .9rem;
+  max-width: 46rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--rule);
+}
+@media (min-width: 46rem) {
+  .lead { grid-template-columns: 1fr 1fr; align-items: end; }
+  .lead__head,
+  .lead__field--wide,
+  .lead__out { grid-column: 1 / -1; }
+}
+.lead__head {
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.lead__field { display: grid; gap: .3rem; }
+.lead__k {
+  font-family: var(--f-mono);
+  font-size: var(--step--1);
+  letter-spacing: .04em;
+  color: var(--ink-3);
+}
+.lead input,
+.lead textarea {
+  font: inherit;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  padding: .6rem .7rem;
+  width: 100%;
+  transition: border-color .15s;
+}
+.lead textarea { resize: vertical; min-height: 5.5rem; }
+.lead input:hover,
+.lead textarea:hover { border-color: var(--ink-3); }
+.lead input:focus-visible,
+.lead textarea:focus-visible { border-color: var(--accent); }
+.lead__send { justify-self: start; cursor: pointer; border: 1px solid var(--accent); }
+.lead__send[disabled] { opacity: .6; cursor: default; }
+.lead__trap { position: absolute; left: -9999px; width: 1px; height: 1px; }
+.lead__out { font-size: var(--step--1); color: var(--ink-2); min-height: 1.4em; }
+.lead__out[data-state="bad"] { color: var(--alert); }
+
 .contact__cta { display: flex; flex-wrap: wrap; gap: .7rem; }
 .contact { display: grid; }
 .contact li {
