@@ -943,6 +943,33 @@ a { color: inherit; }
 .limits h3 { font-size: var(--step-1); }
 .limits p { color: var(--ink-2); }
 
+/* ── вопросы ──────────────────────────────────────────────
+   Тот же список, что и границы, только знак вопроса вместо тире:
+   раздел отвечает на то, с чем заказчик приходит заранее.
+   ─────────────────────────────────────────────────────── */
+.faq { display: grid; }
+@media (min-width: 62rem) { .faq { margin-left: 9%; } }
+.faq li {
+  position: relative;
+  display: grid;
+  gap: .35rem;
+  padding: clamp(1.1rem, .9rem + 1vw, 1.6rem) 0 clamp(1.1rem, .9rem + 1vw, 1.6rem) 2.1rem;
+  border-top: 1px solid var(--rule);
+  max-width: 70ch;
+}
+.faq li:first-child { border-top: 0; padding-top: 0; }
+.faq li::before {
+  content: "?";
+  position: absolute;
+  left: 0;
+  top: clamp(1.1rem, .9rem + 1vw, 1.6rem);
+  font-family: var(--f-mono);
+  color: var(--accent);
+}
+.faq li:first-child::before { top: .1rem; }
+.faq h3 { font-size: var(--step-1); }
+.faq p { color: var(--ink-2); }
+
 /* ── инструменты ──────────────────────────────────────────── */
 .stack__intro { color: var(--ink-2); max-width: 62ch; margin-bottom: 1.6rem; }
 .stack { display: grid; }
