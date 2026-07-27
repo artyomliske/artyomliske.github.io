@@ -62,6 +62,12 @@
       <span class="mark__glyph" aria-hidden="true"></span>
       <span class="mark__name">Артём Лиске</span>
     </a>
+    <nav class="nav" id="nav">
+      <a href="#services"><span lang="ru">Что делаю</span><span lang="en">What I do</span></a>
+      <a href="#cases"><span lang="ru">Кейсы</span><span lang="en">Work</span></a>
+      <a href="#process"><span lang="ru">Как работаю</span><span lang="en">How I work</span></a>
+      <a href="#limits"><span lang="ru">Границы</span><span lang="en">Limits</span></a>
+    </nav>
     <span class="topbar__now" id="topbar-now" aria-hidden="true"></span>
     <div class="controls">
       <button type="button" class="ctl" id="lang-toggle">
@@ -70,9 +76,18 @@
       <button type="button" class="ctl" id="theme-toggle">
         <span id="theme-label">Светлая</span><span class="vh" id="theme-hint"> тема</span>
       </button>
+      <a class="ctl ctl--cta" href="#contact"><span lang="ru">Обсудить</span><span lang="en">Let’s talk</span></a>
     </div>
   </div>
 </header>
+
+<!-- Полоса для телефона: страница длинная, и кнопка «написать» должна быть
+     под пальцем на любом её метре. Появляется, когда первый экран уехал,
+     и уходит, когда читатель и так дошёл до контактов. -->
+<div class="dock" id="dock">
+  <a class="dock__up" href="#top"><span class="vh"><span lang="ru">Наверх</span><span lang="en">Back to top</span></span><span aria-hidden="true">↑</span></a>
+  <a class="dock__cta" href="#contact"><span lang="ru">Обсудить задачу</span><span lang="en">Discuss a project</span></a>
+</div>
 
 <main id="top">
 
@@ -398,6 +413,12 @@ WHERE (status IN ('pending_payment', 'confirmed', 'in_progress'))</code></pre>
       <span lang="en">The code on the left is from the repository. On the right it runs: <code>occupied_interval</code> computes the bounds, the <code>EXCLUDE</code> constraint delivers the verdict.</span>
     </p>
   </div>
+
+  <a class="spread__next" href="#case-chcrm">
+    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
+    <span class="spread__next-v"><b>02</b> Chip House CRM</span>
+    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
+  </a>
 </article>
 
 <article class="spread spread--r pal-chcrm" id="case-chcrm" data-label-ru="Chip House CRM" data-label-en="Chip House CRM" data-no="02">
@@ -526,6 +547,12 @@ if (occ &amp;&amp; occ.size &lt; seatsPerTable &amp;&amp; occ.size &lt; bestCoun
       <span lang="en">This is the project’s own function, running here unmodified: every next player takes a seat at the least-occupied table.</span>
     </p>
   </div>
+
+  <a class="spread__next" href="#case-chclub">
+    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
+    <span class="spread__next-v"><b>03</b> Chip House Club</span>
+    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
+  </a>
 </article>
 
 <!-- ─────────────────────────────  ПРОЦЕСС  ───────────────────────────── -->
@@ -692,6 +719,12 @@ export function autoPoints(
       <span lang="en">The club’s whole formula: a bigger field weighs more, yet second place never catches first. The bars are points for places 1–12 at the chosen field size.</span>
     </p>
   </div>
+
+  <a class="spread__next" href="#case-theatre">
+    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
+    <span class="spread__next-v"><b>04</b> <span lang="ru">Рублёвские сказки</span><span lang="en">Rublyovskie Skazki</span></span>
+    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
+  </a>
 </article>
 
 <article class="spread spread--r pal-theatre" id="case-theatre" data-label-ru="Рублёвские сказки" data-label-en="Rublyovskie Skazki family theatre" data-no="04">
@@ -819,6 +852,12 @@ if (c &amp;&amp; !c.used &amp;&amp; certStatus(c) === 'active') {
       <span lang="en">The theatre’s rule: a certificate is redeemed once and in full, the remainder burns, and all of it is recorded — who redeemed it, against which order, and how much burned. A front-desk dispute closes in a minute.</span>
     </p>
   </div>
+
+  <a class="spread__next" href="#case-estimate">
+    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
+    <span class="spread__next-v"><b>05</b> <span lang="ru">Калькулятор смет</span><span lang="en">Estimate calculator</span></span>
+    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
+  </a>
 </article>
 
 <!-- ─────────────────────────────  ГРАНИЦЫ  ───────────────────────────── -->
@@ -989,6 +1028,12 @@ export function wallArea(a: WizardAnswers): number {
       <span lang="en">All plastering and painting in the estimate is derived from these square metres. The 50% floor guards against a guessed perimeter: the estimate cannot collapse to nothing if the manager miscounts openings.</span>
     </p>
   </div>
+
+  <a class="spread__next" href="#case-smm">
+    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
+    <span class="spread__next-v"><b>06</b> <span lang="ru">SMM-бот</span><span lang="en">SMM bot</span></span>
+    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
+  </a>
 </article>
 
 <article class="spread spread--text pal-smm" id="case-smm" data-label-ru="SMM-бот" data-label-en="SMM bot" data-no="06">
@@ -1055,6 +1100,12 @@ async def handle_approve(callback: CallbackQuery) -&gt; None:
       <span lang="en">On the right is the actual moderation message. Press “Approve”: the buttons are removed by the same code the bot runs — so one post can never be published twice.</span>
     </p>
   </div>
+
+  <a class="spread__next" href="#contact">
+    <span class="spread__next-k"><span lang="ru">Кейсы кончились</span><span lang="en">That was the last one</span></span>
+    <span class="spread__next-v"><b>07</b> <span lang="ru">Обсудить вашу задачу</span><span lang="en">Discuss your project</span></span>
+    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
+  </a>
 </article>
 
 <!-- ─────────────────────────────  СТЕК  ───────────────────────────── -->

@@ -19,13 +19,15 @@
       toLight: 'Светлая', toDark: 'Тёмная',
       themeHint: ' тема', langHint: ' — переключить язык',
       dialog: 'Экран проекта',
-      prevShot: 'Предыдущий экран', nextShot: 'Следующий экран', close: 'Закрыть'
+      prevShot: 'Предыдущий экран', nextShot: 'Следующий экран', close: 'Закрыть',
+      nav: 'Разделы страницы'
     },
     en: {
       toLight: 'Light', toDark: 'Dark',
       themeHint: ' theme', langHint: ' — switch language',
       dialog: 'Project screen',
-      prevShot: 'Previous screen', nextShot: 'Next screen', close: 'Close'
+      prevShot: 'Previous screen', nextShot: 'Next screen', close: 'Close',
+      nav: 'Page sections'
     }
   };
 
@@ -43,6 +45,9 @@
 
     var hint = document.getElementById('lang-hint');
     if (hint) hint.textContent = l.langHint;
+
+    var nav = document.getElementById('nav');
+    if (nav) nav.setAttribute('aria-label', l.nav);
 
     /* Кейсы, миниатюры: имена берём из тех же данных, что и видимые подписи. */
     Array.prototype.forEach.call(document.querySelectorAll('.spread[data-label-ru]'), function (el) {
@@ -166,6 +171,100 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     window.addEventListener('resize', onScroll);
     window.addEventListener('langchange', function () { apply(true); });
+    apply();
+  })();
+
+
+  /* ── где читатель сейчас ──────────────────────────────────
+     Разделы и кейсы идут вперемешку: текстовая полоса, два разворота,
+     снова полоса. Поэтому подсвечиваем не «ближайший заголовок», а тот
+     раздел, которому принадлежит кусок страницы под шапкой: все шесть
+     разворотов проекта записаны за пунктом «Кейсы».
+     ─────────────────────────────────────────────────────── */
+  (function () {
+    var nav = document.getElementById('nav');
+    var topbar = document.querySelector('.topbar');
+    if (!nav || !topbar) return;
+
+    var links = Array.prototype.slice.call(nav.querySelectorAll('a'));
+    var zones = [];
+
+    links.forEach(function (a) {
+      var id = a.getAttribute('href').slice(1);
+      var el = document.getElementById(id);
+      if (el) zones.push({ el: el, link: a });
+      /* развороты кейсов подсвечивают пункт «Кейсы» */
+      if (id === 'cases') {
+        Array.prototype.forEach.call(document.querySelectorAll('.spread[data-no]'), function (sp) {
+          zones.push({ el: sp, link: a });
+        });
+      }
+    });
+    if (!zones.length) return;
+
+    /* тот же порядок, что на странице — иначе первым совпадёт не ближайший */
+    zones.sort(function (x, y) {
+      return x.el.compareDocumentPosition(y.el) & Node.DOCUMENT_POSITION_FOLLOWING ? -1 : 1;
+    });
+
+    var active = null;
+
+    function mark() {
+      var pad = parseFloat(getComputedStyle(root).scrollPaddingTop) || 0;
+      var line = Math.max(topbar.offsetHeight, pad) + 8;
+      var hit = null;
+      for (var i = 0; i < zones.length; i++) {
+        var r = zones[i].el.getBoundingClientRect();
+        if (r.top <= line && r.bottom > line) { hit = zones[i].link; break; }
+      }
+      if (hit === active) return;
+      if (active) active.removeAttribute('aria-current');
+      if (hit) hit.setAttribute('aria-current', 'true');
+      active = hit;
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; mark(); });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    mark();
+  })();
+
+
+  /* ── нижняя полоса на телефоне ────────────────────────────
+     Появляется, когда первый экран с кнопками уехал вверх, и уходит,
+     когда контакты уже на экране: там та же кнопка, только крупнее.  */
+  (function () {
+    var dock = document.getElementById('dock');
+    var hero = document.querySelector('.hero');
+    var contact = document.getElementById('contact');
+    if (!dock || !hero || !contact) return;
+
+    var on = false;
+    var ticking = false;
+
+    function apply() {
+      var heroGone = hero.getBoundingClientRect().bottom < 0;
+      var atContact = contact.getBoundingClientRect().top < window.innerHeight;
+      var next = heroGone && !atContact;
+      if (next === on) return;
+      on = next;
+      dock.classList.toggle('is-on', on);
+    }
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () { ticking = false; apply(); });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
     apply();
   })();
 
