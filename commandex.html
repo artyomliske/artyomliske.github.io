@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Oswald:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/commandex.css?v=acd047f">
+  <link rel="stylesheet" href="assets/commandex.css?v=layout-qa-1">
 </head>
 <body>
   <a class="skip" href="#case"><span lang="ru">К содержанию</span><span lang="en">Skip to content</span></a>
@@ -75,7 +75,7 @@
       </div>
       <p class="architecture__lead" lang="ru">Каждый компонент решает одну понятную задачу: принять, сохранить, обработать, проверить или отправить. Поэтому новая интеграция не превращается в переписывание всей системы.</p>
       <p class="architecture__lead" lang="en">Each component solves one clear job: ingest, store, process, check or deliver. That is why a new integration does not force a rewrite of the whole system.</p>
-      <figure class="architecture__figure"><img src="assets/commandex-architecture.png" alt="Схема архитектуры Commandex Business Assistant"><figcaption><span lang="ru">Архитектура публичной portfolio-версии. В ней нет production-токенов, клиентских данных и внутренних учётных записей.</span><span lang="en">Architecture of the public portfolio edition. It contains no production tokens, client data or internal accounts.</span></figcaption></figure>
+      <figure class="architecture__figure"><div class="architecture__image-scroll"><img src="assets/commandex-architecture.png" alt="Схема архитектуры Commandex Business Assistant"></div><span class="architecture__scroll-hint"><span lang="ru">↔ Листайте схему</span><span lang="en">↔ Scroll the diagram</span></span><figcaption><span lang="ru">Архитектура публичной portfolio-версии. В ней нет production-токенов, клиентских данных и внутренних учётных записей.</span><span lang="en">Architecture of the public portfolio edition. It contains no production tokens, client data or internal accounts.</span></figcaption></figure>
       <div class="architecture__legend">
         <div><b>01</b><p><strong lang="ru">Ingestion</strong><strong lang="en">Ingestion</strong><span lang="ru">Аутентифицирует вебхуки, приводит входящие payload к общей модели и отсеивает дубликаты.</span><span lang="en">Authenticates webhooks, maps payloads to a shared model and filters duplicates.</span></p></div>
         <div><b>02</b><p><strong lang="ru">Agent pipeline</strong><strong lang="en">Agent pipeline</strong><span lang="ru">Извлекает факты, обновляет состояние предметной области и фиксирует намерение системы.</span><span lang="en">Extracts facts, updates domain state and records the system’s intent.</span></p></div>
