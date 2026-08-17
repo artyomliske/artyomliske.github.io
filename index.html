@@ -50,6 +50,7 @@
 }
 </script>
 <link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="assets/commercial.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230D1214'/%3E%3Crect%20x='4'%20y='9'%20width='13'%20height='5'%20fill='%2358A79C'/%3E%3Crect%20x='19'%20y='9'%20width='9'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='4'%20y='18'%20width='7'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='13'%20y='18'%20width='15'%20height='5'%20fill='%23E4A244'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -63,6 +64,7 @@
       <span class="mark__name">Артём Лиске</span>
     </a>
     <nav class="nav" id="nav">
+      <a href="#fit"><span lang="ru">Кому подойдёт</span><span lang="en">Who it is for</span></a>
       <a href="#services"><span lang="ru">Что делаю</span><span lang="en">What I do</span></a>
       <a href="#cases"><span lang="ru">Кейсы</span><span lang="en">Work</span></a>
       <a href="#process"><span lang="ru">Как работаю</span><span lang="en">How I work</span></a>
@@ -208,6 +210,31 @@
   </div>
 
 
+</section>
+
+<!-- ─────────────────────── КОМУ ПОДОЙДЁТ ─────────────────────── -->
+<section class="band commercial-fit" id="fit">
+  <div class="wrap">
+    <header class="shead">
+      <p class="shead__idx">00</p>
+      <h2 class="shead__title"><span lang="ru">Кому подойдёт</span><span lang="en">When it fits</span></h2>
+      <p class="shead__note"><span lang="ru">Не потому что «пора внедрять CRM», а потому что привычный способ работы уже тормозит бизнес</span><span lang="en">Not because “it is time for a CRM”, but because the current workflow is already slowing the business down</span></p>
+    </header>
+    <div class="fit-grid">
+      <div class="fit-grid__lead">
+        <p lang="ru">Свою систему имеет смысл собирать, когда процесс не влезает в готовую коробку и ручная сверка начинает стоить времени, денег или доверия клиентов.</p>
+        <p lang="en">A custom system makes sense when the process does not fit an off-the-shelf product and manual reconciliation starts costing time, money or client trust.</p>
+      </div>
+      <ol class="fit-list">
+        <li><b>01</b><span lang="ru">Заявки и записи теряются в чатах</span><span lang="en">Requests and bookings get lost in chats</span></li>
+        <li><b>02</b><span lang="ru">Сотрудники сводят таблицы вручную</span><span lang="en">Staff reconcile spreadsheets by hand</span></li>
+        <li><b>03</b><span lang="ru">Статусы, цены и договорённости меняются без истории</span><span lang="en">Statuses, prices and decisions change without a history</span></li>
+        <li><b>04</b><span lang="ru">Клиенты постоянно спрашивают одно и то же</span><span lang="en">Clients repeatedly ask the same questions</span></li>
+        <li><b>05</b><span lang="ru">Руководитель не видит картину по деньгам и загрузке</span><span lang="en">The owner cannot see money and workload in one picture</span></li>
+      </ol>
+    </div>
+    <p class="fit-honest"><span aria-hidden="true">✓</span><span lang="ru">Если задачу действительно закрывает готовый сервис или таблица, скажу об этом на первом разговоре.</span><span lang="en">If an off-the-shelf service or a spreadsheet genuinely solves the task, I will say so in the first call.</span></p>
+  </div>
 </section>
 
 <!-- ─────────────────────────────  УСЛУГИ  ───────────────────────────── -->
@@ -555,6 +582,22 @@ if (occ &amp;&amp; occ.size &lt; seatsPerTable &amp;&amp; occ.size &lt; bestCoun
     <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
   </a>
 </article>
+
+<!-- ─────────────────────── ПЕРВЫЙ ЭТАП ─────────────────────── -->
+<section class="commercial-stage" id="first-stage">
+  <div class="wrap commercial-stage__inner">
+    <div>
+      <p class="commercial-kicker"><span lang="ru">Первый этап</span><span lang="en">First stage</span></p>
+      <h2><span lang="ru">Не «разработка когда-нибудь».<br>Рабочая часть процесса.</span><span lang="en">Not “development someday”.<br>A working part of the process.</span></h2>
+      <p class="commercial-stage__lead"><span lang="ru">После разбора фиксируем первый контур: то, что можно открыть, отдать сотруднику и использовать в работе. Дальше система прирастает такими же этапами.</span><span lang="en">After mapping the workflow, we define the first usable boundary: something an employee can already open and use. The system grows in further stages from there.</span></p>
+    </div>
+    <ol class="stage-list">
+      <li><b>01</b><div><h3><span lang="ru">Разбираем процесс</span><span lang="en">Map the workflow</span></h3><p><span lang="ru">Показываете, где сейчас теряются время, деньги и ответственность.</span><span lang="en">You show where time, money and responsibility are currently lost.</span></p></div></li>
+      <li><b>02</b><div><h3><span lang="ru">Фиксируем первый контур</span><span lang="en">Define the first boundary</span></h3><p><span lang="ru">Записываем правила и границы первой работающей части.</span><span lang="en">We write down the rules and limits of the first usable part.</span></p></div></li>
+      <li><b>03</b><div><h3><span lang="ru">Открываем рабочий этап</span><span lang="en">Open a working stage</span></h3><p><span lang="ru">Это не макет: сотрудник может использовать результат в работе.</span><span lang="en">This is not a mock-up: an employee can use the result in their work.</span></p></div></li>
+    </ol>
+  </div>
+</section>
 
 <!-- ─────────────────────────────  ПРОЦЕСС  ───────────────────────────── -->
 <section class="band" id="process">
@@ -1209,6 +1252,19 @@ async def handle_approve(callback: CallbackQuery) -&gt; None:
         </div>
       </dl>
 
+      <aside class="brief-card">
+        <div class="brief-card__head"><span>BRIEF / 01</span><b><span lang="ru">входящий запрос</span><span lang="en">incoming request</span></b></div>
+        <p lang="ru">Не нужно заранее уметь писать ТЗ. В Telegram достаточно ответить в свободной форме на пять вопросов:</p>
+        <p lang="en">You do not need to know how to write a spec. In Telegram, answer these five questions in free form:</p>
+        <ol>
+          <li><span lang="ru">Чем занимается бизнес?</span><span lang="en">What does the business do?</span></li>
+          <li><span lang="ru">Где сейчас ведёте процесс?</span><span lang="en">Where is the process managed now?</span></li>
+          <li><span lang="ru">Что теряется или делается вручную?</span><span lang="en">What gets lost or handled manually?</span></li>
+          <li><span lang="ru">Что должно заработать первым?</span><span lang="en">What should work first?</span></li>
+          <li><span lang="ru">Есть ли желаемый срок?</span><span lang="en">Is there a desired deadline?</span></li>
+        </ol>
+      </aside>
+
       <!-- Заявка. Пока data-endpoint пуст, форма не показывается: адрес
            приёмника ставится один раз после того, как поднят tools/lead-proxy.
            Токен бота в статике не лежит и лежать не может. -->
@@ -1238,7 +1294,7 @@ async def handle_approve(callback: CallbackQuery) -&gt; None:
       </form>
 
       <div class="contact__cta">
-        <a class="btn btn--primary" href="https://t.me/artyomliske" rel="noopener">
+        <a class="btn btn--primary" href="https://t.me/artyomliske?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D1%80%D1%82%D1%91%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%B0." rel="noopener">
           <span lang="ru">Написать в Telegram</span><span lang="en">Message me on Telegram</span>
         </a>
         <a class="btn" href="tel:+79778317563">

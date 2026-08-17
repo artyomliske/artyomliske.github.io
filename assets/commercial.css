@@ -1,0 +1,23 @@
+/* Commercial addendum — preserves the existing editorial palette and theme variables. */
+.commercial-fit { position: relative; }
+.commercial-fit::after { content:""; position:absolute; left:max(1.5rem,calc((100% - 1120px)/2)); right:max(1.5rem,calc((100% - 1120px)/2)); bottom:0; height:1px; background:linear-gradient(90deg,var(--accent) 0 52px,var(--line) 52px); }
+.fit-grid { display:grid; grid-template-columns:minmax(0,.9fr) minmax(320px,1.1fr); gap:clamp(2rem,8vw,8rem); margin-top:2.5rem; }
+.fit-grid__lead { font-size:clamp(1.15rem,1.7vw,1.55rem); line-height:1.45; color:var(--ink-2); }
+.fit-list { list-style:none; padding:0; margin:0; border-top:1px solid var(--line); }
+.fit-list li { display:grid; grid-template-columns:2.8rem 1fr; gap:.5rem; align-items:center; padding:.9rem 0; border-bottom:1px solid var(--line); color:var(--ink); font-weight:500; }
+.fit-list b { font-family:"JetBrains Mono",monospace; font-size:.66rem; color:var(--accent); font-weight:500; }
+.fit-honest { max-width:48rem; margin:2.3rem 0 0; display:flex; gap:.7rem; align-items:flex-start; color:var(--ink-2); line-height:1.5; font-size:.91rem; }
+.fit-honest > span:first-child { color:var(--accent); font-family:"JetBrains Mono",monospace; }
+.commercial-stage { background:var(--ink); color:var(--bg); padding:clamp(4rem,9vw,8rem) 0; }
+.commercial-stage__inner { display:grid; grid-template-columns:minmax(0,.95fr) minmax(320px,1.05fr); gap:clamp(2rem,10vw,9rem); }
+.commercial-kicker { color:var(--tint); font:500 .69rem "JetBrains Mono",monospace; letter-spacing:.09em; text-transform:uppercase; }
+.commercial-stage h2 { margin:1.25rem 0 1.5rem; font-family:"Oswald",sans-serif; font-weight:500; font-size:clamp(2.5rem,5vw,5rem); line-height:.98; letter-spacing:-.03em; }
+.commercial-stage__lead { max-width:34rem; color:var(--ink-2); line-height:1.55; }
+.stage-list { list-style:none; margin:0; padding:0; border-top:1px solid color-mix(in srgb,var(--bg) 18%,transparent); }
+.stage-list li { display:grid; grid-template-columns:3rem 1fr; gap:1rem; padding:1.25rem 0; border-bottom:1px solid color-mix(in srgb,var(--bg) 18%,transparent); }
+.stage-list b { color:var(--tint); font:500 .7rem "JetBrains Mono",monospace; }
+.stage-list h3 { font-size:1rem; font-weight:500; color:var(--bg); }.stage-list p { margin-top:.3rem; color:var(--ink-2); font-size:.87rem; line-height:1.45; }
+.brief-card { margin:2.6rem 0; max-width:42rem; padding:1.3rem; border:1px solid var(--line); background:color-mix(in srgb,var(--surface) 74%,transparent); box-shadow:12px 14px 0 color-mix(in srgb,var(--accent-bg) 70%,transparent); transform:rotate(.35deg); }
+.brief-card__head { display:flex; justify-content:space-between; align-items:center; padding-bottom:.9rem; border-bottom:1px solid var(--line); color:var(--accent); font:500 .65rem "JetBrains Mono",monospace; letter-spacing:.08em; }.brief-card__head b{font:500 .65rem "JetBrains Mono",monospace;color:var(--ink-3)}
+.brief-card p { margin:1rem 0 .6rem; color:var(--ink-2); line-height:1.5; font-size:.92rem; }.brief-card ol { margin:0; padding:0; list-style-position:inside; color:var(--ink); font-size:.87rem; line-height:1.75; }
+@media(max-width:720px){.fit-grid,.commercial-stage__inner{grid-template-columns:1fr;gap:2rem}.commercial-stage{padding:4.5rem 0}.brief-card{box-shadow:7px 9px 0 color-mix(in srgb,var(--accent-bg) 70%,transparent)}.commercial-fit::after{left:1.25rem;right:1.25rem}.fit-list li{font-size:.91rem}}
