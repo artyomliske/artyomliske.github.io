@@ -11,8 +11,8 @@
 
   /* ── язык ─────────────────────────────────────────────── */
   var TITLES = {
-    ru: 'Артём Лиске — автоматизация бизнес-процессов',
-    en: 'Artyom Liske — business process automation'
+    ru: 'Артём Лиске — надёжные системы автоматизации',
+    en: 'Artyom Liske — reliable automation systems'
   };
   var LABELS = {
     ru: {
