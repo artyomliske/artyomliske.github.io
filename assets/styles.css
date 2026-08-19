@@ -1633,3 +1633,139 @@ a { color: inherit; }
 .latest-card--commandex{border-top:5px solid #5b6ff0}.latest-card--clipboard{border-top:5px solid #7c5cff}.latest-card--booking{border-top:5px solid #269b83}.latest-card--relayboard{border-top:5px solid #d56b36}.latest-card--apptimer{border-top:5px solid #3178c6}
 .latest-card__top{display:flex;justify-content:space-between;align-items:center;margin-bottom:2.5rem}.latest-card__year{font-variant-numeric:tabular-nums;opacity:.55}.latest-card h3{font-size:clamp(1.35rem,2vw,2rem);line-height:1.05;margin:0 0 1rem}.latest-card p{font-size:.98rem;line-height:1.55;margin:.35rem 0}.latest-card__stack{margin-top:auto;padding-top:1.5rem;font-size:.8rem;letter-spacing:.04em;text-transform:uppercase;opacity:.62}.latest-card__links{display:flex;flex-wrap:wrap;gap:.7rem 1.25rem;margin-top:1.3rem}.latest-card__links .latest-card__link{margin-top:0}.latest-card__link{display:inline-block;margin-top:1.3rem;color:inherit;font-weight:700;text-decoration:none;border-bottom:1px solid currentColor;width:max-content}.latest-card__link--subtle{font-weight:500;opacity:.72}.latest-card__link:hover{opacity:.65}
 @media (max-width:900px){.latest-grid{grid-template-columns:1fr}.latest-card{min-height:0}}
+
+/* ============================================================
+   B2B simplification — 2026
+   Main task: let business visitors understand the offer and the
+   case studies quickly. Product screenshots carry the colour;
+   the portfolio shell remains calm and consistent.
+   ============================================================ */
+
+:root {
+  --b2b-bg: #F5F4F0;
+  --b2b-surface: #FFFFFF;
+  --b2b-ink: #17201F;
+  --b2b-ink-muted: #5B6663;
+  --b2b-rule: #D9DDD7;
+  --b2b-accent: #176B5E;
+  --b2b-accent-bg: #DDEEE9;
+}
+
+.hero {
+  padding-bottom: clamp(3.5rem, 2.2rem + 4vw, 6rem);
+}
+
+.hero__title {
+  max-width: 12ch;
+  font-size: clamp(2.8rem, 6.4vw, 6.1rem);
+  line-height: .96;
+}
+
+.hero__body { max-width: 58ch; }
+.hero__body p { max-width: 56ch; }
+
+.facts {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--rule);
+}
+.facts li {
+  display: grid;
+  grid-template-columns: minmax(7.5rem, .75fr) minmax(0, 1.25fr);
+  gap: .75rem;
+  align-items: baseline;
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+.facts b {
+  font-family: var(--f-body);
+  font-size: var(--step-0);
+  letter-spacing: 0;
+  text-transform: none;
+}
+.facts li > span {
+  font-family: var(--f-body);
+  font-size: var(--step--1);
+  letter-spacing: 0;
+  line-height: 1.45;
+}
+@media (min-width: 60rem) {
+  .facts { display: block; }
+}
+
+/* Keep the portfolio chrome neutral. Individual systems retain their colour
+   inside real product screenshots rather than repainting a whole page section. */
+.spread {
+  --bg: var(--b2b-bg);
+  --bg-2: var(--b2b-bg);
+  --surface: var(--b2b-surface);
+  --ink: var(--b2b-ink);
+  --ink-2: var(--b2b-ink-muted);
+  --ink-3: #71807B;
+  --rule: var(--b2b-rule);
+  --rule-soft: #E8EBE7;
+  --accent: var(--b2b-accent);
+  --accent-bg: var(--b2b-accent-bg);
+  --tint: var(--b2b-accent);
+  --petrol: var(--b2b-accent);
+  --alert: #A64736;
+  --on-accent: #FFFFFF;
+  --graph: #89928E;
+  --shadow: 0 1px 0 rgba(23, 32, 31, .05);
+}
+
+:root[data-theme="dark"] .spread {
+  --bg: #101615;
+  --bg-2: #101615;
+  --surface: #17201F;
+  --ink: #F1F4F0;
+  --ink-2: #B4C0BA;
+  --ink-3: #91A09A;
+  --rule: #2D3A35;
+  --rule-soft: #202B27;
+  --accent: #6FC4B2;
+  --accent-bg: #163C35;
+  --tint: #6FC4B2;
+  --petrol: #6FC4B2;
+  --alert: #E58B77;
+  --on-accent: #101615;
+  --graph: #77867F;
+  --shadow: none;
+}
+
+/* The interactive code benches are useful in a technical review but make a
+   business-facing first pass unnecessarily long. The source remains in HTML. */
+.spread .lab { display: none; }
+
+.spread__title {
+  max-width: 17ch;
+  font-size: clamp(2rem, 1.35rem + 3vw, 4.3rem);
+}
+.spread__lead { gap: clamp(1.8rem, 1.3rem + 2vw, 3.25rem); }
+.case__prose { max-width: 60ch; }
+.spec { max-width: 62ch; }
+
+/* Reduce decorative visual density while retaining clear sections and a
+   visible contact route. */
+.shead::after { display: none; }
+.shead { padding-bottom: 1rem; border-bottom: 1px solid var(--rule); }
+.band { padding-block: clamp(3rem, 2rem + 3vw, 5rem); }
+.tag { border-radius: 0; }
+
+#stack, #limits { display: none; }
+
+@media (max-width: 40rem) {
+  .hero__title { font-size: clamp(2.65rem, 13vw, 4rem); }
+  .facts li { grid-template-columns: 1fr; gap: .15rem; }
+  .roster__head b { display: none; }
+  .spread__title { font-size: clamp(2rem, 10vw, 3rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
