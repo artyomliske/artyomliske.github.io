@@ -1,1400 +1,1115 @@
 <!doctype html>
-<html lang="ru" data-lang="ru">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Артём Лиске — системы автоматизации для бизнеса</title>
-<meta name="description" content="CRM, Telegram-боты, личные кабинеты и внутренние сервисы для бизнеса: от разбора процесса до запуска.">
-<meta name="color-scheme" content="dark light">
-<meta property="og:title" content="Артём Лиске — системы автоматизации для бизнеса">
-<meta property="og:description" content="CRM, Telegram-боты, личные кабинеты и внутренние сервисы: от разбора процесса до запуска.">
-<link rel="alternate" hreflang="ru" href="https://artyomliske.github.io/?lang=ru">
-<link rel="alternate" hreflang="en" href="https://artyomliske.github.io/?lang=en">
-<link rel="alternate" hreflang="x-default" href="https://artyomliske.github.io/">
+<title>Артём Лиске — системы для действующего бизнеса</title>
+<meta name="description" content="Семь обязательств, которые я беру на себя, когда берусь за дело. Системы для сети клубов, театра, студии и строительной компании — от правил до сервера и ночных бэкапов.">
+<meta name="color-scheme" content="light">
+<meta property="og:title" content="Артём Лиске — системы для действующего бизнеса">
+<meta property="og:description" content="Я отвечаю не за код. Я отвечаю за ваши вечера. Семь обязательств, каждое с делом, где оно работает.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:locale:alternate" content="en_US">
+<!-- Абсолютный адрес обязателен: мессенджеры не понимают относительных путей.
+     Поменяйте домен, если сайт встанет не на artyomliske.github.io -->
 <meta property="og:url" content="https://artyomliske.github.io/">
 <meta property="og:site_name" content="Артём Лиске">
-<meta property="og:image" content="https://artyomliske.github.io/assets/og.jpg">
+<meta property="og:image" content="https://artyomliske.github.io/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Перевожу процессы из блокнота в систему — CRM, Telegram-боты и личные кабинеты">
+<meta property="og:image:alt" content="Я отвечаю не за код. Я отвечаю за ваши вечера. Семь обязательств.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/Oswald-500-cyrillic.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="assets/fonts/GolosText-400-cyrillic.woff2">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfilePage",
-  "url": "https://artyomliske.github.io/",
-  "inLanguage": ["ru", "en"],
-  "mainEntity": {
-    "@type": "Person",
-    "name": "Артём Лиске",
-    "alternateName": "Artyom Liske",
-    "jobTitle": "Разработчик систем автоматизации бизнес-процессов",
-    "description": "Разработчик систем автоматизации для бизнеса: CRM, Telegram-боты, личные кабинеты и внутренние сервисы — от разбора процесса до запуска.",
-    "url": "https://artyomliske.github.io/",
-    "email": "artyomliske@gmail.com",
-    "telephone": "+79778317563",
-    "sameAs": ["https://t.me/artyomliske", "https://github.com/artyomliske"],
-    "knowsAbout": [
-      "Автоматизация бизнес-процессов",
-      "CRM",
-      "Telegram-боты",
-      "Python", "FastAPI", "PostgreSQL",
-      "TypeScript", "NestJS", "React"
-    ]
-  }
-}
-</script>
-<link rel="stylesheet" href="assets/styles.css">
-<link rel="stylesheet" href="assets/commercial.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230D1214'/%3E%3Crect%20x='4'%20y='9'%20width='13'%20height='5'%20fill='%2358A79C'/%3E%3Crect%20x='19'%20y='9'%20width='9'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='4'%20y='18'%20width='7'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='13'%20y='18'%20width='15'%20height='5'%20fill='%23E4A244'/%3E%3C/svg%3E">
+<link rel="canonical" href="https://artyomliske.github.io/">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/Cormorant-300-cyrillic.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/Manrope-400-cyrillic.woff2">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F6F3EE'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%238A6A24' text-anchor='middle'%3EА%3C/text%3E%3C/svg%3E">
 </head>
 <body>
 
-<a class="skip" href="#cases"><span lang="ru">К проектам</span><span lang="en">Skip to work</span></a>
+<a class="skip" href="#ob-01">К обязательствам</a>
+<div class="rails" aria-hidden="true"><i></i><i></i></div>
 
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <a class="mark" href="#top">
-      <span class="mark__glyph" aria-hidden="true"></span>
-      <span class="mark__name">Артём Лиске</span>
-    </a>
-    <nav class="nav" id="nav">
-      <a href="#fit"><span lang="ru">Когда нужна система</span><span lang="en">When a system helps</span></a>
-      <a href="#cases"><span lang="ru">Кейсы</span><span lang="en">Case studies</span></a>
-      <a href="#process"><span lang="ru">Как работаю</span><span lang="en">How I work</span></a>
-      <a href="#contact"><span lang="ru">Контакты</span><span lang="en">Contact</span></a>
-    </nav>
-    <span class="topbar__now" id="topbar-now" aria-hidden="true"></span>
-    <div class="controls">
-      <button type="button" class="ctl" id="lang-toggle">
-        <span class="ctl__on">RU</span><span class="ctl__sep">/</span><span class="ctl__off">EN</span><span class="vh" id="lang-hint"> — переключить язык</span>
-      </button>
-      <button type="button" class="ctl" id="theme-toggle">
-        <span id="theme-label">Светлая</span><span class="vh" id="theme-hint"> тема</span>
-      </button>
-      <a class="ctl ctl--cta" href="#contact"><span lang="ru">Обсудить</span><span lang="en">Let’s talk</span></a>
-    </div>
-  </div>
+<header class="top" id="top">
+  <p class="lab lab--ink">Артём Лиске</p>
+  <nav>
+    <a href="#glava-1" class="lab">Обязательства</a>
+    <a href="#dela" class="lab">Дела</a>
+    <a href="#kto" class="lab">Кто это делает</a>
+  </nav>
+  <a class="btn" href="https://t.me/artyomliske">Разобрать процесс</a>
 </header>
 
-<!-- Полоса для телефона: страница длинная, и кнопка «написать» должна быть
-     под пальцем на любом её метре. Появляется, когда первый экран уехал,
-     и уходит, когда читатель и так дошёл до контактов. -->
-<div class="dock" id="dock">
-  <a class="dock__up" href="#top"><span class="vh"><span lang="ru">Наверх</span><span lang="en">Back to top</span></span><span aria-hidden="true">↑</span></a>
-  <a class="dock__cta" href="#contact"><span lang="ru">Обсудить задачу</span><span lang="en">Discuss a project</span></a>
+<main>
+<section class="screen screen--hero"><section class="hero">
+  <div>
+    <p class="lab lab--a" style="padding-bottom:1.4rem">Семь обязательств</p>
+    <h1>Я отвечаю не&nbsp;за код.<br><span class="hero__accent">Я отвечаю за ваши вечера.</span></h1>
+  </div>
+  <div class="hero__two">
+    <p class="txt">Программу заказывают, чтобы турнир начался вовремя, смена сошлась без пересчётов, а спор с клиентом закончился фактами. Я собираю системы для клубов, сервисов и команд, где ошибка не должна становиться вашим вечерним звонком.</p>
+    <div class="hero__start">
+      <a class="btn" href="https://t.me/artyomliske">Разобрать ваш процесс</a>
+      <p class="hero__note">30–60 минут: поймём, нужна ли система, с чего начать и какой следующий шаг будет честным.</p>
+    </div>
+  </div>
+</section>
+</section>
+
+<section class="screen">
+<div class="chap rise" id="glava-1">
+  <div class="chap__in">
+    <p class="chap__n">01</p>
+    <h2 class="chap__t">Обязательства</h2>
+    <p class="chap__d">Семь вещей, которые я беру на себя. Листайте вбок.</p>
+  </div>
 </div>
 
-<main id="top">
-
-<!-- ─────────────────────────────  HERO  ───────────────────────────── -->
-<section class="hero">
-  <div class="wrap">
-    <p class="eyebrow">
-      <span lang="ru">Автоматизация процессов для бизнеса</span>
-      <span lang="en">Business process automation</span>
-    </p>
-
-    <h1 class="hero__title">
-      <span lang="ru">Собираю процессы<br>в рабочие системы</span>
-      <span lang="en">I turn workflows into<br>working systems</span>
-    </h1>
-
-    <div class="hero__foot">
-    <div class="hero__body">
-      <p lang="ru">Помогаю бизнесу собрать CRM, Telegram-бота, личный кабинет или внутренний сервис, когда заявки, записи, оплаты и статусы уже не помещаются в таблицах и чатах.</p>
-      <p lang="en">I help businesses build CRMs, Telegram bots, customer portals and internal tools when requests, bookings, payments and statuses no longer fit in spreadsheets and chats.</p>
-      <div class="hero__cta">
-        <a class="btn btn--primary" href="#cases"><span lang="ru">Смотреть кейсы</span><span lang="en">See the work</span></a>
-        <a class="btn" href="#contact"><span lang="ru">Обсудить задачу</span><span lang="en">Discuss a project</span></a>
-      </div>
-    </div>
-
-    <ul class="facts">
-      <li><b><span lang="ru">Записи</span><span lang="en">Bookings</span></b><span lang="ru">ресурсы, слоты, напоминания</span><span lang="en">resources, slots, reminders</span></li>
-      <li><b><span lang="ru">Процессы</span><span lang="en">Workflows</span></b><span lang="ru">статусы, роли, согласования</span><span lang="en">statuses, roles, approvals</span></li>
-      <li><b><span lang="ru">Деньги</span><span lang="en">Money</span></b><span lang="ru">оплаты, отчётность, история</span><span lang="en">payments, reporting, history</span></li>
-    </ul>
-    </div>
-  
-  <!-- реестр систем: он же оглавление колоды кейсов -->
-    <div class="roster">
-      <p class="roster__head">
-        <span lang="ru">Избранные кейсы</span><span lang="en">Selected case studies</span>
-        <span class="ticks" aria-hidden="true"></span>
-        <b><span lang="ru">6 систем для бизнеса</span><span lang="en">6 business systems</span></b>
-      </p>
-      <p class="roster__cols" aria-hidden="true">
-        <span>№</span>
-        <span lang="ru">Система</span><span lang="en">System</span>
-        <span lang="ru">Отрасль</span><span lang="en">Field</span>
-        <span lang="ru">Что собрано</span><span lang="en">What was built</span>
-        <span lang="ru">Год</span><span lang="en">Year</span>
-      </p>
-      <ol class="roster__list">
-        <li style="--case-dark:#E09140;--case-light:#90500F">
-          <a href="#case-studio" data-goto="0">
-            <span class="roster__n">01</span>
-            <span class="roster__name">StudioCRM</span>
-            <span class="roster__sub">
-              <span class="roster__field"><span lang="ru">Контент-студия</span><span lang="en">Content studio</span></span>
-              <span class="roster__kind"><span lang="ru">CRM + бот</span><span lang="en">CRM + bot</span></span>
-            </span>
-            <span class="roster__year">2026</span>
-          </a>
-        </li>
-        <li style="--case-dark:#E2AE62;--case-light:#7A1B2E">
-          <a href="#case-chcrm" data-goto="1">
-            <span class="roster__n">02</span>
-            <span class="roster__name">Chip House CRM</span>
-            <span class="roster__sub">
-              <span class="roster__field"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span></span>
-              <span class="roster__kind"><span lang="ru">CRM + табло</span><span lang="en">CRM + live display</span></span>
-            </span>
-            <span class="roster__year">2026</span>
-          </a>
-        </li>
-        <li style="--case-dark:#E9BA71;--case-light:#7D5A1C">
-          <a href="#case-chclub" data-goto="2">
-            <span class="roster__n">03</span>
-            <span class="roster__name">Chip House Club</span>
-            <span class="roster__sub">
-              <span class="roster__field"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span></span>
-              <span class="roster__kind"><span lang="ru">Приложение игрока</span><span lang="en">Player app</span></span>
-            </span>
-            <span class="roster__year">2026</span>
-          </a>
-        </li>
-        <li style="--case-dark:#D9B878;--case-light:#785C1A">
-          <a href="#case-theatre" data-goto="3">
-            <span class="roster__n">04</span>
-            <span class="roster__name"><span lang="ru">Рублёвские сказки</span><span lang="en">Rublyovskie Skazki</span></span>
-            <span class="roster__sub">
-              <span class="roster__field"><span lang="ru">Семейный театр</span><span lang="en">Family theatre</span></span>
-              <span class="roster__kind"><span lang="ru">Сайт + CRM</span><span lang="en">Site + CRM</span></span>
-            </span>
-            <span class="roster__year">2026</span>
-          </a>
-        </li>
-        <li style="--case-dark:#6D9BFF;--case-light:#1D4ED8">
-          <a href="#case-estimate" data-goto="4">
-            <span class="roster__n">05</span>
-            <span class="roster__name"><span lang="ru">Калькулятор смет</span><span lang="en">Estimate calculator</span></span>
-            <span class="roster__sub">
-              <span class="roster__field"><span lang="ru">Строительство</span><span lang="en">Construction</span></span>
-              <span class="roster__kind"><span lang="ru">Внутренний сервис</span><span lang="en">Internal tool</span></span>
-            </span>
-            <span class="roster__year">2026</span>
-          </a>
-        </li>
-        <li style="--case-dark:#4FC0F0;--case-light:#166693">
-          <a href="#case-smm" data-goto="5">
-            <span class="roster__n">06</span>
-            <span class="roster__name"><span lang="ru">SMM-бот</span><span lang="en">SMM bot</span></span>
-            <span class="roster__sub">
-              <span class="roster__field"><span lang="ru">Контент-маркетинг</span><span lang="en">Content marketing</span></span>
-              <span class="roster__kind">Telegram</span>
-            </span>
-            <span class="roster__year">2026</span>
-          </a>
-        </li>
-      </ol>
-    </div>
-  </div>
-
-
-</section>
-
-<!-- ─────────────────────── КОМУ ПОДОЙДЁТ ─────────────────────── -->
-<section class="band commercial-fit" id="fit">
-  <div class="wrap">
-    <header class="shead">
-      <p class="shead__idx">00</p>
-      <h2 class="shead__title"><span lang="ru">Кому подойдёт</span><span lang="en">When it fits</span></h2>
-      <p class="shead__note"><span lang="ru">Не потому что «пора внедрять CRM», а потому что привычный способ работы уже тормозит бизнес</span><span lang="en">Not because “it is time for a CRM”, but because the current workflow is already slowing the business down</span></p>
-    </header>
-    <div class="fit-grid">
-      <div class="fit-grid__lead">
-        <p lang="ru">Свою систему имеет смысл собирать, когда процесс не влезает в готовую коробку и ручная сверка начинает стоить времени, денег или доверия клиентов.</p>
-        <p lang="en">A custom system makes sense when the process does not fit an off-the-shelf product and manual reconciliation starts costing time, money or client trust.</p>
-      </div>
-      <ol class="fit-list">
-        <li><b>01</b><span lang="ru">Заявки и записи теряются в чатах</span><span lang="en">Requests and bookings get lost in chats</span></li>
-        <li><b>02</b><span lang="ru">Сотрудники сводят таблицы вручную</span><span lang="en">Staff reconcile spreadsheets by hand</span></li>
-        <li><b>03</b><span lang="ru">Статусы, цены и договорённости меняются без истории</span><span lang="en">Statuses, prices and decisions change without a history</span></li>
-        <li><b>04</b><span lang="ru">Клиенты постоянно спрашивают одно и то же</span><span lang="en">Clients repeatedly ask the same questions</span></li>
-        <li><b>05</b><span lang="ru">Руководитель не видит картину по деньгам и загрузке</span><span lang="en">The owner cannot see money and workload in one picture</span></li>
-      </ol>
-    </div>
-    <p class="fit-honest"><span aria-hidden="true">✓</span><span lang="ru">Если задачу действительно закрывает готовый сервис или таблица, скажу об этом на первом разговоре.</span><span lang="en">If an off-the-shelf service or a spreadsheet genuinely solves the task, I will say so in the first call.</span></p>
-  </div>
-</section>
-
-<!-- ─────────────────────────────  ПОСЛЕДНИЕ ПРОЕКТЫ  ───────────────────────────── -->
-<section class="band latest-projects" id="latest-projects" hidden>
-  <div class="wrap">
-    <header class="shead">
-      <p class="shead__idx">02</p>
-      <h2 class="shead__title"><span lang="ru">Последние проекты</span><span lang="en">Latest projects</span></h2>
-      <p class="shead__note"><span lang="ru">Свежие системы — от AI-оркестрации и надёжных интеграций до нативных утилит</span><span lang="en">Recent systems — from AI orchestration and reliable integrations to native utilities</span></p>
-    </header>
-    <div class="latest-grid">
-      <article class="latest-card latest-card--commandex">
-        <div class="latest-card__top"><span class="tag">AI / BACKEND</span><span class="latest-card__year">2026</span></div>
-        <h3>Commandex Business Assistant</h3>
-        <p lang="ru">Мультиагентный backend для операционных команд: вебхуки, нормализованные события, PostgreSQL, ARQ, политика исходящих сообщений и ручное согласование. Публичная версия обезличена, содержит synthetic demo и доступна для технического разбора.</p>
-        <p lang="en">Multi-agent backend for operations: webhooks, normalized events, PostgreSQL, ARQ, outbound policy and human review. The public edition is anonymized, includes a synthetic demo and is available for technical review.</p>
-        <div class="latest-card__stack">Python · FastAPI · PostgreSQL · Redis · LLM · Docker</div>
-        <div class="latest-card__links">
-          <a class="latest-card__link" href="commandex.html"><span lang="ru">Детальный кейс →</span><span lang="en">Detailed case →</span></a>
-          <a class="latest-card__link latest-card__link--subtle" href="https://github.com/artyomliske/CommadexBusinessAssistant" target="_blank" rel="noreferrer"><span lang="ru">Открыть GitHub ↗</span><span lang="en">Open GitHub ↗</span></a>
-        </div>
-      </article>
-      <article class="latest-card latest-card--clipboard">
-        <div class="latest-card__top"><span class="tag">NATIVE TOOL</span><span class="latest-card__year">2026</span></div>
-        <h3>ClipboardVault</h3>
-        <p lang="ru">Нативный macOS-менеджер буфера обмена на SwiftUI: быстрый поиск истории, приватное локальное хранение и аккуратная работа в фоне.</p>
-        <p lang="en">Native macOS clipboard manager built with SwiftUI: fast history search, privacy-first local storage and a quiet background workflow.</p>
-        <div class="latest-card__stack">Swift · SwiftUI · macOS · Local-first</div>
-        <div class="latest-card__links">
-          <a class="latest-card__link" href="https://artyomliske.github.io/ClipboardVault/" target="_blank" rel="noreferrer"><span lang="ru">Открыть сайт ↗</span><span lang="en">Open website ↗</span></a>
-          <a class="latest-card__link latest-card__link--subtle" href="https://github.com/artyomliske/ClipboardVault" target="_blank" rel="noreferrer"><span lang="ru">Открыть репозиторий ↗</span><span lang="en">Open repository ↗</span></a>
-        </div>
-      </article>
-      <article class="latest-card latest-card--booking">
-        <div class="latest-card__top"><span class="tag">RULES ENGINE</span><span class="latest-card__year">2026</span></div>
-        <h3>Booking Rules Demo</h3>
-        <p lang="ru">Production-style пример конфликтобезопасного бронирования ресурсов с FastAPI, PostgreSQL, Docker, тестами и CI.</p>
-        <p lang="en">A production-style example of conflict-safe resource booking with FastAPI, PostgreSQL, Docker, tests and CI.</p>
-        <div class="latest-card__stack">Python · FastAPI · PostgreSQL · Docker · CI</div>
-        <a class="latest-card__link" href="https://github.com/artyomliske/booking-rules-demo" target="_blank" rel="noreferrer"><span lang="ru">Открыть репозиторий →</span><span lang="en">Open repository →</span></a>
-      </article>
-      <article class="latest-card latest-card--relayboard">
-        <div class="latest-card__top"><span class="tag">INTEGRATION OPS</span><span class="latest-card__year">2026</span></div>
-        <h3>Relayboard</h3>
-        <p lang="ru">Операторский control plane для вебхуков: проверка подписей, идемпотентность, трассируемые состояния, согласование человеком, безопасный повтор и живая очередь событий.</p>
-        <p lang="en">An operator-grade webhook control plane with signature verification, idempotency, traceable states, human approval, protected replay and a live event inbox.</p>
-        <div class="latest-card__stack">TypeScript · React · Express · MySQL · SSE</div>
-        <div class="latest-card__links">
-          <a class="latest-card__link" href="https://artyomliske.github.io/relayboard/" target="_blank" rel="noreferrer"><span lang="ru">Открыть витрину ↗</span><span lang="en">Open showcase ↗</span></a>
-          <a class="latest-card__link latest-card__link--subtle" href="https://github.com/artyomliske/relayboard" target="_blank" rel="noreferrer"><span lang="ru">Открыть репозиторий ↗</span><span lang="en">Open repository ↗</span></a>
-        </div>
-      </article>
-      <article class="latest-card latest-card--apptimer">
-        <div class="latest-card__top"><span class="tag">NATIVE PRODUCT</span><span class="latest-card__year">2026</span></div>
-        <h3>AppTimer</h3>
-        <p lang="ru">Нативный local-first трекер времени для macOS: ручной учёт по нескольким проектам, отчёты, экспорт CSV, контроль бездействия и Focus Companion.</p>
-        <p lang="en">A local-first macOS time tracker with multi-project manual tracking, reporting, CSV export, idle controls and a Focus Companion.</p>
-        <div class="latest-card__stack">Swift · SwiftUI · SwiftData · macOS</div>
-        <div class="latest-card__links">
-          <a class="latest-card__link" href="https://github.com/artyomliske/AppTimer" target="_blank" rel="noreferrer"><span lang="ru">Открыть репозиторий →</span><span lang="en">Open repository →</span></a>
-          <a class="latest-card__link latest-card__link--subtle" href="https://github.com/artyomliske/AppTimer/raw/refs/heads/main/releases/AppTimer-1.3.1-arm64.dmg" target="_blank" rel="noreferrer"><span lang="ru">Скачать для Apple Silicon ↗</span><span lang="en">Download for Apple Silicon ↗</span></a>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-<!-- ─────────────────────────────  УСЛУГИ  ───────────────────────────── -->
-
-<section class="band" id="services">
-  <div class="wrap">
-    <header class="shead">
-      <p class="shead__idx">01</p>
-      <h2 class="shead__title">
-        <span lang="ru">Что я делаю</span><span lang="en">What I do</span>
-      </h2>
-      <p class="shead__note">
-        <span lang="ru">Пять направлений — но собираются они в одну систему под один процесс</span>
-        <span lang="en">Five directions — assembled into one system around one process</span>
-      </p>
-    </header>
+<div class="track-wrap rise">
+  <div class="track" tabindex="0" role="group" aria-label="Семь обязательств, листайте вбок">
+<section class="ob" id="ob-01">
+  <div class="ob__grid">
+    <div class="ob__head">
+    <div class="ob__no">01</div>
     <div>
-      <ul class="services">
-        <li class="services__lead">
-          <span class="tag">CRM</span>
-          <h3><span lang="ru">Система под ваш процесс</span><span lang="en">A system shaped to your process</span></h3>
-          <p lang="ru">Не коробка, которую придётся обходить, а маршрут вашей заявки: этапы, статусы, ответственные, сроки. Работает так, как у вас уже заведено, только без ручной сверки.</p>
-          <p lang="en">Not an off-the-shelf box you work around, but your own route for an order: stages, statuses, owners, deadlines. It matches how you already work — minus the manual reconciliation.</p>
-        </li>
-        <li>
-          <span class="tag">BOT</span>
-          <h3><span lang="ru">Telegram-боты для клиентов и сотрудников</span><span lang="en">Telegram bots for clients and staff</span></h3>
-          <p lang="ru">Запись, подтверждение, напоминания, приём заявок, модерация публикаций. Клиент делает всё в переписке, вы получаете готовую запись в системе.</p>
-          <p lang="en">Booking, confirmation, reminders, incoming requests, publication approval. The client does it all in chat; you get a finished record in the system.</p>
-        </li>
-        <li>
-          <span class="tag">PWA</span>
-          <h3><span lang="ru">Личные кабинеты и приложения</span><span lang="en">Customer portals and apps</span></h3>
-          <p lang="ru">Клиент сам видит свой статус, расписание, историю и документы — и перестаёт спрашивать «а когда?». Устанавливается на телефон как обычное приложение.</p>
-          <p lang="en">Clients see their own status, schedule, history and documents — and stop asking “when?”. Installs on a phone like a native app.</p>
-        </li>
-        <li>
-          <span class="tag"><span lang="ru">ДЕНЬГИ</span><span lang="en">MONEY</span></span>
-          <h3><span lang="ru">Деньги и отчётность</span><span lang="en">Money and reporting</span></h3>
-          <p lang="ru">Оплаты, долги, возвраты, смены и кассы, сводки за период. Каждое действие с деньгами записывается: кто, когда и что изменил — разбор спора занимает минуту.</p>
-          <p lang="en">Payments, debts, refunds, shifts and cash desks, period summaries. Every money action is logged — who changed what and when — so a dispute takes a minute to settle.</p>
-        </li>
-        <li>
-          <span class="tag"><span lang="ru">ЗАПУСК</span><span lang="en">LAUNCH</span></span>
-          <h3><span lang="ru">Запуск и сопровождение</span><span lang="en">Launch and support</span></h3>
-          <p lang="ru">Сервер, домен, перенос старых данных, резервные копии, обновления без простоя. Система не остаётся папкой с кодом — она работает.</p>
-          <p lang="en">Server, domain, migration of old data, backups, zero-downtime updates. The system does not stay a folder of code — it runs.</p>
-        </li>
-      </ul>
+      <h2>Двойной брони не&nbsp;будет. <em>Никогда</em></h2>
+      <p class="txt txt--l ob__sub">Даже если два администратора нажмут «занять» в одну и ту же секунду.</p>
     </div>
   </div>
+    <div class="ob__side"><div class="demo" data-demo="booking">
+    <div class="demo__head">
+      <p class="lab lab--a">Попробуйте</p>
+      <p class="demo__hint">Две кассы жмут на один и тот же слот, 19:00. Нажмите обе.</p>
+    </div>
+    <div class="demo__grid">
+      <div class="slot">
+        <p class="lab">Администратор в зале</p>
+        <div class="taps"><button class="tap" data-who="1" type="button">Занять 19:00</button></div>
+        <p class="slot__state"></p>
+      </div>
+      <div class="slot">
+        <p class="lab">Администратор на телефоне</p>
+        <div class="taps"><button class="tap" data-who="2" type="button">Занять 19:00</button></div>
+        <p class="slot__state"></p>
+      </div>
+    </div>
+    <button class="tap" data-reset type="button" hidden style="align-self:flex-start">Сбросить</button>
+  </div></div>
+  </div>
+  <p class="ob__where"><span class="lab">Работает в деле</span><span class="ob__where-n">Studio CRM</span></p>
 </section>
 
 
-<!-- ─────────────────────────────  КЕЙСЫ  ───────────────────────────── -->
-<section class="band" id="cases">
-  <div class="wrap">
-    <header class="shead">
-      <p class="shead__idx">02</p>
-      <h2 class="shead__title"><span lang="ru">Кейсы</span><span lang="en">Selected work</span></h2>
-      <p class="shead__note">
-        <span lang="ru">Реальные системы для записей, операций, клиентов, оплат и команды. Интерфейсы показаны на демонстрационных данных.</span>
-        <span lang="en">Real systems for bookings, operations, clients, payments and teams. Interfaces are shown with demonstration data.</span>
-      </p>
+<section class="ob" id="ob-02">
+  <div class="ob__grid">
+    <div class="ob__head">
+    <div class="ob__no">02</div>
+    <div>
+      <h2>Поднимете цены — <em>прошлое не переедет</em></h2>
+      <p class="txt txt--l ob__sub">Новый прайс действует с сегодня, а не задним числом по всей истории.</p>
+    </div>
+  </div>
+    <div class="ob__side"><div class="demo" data-demo="price">
+    <div class="demo__head">
+      <p class="lab lab--a">Попробуйте</p>
+      <p class="demo__hint">Подвиньте прайс — и посмотрите на заказ, который уже оформлен.</p>
+    </div>
+    <div class="demo__grid">
+      <div class="slot">
+        <p class="lab">Прайс на сегодня</p>
+        <input class="rng" type="range" min="3000" max="9000" step="500" value="4500" aria-label="Цена часа съёмки">
+        <p class="num num--a" data-now>4 500 ₽</p>
+      </div>
+      <div class="slot">
+        <p class="lab">Заказ, оформленный 12 июня</p>
+        <p class="num num--mute" data-old>4 500 ₽</p>
+      </div>
+    </div>
+    <p class="demo__note">Заказ записан снимком в момент брони. Новый прайс на него не действует — и не подействует никогда.</p>
+  </div></div>
+  </div>
+  <p class="ob__where"><span class="lab">Работает в деле</span><span class="ob__where-n">Studio CRM</span></p>
+</section>
+<section class="ob" id="ob-03">
+  <div class="ob__grid">
+    <div class="ob__head">
+    <div class="ob__no">03</div>
+    <div>
+      <h2>Нейросеть не напишет вашему клиенту <em>от вашего имени</em></h2>
+      <p class="txt txt--l ob__sub">Она готовит, вы одобряете. Без вашего нажатия наружу не уходит ничего.</p>
+    </div>
+  </div>
+    <div class="ob__side">
+      <div class="split">
+        <div class="split__col">
+          <p class="lab">Нейросеть может</p>
+          <ul class="split__list">
+            <li>разобрать переписку за день</li>
+            <li>извлечь факты, суммы и сроки</li>
+            <li>предложить черновик ответа</li>
+            <li>разложить документы по объектам</li>
+          </ul>
+        </div>
+        <div class="split__col split__col--no">
+          <p class="lab lab--a">И не может — никогда</p>
+          <ul class="split__list">
+            <li>написать вашему клиенту</li>
+            <li>подтвердить платёж</li>
+            <li>изменить запись в базе</li>
+            <li>отправить наружу хоть что-нибудь</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p class="ob__where"><span class="lab">Работает в деле</span><span class="ob__where-n">Commandex</span></p>
+</section>
+<section class="ob" id="ob-04">
+  <div class="ob__grid">
+    <div class="ob__head">
+    <div class="ob__no">04</div>
+    <div>
+      <h2>Правила вашего дела лежат отдельно <em>и проверяются</em></h2>
+      <p class="txt txt--l ob__sub">Начисления, скидки, рейтинг — в одном месте, а не по кнопкам интерфейса.</p>
+    </div>
+  </div>
+    <div class="ob__side"><div class="demo" data-demo="points">
+    <div class="demo__head">
+      <p class="lab lab--a">Правило клуба целиком</p>
+      <p class="demo__hint">Та же формула, по которой считает система: чем крупнее турнир, тем дороже место.</p>
+    </div>
+    <div class="demo__grid">
+      <div class="slot">
+        <p class="lab">Игроков в турнире — <span data-fieldn>48</span></p>
+        <input class="rng" type="range" min="8" max="160" step="4" value="48" data-field aria-label="Игроков в турнире">
+        <p class="lab">Очки за первое место</p>
+        <p class="num num--a" data-pts>69</p>
+      </div>
+      <div class="slot">
+        <p class="lab">Места с первого по двенадцатое</p>
+        <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        <p class="demo__hint">Второе место никогда не догонит первое — это в правиле, а не в настроении.</p>
+      </div>
+    </div>
+  </div></div>
+  </div>
+  <p class="ob__where"><span class="lab">Работает в деле</span><span class="ob__where-n">Chip House</span></p>
+</section>
+<section class="ob" id="ob-05">
+  <div class="ob__grid">
+    <div class="ob__head">
+    <div class="ob__no">05</div>
+    <div>
+      <h2>Вырастете — <em>переписывать не будем</em></h2>
+      <p class="txt txt--l ob__sub">Второй зал, второе направление, приложение для клиентов — на том же основании.</p>
+    </div>
+  </div>
+    <div class="ob__side">
+      <div class="chain">
+        <div class="chain__row">
+          <div class="chain__from"><p class="chain__n">Chip House CRM</p><p class="lab">июнь · система клуба</p></div>
+          <div class="chain__arw" aria-hidden="true"></div>
+          <div class="chain__to"><p class="chain__n">Приложение игрока</p><p class="lab">июль · двенадцать дней</p></div>
+        </div>
+        <div class="chain__row">
+          <div class="chain__from"><p class="chain__n">SMM-бот</p><p class="lab">один канал</p></div>
+          <div class="chain__arw" aria-hidden="true"></div>
+          <div class="chain__to"><p class="chain__n">SMM-платформа</p><p class="lab">много площадок</p></div>
+        </div>
+        <p class="chain__note">Оба раза основание не трогали: новая витрина подключилась к тем же правилам.</p>
+      </div>
+    </div>
+  </div>
+  <p class="ob__where"><span class="lab">Работает в деле</span><span class="ob__where-n">Chip House Club</span></p>
+</section>
+<section class="ob ob--night" id="ob-06">
+  <div class="ob__grid">
+    <div class="ob__head">
+    <div class="ob__no">06</div>
+    <div>
+      <h2>Упадёт ночью — <em>узнаю я, а не вы утром</em></h2>
+      <p class="txt txt--l ob__sub">Проверка каждые несколько минут, бэкап каждую ночь, тревога мне в Telegram.</p>
+    </div>
+  </div>
+    <div class="ob__side"><div class="demo" data-demo="night">
+    <div class="demo__head">
+      <p class="lab lab--a">Ночь с пятницы на субботу</p>
+      <p class="demo__hint">Так это выглядит с моей стороны.</p>
+    </div>
+    <div class="demo__grid">
+      <div class="night">
+        <p class="clock">02:58</p>
+        <p class="lab">Пока все спят</p>
+      </div>
+      <div class="log">
+        <p>healthcheck · система отвечает</p>
+        <p>backup-db.sh · копия базы снята</p>
+        <p class="hit">healthcheck · база не отвечает</p>
+        <p class="fix">тревога отправлена мне в Telegram</p>
+        <p>поднято · четыре минуты простоя, ночью, без ваших гостей</p>
+      </div>
+    </div>
+    <button class="tap" data-again type="button" hidden style="align-self:flex-start">Ещё раз</button>
+  </div></div>
+  </div>
+  <p class="ob__where"><span class="lab">Работает в деле</span><span class="ob__where-n">Chip House</span></p>
+</section>
+<section class="ob" id="ob-07">
+  <div class="ob__grid">
+    <div class="ob__head">
+    <div class="ob__no">07</div>
+    <div>
+      <h2>Спор с клиентом или партнёром <em>разберём по записям</em></h2>
+      <p class="txt txt--l ob__sub">Кто, что и когда поменял — записано и не стирается.</p>
+    </div>
+  </div>
+    <div class="ob__side">
+      <div class="ledger">
+        <p class="lab">Выписка из журнала</p>
+        <div class="ledger__rows">
+          <div class="ledger__r"><span>12.06 14:02</span><span>Анна К.</span><span>бронь создана</span><span></span></div>
+          <div class="ledger__r"><span>12.06 16:40</span><span>Олег П.</span><span>цена 4 500 &rarr; 3 800</span><span class="ledger__m">скидка</span></div>
+          <div class="ledger__r"><span>14.06 09:15</span><span>Анна К.</span><span>статус: отменена</span><span class="ledger__m">возврат 50%</span></div>
+          <div class="ledger__r"><span>14.06 09:15</span><span>система</span><span>предоплата удержана</span><span class="ledger__m">по правилу</span></div>
+        </div>
+        <p class="chain__note">Кто, что и когда — записано. Удаления записей в интерфейсе нет вообще.</p>
+      </div>
+    </div>
+  </div>
+  <p class="ob__where"><span class="lab">Работает в деле</span><span class="ob__where-n">Studio CRM</span></p>
+</section>
+  </div>
+  <div class="track__bar">
+    <p class="lab">Семь обязательств</p>
+    <div class="track__dots" role="tablist" aria-label="Обязательства">
+      <button class="track__dot" type="button" data-go="1" aria-label="Обязательство 01"></button>
+      <button class="track__dot" type="button" data-go="2" aria-label="Обязательство 02"></button>
+      <button class="track__dot" type="button" data-go="3" aria-label="Обязательство 03"></button>
+      <button class="track__dot" type="button" data-go="4" aria-label="Обязательство 04"></button>
+      <button class="track__dot" type="button" data-go="5" aria-label="Обязательство 05"></button>
+      <button class="track__dot" type="button" data-go="6" aria-label="Обязательство 06"></button>
+      <button class="track__dot" type="button" data-go="7" aria-label="Обязательство 07"></button>
+    </div>
+    <p class="track__count"><span data-cur>01</span> / 07</p>
+    <div class="track__nav">
+      <button class="track__arw" type="button" data-prev aria-label="Предыдущее">&#8592;</button>
+      <button class="track__arw" type="button" data-next aria-label="Следующее">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+</section>
+
+<section class="screen screen--tone">
+<div class="chap rise" id="proverka">
+  <div class="chap__in">
+    <p class="chap__n">02</p>
+    <h2 class="chap__t">Проверка</h2>
+    <p class="chap__d">Всё обещанное можно проверить самому.</p>
+  </div>
+</div>
+<section class="ob rise" id="proof">
+  <div class="proof">
+    <div>
+      <p class="lab" style="padding-bottom:1.1rem">Всё это можно проверить</p>
+
+    </div>
+    <div class="proof__list">
+      <div class="proof__row">
+        <p class="txt">Запрет двойной брони выложен публичным примером — поднимается у себя одной командой и не ломается.</p>
+        <p class="mono">docker compose up · booking-rules-demo</p>
+      </div>
+      <div class="proof__row">
+        <p class="txt">Правила клуба целиком — восемь файлов, 380 строк. Читаются за один присест.</p>
+        <p class="mono">packages/shared/domain</p>
+      </div>
+      <div class="proof__row">
+        <p class="txt">Мои приложения для Mac ставятся одной строкой: по ним видно, как я делаю, ещё до разговора.</p>
+        <p class="mono">brew install --cask apptimer</p>
+      </div>
+    </div>
+  </div>
+</section>
+</section>
+
+
+<section class="screen">
+<div class="chap rise" id="dela">
+  <div class="chap__in">
+    <p class="chap__n">03</p>
+    <h2 class="chap__t">Дела</h2>
+    <p class="chap__d">Тринадцать систем, где это работает сейчас.</p>
+  </div>
+</div>
+
+<section class="flagships rise" aria-labelledby="flagships-title">
+  <div class="flagships__intro">
+    <p class="lab lab--a">Начните с них</p>
+    <h3 id="flagships-title">Три истории, в которых видно, как я работаю</h3>
+  </div>
+  <div class="flagships__list">
+    <button class="flagship" type="button" data-open="ch">
+      <span class="flagship__n">01</span><span><strong>Chip House</strong><small>Правила клуба, два приложения и эксплуатация одной системы.</small><b class="flagship__fact">Боевой сервер с июня 2026</b></span>
+    </button>
+    <button class="flagship" type="button" data-open="st">
+      <span class="flagship__n">02</span><span><strong>Studio CRM</strong><small>Бронь, деньги и производство без ручных пересчётов.</small><b class="flagship__fact">265 автоматических проверок</b></span>
+    </button>
+    <button class="flagship" type="button" data-open="cx">
+      <span class="flagship__n">03</span><span><strong>Commandex</strong><small>ИИ готовит черновики, но решение и отправка остаются у человека.</small><b class="flagship__fact">754 успешно пройденных теста</b></span>
+    </button>
+  </div>
+</section>
+
+<div class="deals">
+  <div class="deals__track" tabindex="0" role="group" aria-label="Все дела, листайте вбок">
+    <button class="card" type="button" data-open="ch" style="--tone:#8C2138">
+      <span class="card__kind">Дело · сеть покерных клубов</span>
+      <span class="card__name">Chip House</span>
+      <span class="card__line">Турнир ведётся с планшета: регистрация, рассадка, вылеты, призовые. Табло в зале — экран системы.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="chc" style="--tone:#A83A52">
+      <span class="card__kind">Дело · приложение для игроков</span>
+      <span class="card__name">Chip House Club</span>
+      <span class="card__line">Рейтинг, трофеи и запись на турнир — на телефоне игрока, без магазинов приложений.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="st" style="--tone:#4D9D75">
+      <span class="card__kind">Дело · контент-студия</span>
+      <span class="card__name">Studio CRM</span>
+      <span class="card__line">Полный маршрут: бронь зала, оплата, съёмка, монтаж, выдача, деньги.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="cx" style="--tone:#4A5A72">
+      <span class="card__kind">Дело · операционный ассистент</span>
+      <span class="card__name">Commandex</span>
+      <span class="card__line">Сообщения и документы превращаются в записи и задачи. Наружу ничего не уходит без одобрения.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="th" style="--tone:#9A7C22">
+      <span class="card__kind">Дело · семейный театр</span>
+      <span class="card__name">Рублёвские сказки</span>
+      <span class="card__line">Афиша, билеты и сертификаты, касса от стойки и три кабинета с разными правами.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="es" style="--tone:#394174">
+      <span class="card__kind">Дело · строительство</span>
+      <span class="card__name">Калькулятор смет</span>
+      <span class="card__line">Смета за пять минут по опроснику вместо вечера в Excel, цены — из общего каталога.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="sp" style="--tone:#6B4A66">
+      <span class="card__kind">Дело · контент-маркетинг</span>
+      <span class="card__name">SMM-платформа</span>
+      <span class="card__line">Контент под несколько площадок, публикация по расписанию — после одобрения человеком.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="sb" style="--tone:#82462C">
+      <span class="card__kind">Дело · Telegram-канал</span>
+      <span class="card__name">SMM-бот</span>
+      <span class="card__line">Ежедневный пост готовится сам, владелец утверждает его одним нажатием.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="rb" style="--tone:#394B74">
+      <span class="card__kind">Открытый код</span>
+      <span class="card__name">Relayboard</span>
+      <span class="card__line">Панель управления обработкой событий: подписанный приём, повтор, согласования, журнал.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="bd" style="--tone:#2E6660">
+      <span class="card__kind">Открытый код</span>
+      <span class="card__name">booking-rules-demo</span>
+      <span class="card__line">Публичный пример запрета пересечений — поднимается у себя одной командой.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="at" style="--tone:#2D64BE">
+      <span class="card__kind">Собственный продукт</span>
+      <span class="card__name">AppTimer</span>
+      <span class="card__line">Учёт времени по проектам для Mac. Локально, без облака и телеметрии.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="cv" style="--tone:#4A6470">
+      <span class="card__kind">Собственный продукт</span>
+      <span class="card__name">ClipboardVault</span>
+      <span class="card__line">История буфера обмена для Mac: текст, изображения, поиск. Всё хранится локально.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <button class="card" type="button" data-open="hb" style="--tone:#7A6030">
+      <span class="card__kind">Собственный продукт</span>
+      <span class="card__name">homebrew-tap</span>
+      <span class="card__line">Свой канал доставки приложений: brew install --cask apptimer.</span>
+      <span class="card__more">Подробнее <i aria-hidden="true"></i></span>
+    </button>
+    <div class="card card--cta" style="--tone:#8A6A24">
+      <span class="card__kind">Следующее дело</span>
+      <span class="card__name" style="color:var(--accent)">Ваше</span>
+      <span class="card__line">30–60 минут о вашем процессе: поймём, нужна ли система, с чего начать и какой следующий шаг будет честным.</span>
+      <a class="card__more" href="https://t.me/artyomliske">Написать <i aria-hidden="true"></i></a>
+    </div>
+
+  </div>
+  <div class="deals__bar">
+    <p class="lab">Тринадцать систем</p>
+    <p class="gal__n"><span data-di>1</span> / 14</p>
+    <div class="gal__nav">
+      <button class="track__arw" type="button" data-dprev aria-label="Назад">&#8592;</button>
+      <button class="track__arw" type="button" data-dnext aria-label="Вперёд">&#8594;</button>
+    </div>
+  </div>
+</div>
+
+<dialog class="sheet" id="d-ch" aria-label="Chip House">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Сеть покерных клубов · на боевом сервере с июня 2026</p>
+      <h2>Chip House</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/chip-house-crm-case" target="_blank" rel="noopener noreferrer">Кейс на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
     </header>
-  </div>
-</section>
-
-<article class="spread spread--l pal-studio" id="case-studio" data-label-ru="StudioCRM" data-label-en="StudioCRM" data-no="01">
-  <header class="spread__head">
-    <span class="spread__no">01</span>
-    <span class="spread__label">StudioCRM</span>
-    <p class="spread__meta"><span lang="ru">Контент-студия</span><span lang="en">Content studio</span> · CRM + <span lang="ru">бот</span><span lang="en">bot</span> · 2026</p>
-  </header>
-  <h3 class="spread__title"><span lang="ru">Полный цикл студии: от брони до денег</span><span lang="en">The studio’s full cycle: from booking to money</span></h3>
-  <div class="spread__lead">
-  <div class="spread__media">
-  <div class="shots" data-gallery>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/studio-calendar.jpg"
-              data-ru="Неделя по залу: буферы штриховкой, статусы цветом" data-en="A week per room: buffers hatched, status by colour" data-title-ru="Календарь броней" data-title-en="Booking calendar">
-        <img src="assets/shots/studio-calendar-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Календарь броней</span><span lang="en">Booking calendar</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/studio-booking-card.jpg"
-              data-ru="Перенос, оплата, недоплата, причина отмены в аудит" data-en="Reschedule, payment, shortfall, cancellation reason logged" data-title-ru="Карточка брони" data-title-en="Booking card">
-        <img src="assets/shots/studio-booking-card-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Карточка брони</span><span lang="en">Booking card</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/studio-montage.jpg"
-              data-ru="Статусы роликов и счётчик правок сверх оплаченных" data-en="Clip statuses and a counter of revisions beyond the paid limit" data-title-ru="Монтажная доска" data-title-en="Editing board">
-        <img src="assets/shots/studio-montage-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Монтажная доска</span><span lang="en">Editing board</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/studio-finance.jpg"
-              data-ru="Месяц, доли партнёров, дебиторка с телефонами" data-en="The month, partner shares, receivables with phone numbers" data-title-ru="Финансы" data-title-en="Finance">
-        <img src="assets/shots/studio-finance-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Финансы</span><span lang="en">Finance</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/studio-public-booking.jpg"
-              data-ru="Полоса занятости дня и сетка свободных слотов" data-en="The day’s occupancy bar and a grid of free slots" data-title-ru="Страница брони" data-title-en="Public booking page">
-        <img src="assets/shots/studio-public-booking-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Страница брони</span><span lang="en">Public booking page</span></figcaption>
-    </figure>
-  </div>
-  <p class="shots__note">
-    <span lang="ru">Настоящие экраны системы, снятые на демонстрационных данных. Нажмите, чтобы открыть крупно.</span>
-    <span lang="en">Real screens from the system, captured on demo data. Click to open full size.</span>
-  </p>
-  </div>
-
-  <div class="spread__text">
-    <div class="case__prose">
-      <h4><span lang="ru">Было</span><span lang="en">Before</span></h4>
-      <p lang="ru">Брони жили в блокноте и таблице. Два клиента могли занять один зал; между «посмотрел, свободно» и «записал» проходили минуты. Прайс поднимали — и старые брони пересчитывались задним числом.</p>
-      <p lang="en">Bookings lived in a notebook and a spreadsheet. Two clients could take the same room; minutes passed between “looks free” and “written down”. Raise the price list and old bookings were silently repriced.</p>
-      <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
-      <p lang="ru">Один сервис ведёт весь маршрут: бронь → оплата → съёмка → монтаж → выдача → деньги. Пересечение броней отклоняет сама база — с учётом буферов на уборку. Цена и буферы фиксируются снимком в момент брони. Клиент бронирует в Telegram-боте и получает напоминания.</p>
-      <p lang="en">One service runs the whole route: booking → payment → shoot → editing → delivery → money. Overlaps are rejected by the database itself, cleanup buffers included. Price and buffers are snapshotted at booking time. Clients book in a Telegram bot and get reminders.</p>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/ch-1.webp" alt="Табло турнира на экране в зале: уровень блайндов и время" loading="lazy" decoding="async" width="1000" height="562"></button>
+          <figcaption class="lab gal__cap">ТВ-табло в зале &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/ch-2.webp" alt="Экран рассадки: столы, места, балансировка" loading="lazy" decoding="async" width="1000" height="794"></button>
+          <figcaption class="lab gal__cap">Рассадка за столами &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/ch-3.webp" alt="Сводка: турниры, игроки, оргвзносы" loading="lazy" decoding="async" width="742" height="1000"></button>
+          <figcaption class="lab gal__cap">Сводка по клубу &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/ch-4.webp" alt="Таблица рейтинга сезона" loading="lazy" decoding="async" width="1000" height="847"></button>
+          <figcaption class="lab gal__cap">Рейтинг сезона &middot; демонстрационные данные</figcaption>
+        </figure>
+      </div>
+      <div class="gal__bar">
+        <p class="gal__n"><span data-i>1</span> / 4</p>
+        <div class="gal__nav">
+          <button class="track__arw" type="button" data-gprev aria-label="Предыдущий кадр">&#8592;</button>
+          <button class="track__arw" type="button" data-gnext aria-label="Следующий кадр">&#8594;</button>
+        </div>
+      </div>
     </div>
-    <dl class="spec">
-      <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>Python · FastAPI · PostgreSQL · aiogram</dd></div>
-      <div><dt lang="ru">Объём</dt><dt lang="en">Size</dt><dd>8 600 <span lang="ru">строк кода</span><span lang="en">lines of code</span></dd></div>
-      <div><dt lang="ru">API</dt><dt lang="en">API</dt><dd>62 <span lang="ru">эндпоинта</span><span lang="en">endpoints</span></dd></div>
-      <div><dt lang="ru">Проверки</dt><dt lang="en">Checks</dt><dd>265 <span lang="ru">автотестов</span><span lang="en">automated tests</span></dd></div>
+    <div class="sheet__pair">
+      <div><p class="lab">Было</p><p class="txt">Рассадку по столам, подсчёт очков и рейтинг сезона вели вручную. Табло с уровнями блайндов — отдельный ноутбук и человек рядом с ним. Оргвзносы сходились в конце вечера, если сходились.</p></div>
+      <div><p class="lab">Стало</p><p class="txt">Турнир ведётся с планшета: регистрация, рассадка и балансировка столов, вылеты, призовые. Телевизоры в зале — отдельный экран системы, обновляется мгновенно. Очки и рейтинг считаются по правилам клуба.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Что было дальше</p>
+      <p class="sheet__then-t">Через три недели у клуба появилось второе приложение — для игроков. Оно читает ту же базу и считает очки тем же кодом. В правилах клуба не поменяли ни строки.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">TypeScript · NestJS · PostgreSQL · Socket.IO · React</dd></div>
+      <div><dt class="lab">Правила клуба</dt><dd class="txt">восемь файлов, 380 строк</dd></div>
+      <div><dt class="lab">Эксплуатация</dt><dd class="txt">ночные бэкапы, проверка живости, тревога в Telegram</dd></div>
+    </dl>
+    <div class="sheet__proof"><p class="lab">Что можно проверить</p><p class="txt">В публичном кейсе — единое состояние для оператора и табло, самостоятельные правила турнира и реальные интерфейсы на демонстрационных данных.</p></div>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-04" data-jump><span>04</span> Правила лежат отдельно</a><a href="#ob-05" data-jump><span>05</span> Вырастете — не перепишем</a><a href="#ob-06" data-jump><span>06</span> Упадёт ночью — узнаю я</a><a href="#ob-07" data-jump><span>07</span> Разберём по записям</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-chc" aria-label="Chip House Club">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Приложение игрока · собрано за двенадцать дней</p>
+      <h2>Chip House Club</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/chip-house-club-case" target="_blank" rel="noopener noreferrer">Кейс на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/chc-1.webp" alt="Главный экран приложения игрока" loading="lazy" decoding="async" width="461" height="1000"></button>
+          <figcaption class="lab gal__cap">Главная &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/chc-2.webp" alt="Рейтинг с подсветкой своей строки" loading="lazy" decoding="async" width="461" height="1000"></button>
+          <figcaption class="lab gal__cap">Рейтинг &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/chc-3.webp" alt="Экран трофеев игрока" loading="lazy" decoding="async" width="461" height="1000"></button>
+          <figcaption class="lab gal__cap">Трофеи &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/chc-4.webp" alt="Значки за достижения" loading="lazy" decoding="async" width="461" height="1000"></button>
+          <figcaption class="lab gal__cap">Значки за достижения &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/chc-5.webp" alt="Расписание турниров и запись" loading="lazy" decoding="async" width="461" height="1000"></button>
+          <figcaption class="lab gal__cap">Турниры &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/chc-6.webp" alt="Публичный профиль игрока" loading="lazy" decoding="async" width="461" height="1000"></button>
+          <figcaption class="lab gal__cap">Профиль &middot; демонстрационные данные</figcaption>
+        </figure>
+      </div>
+      <div class="gal__bar">
+        <p class="gal__n"><span data-i>1</span> / 6</p>
+        <div class="gal__nav">
+          <button class="track__arw" type="button" data-gprev aria-label="Предыдущий кадр">&#8592;</button>
+          <button class="track__arw" type="button" data-gnext aria-label="Следующий кадр">&#8594;</button>
+        </div>
+      </div>
+    </div>
+    <div class="sheet__pair">
+      <div><p class="lab">Задача</p><p class="txt">Дать игрокам то, за чем они писали администратору: место в рейтинге, трофеи, расписание и запись.</p></div>
+      <div><p class="lab">Решение</p><p class="txt">Ставится на телефон прямо с сайта. Рейтинг с подсветкой «это я», значки за достижения, публичный профиль, запись на турнир до старта.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Основание</p>
+      <p class="sheet__then-t">Та же база и те же правила, что у системы клуба. Расхождений между приложением и залом не бывает по построению.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">React · Vite · PWA</dd></div>
+      <div><dt class="lab">Срок</dt><dd class="txt">двенадцать дней от пустого репозитория</dd></div>
+      <div><dt class="lab">Основа</dt><dd class="txt">общая с системой клуба</dd></div>
+    </dl>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-05" data-jump><span>05</span> Вырастете — не перепишем</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-st" aria-label="Studio CRM">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Контент-студия · полный цикл, от брони до денег</p>
+      <h2>Studio CRM</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/studio-crm-case" target="_blank" rel="noopener noreferrer">Кейс на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/st-1.webp" alt="Календарь студии: залы и брони с буферами" loading="lazy" decoding="async" width="1000" height="694"></button>
+          <figcaption class="lab gal__cap">Календарь броней &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/st-2.webp" alt="Карточка брони: клиент, оплата, этапы" loading="lazy" decoding="async" width="1000" height="694"></button>
+          <figcaption class="lab gal__cap">Карточка брони &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/st-3.webp" alt="Доска монтажа: что снято, что в работе" loading="lazy" decoding="async" width="1000" height="569"></button>
+          <figcaption class="lab gal__cap">Монтажная доска &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/st-4.webp" alt="Финансовая сводка студии" loading="lazy" decoding="async" width="960" height="1000"></button>
+          <figcaption class="lab gal__cap">Финансы &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/st-5.webp" alt="Публичная страница брони" loading="lazy" decoding="async" width="1000" height="694"></button>
+          <figcaption class="lab gal__cap">Страница брони для клиента &middot; демонстрационные данные</figcaption>
+        </figure>
+      </div>
+      <div class="gal__bar">
+        <p class="gal__n"><span data-i>1</span> / 5</p>
+        <div class="gal__nav">
+          <button class="track__arw" type="button" data-gprev aria-label="Предыдущий кадр">&#8592;</button>
+          <button class="track__arw" type="button" data-gnext aria-label="Следующий кадр">&#8594;</button>
+        </div>
+      </div>
+    </div>
+    <div class="sheet__pair">
+      <div><p class="lab">Было</p><p class="txt">Брони жили в блокноте и таблице. Два клиента могли занять один зал. Прайс поднимали — и старые брони пересчитывались задним числом.</p></div>
+      <div><p class="lab">Стало</p><p class="txt">Один сервис ведёт весь маршрут. Пересечение броней отклоняет сама база — с учётом буферов на уборку. Цена фиксируется снимком в момент брони. Клиент бронирует в Telegram-боте и получает напоминания.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Что было дальше</p>
+      <p class="sheet__then-t">Прайс поднимали дважды за сезон — ни один прошлый заказ не пересчитался. Спорные отмены разбираются по журналу, а не по памяти.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">Python · FastAPI · PostgreSQL · aiogram</dd></div>
+      <div><dt class="lab">Проверки</dt><dd class="txt">265 автоматических</dd></div>
+      <div><dt class="lab">Открыто</dt><dd class="txt">правило брони выложено публичным примером</dd></div>
+    </dl>
+    <div class="sheet__proof"><p class="lab">Что можно проверить</p><p class="txt">Публичный кейс раскрывает защиту брони на уровне базы, хранение снимка цены и полный маршрут от заявки до финансовой сводки.</p></div>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-01" data-jump><span>01</span> Двойной брони не будет</a><a href="#ob-02" data-jump><span>02</span> Прошлое не переедет</a><a href="#ob-07" data-jump><span>07</span> Разберём по записям</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-cx" aria-label="Commandex">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Операционный ассистент · мессенджеры, документы, платежи</p>
+      <h2>Commandex</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/CommadexBusinessAssistant" target="_blank" rel="noopener noreferrer">Код на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="sheet__pair">
+      <div><p class="lab">Было</p><p class="txt">Договорённости и документы жили в переписке. Что обещано, что оплачено и что просрочено — сводили руками.</p></div>
+      <div><p class="lab">Стало</p><p class="txt">Сообщения из мессенджеров приводятся к единому виду, из них извлекаются факты, объекты, платежи и задачи. Нейросеть предлагает — человек утверждает.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Граница</p>
+      <p class="sheet__then-t">Нейросеть не может изменить состояние или написать живому человеку: очередь согласования, пауза диалога, защита первого контакта.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">Python · очереди · векторный поиск · языковая модель</dd></div>
+      <div><dt class="lab">Проверки</dt><dd class="txt">754 успешно пройденных теста</dd></div>
+      <div><dt class="lab">Открыто</dt><dd class="txt">портфолийная версия без клиентских данных</dd></div>
+    </dl>
+    <div class="sheet__proof"><p class="lab">Что можно проверить</p><p class="txt">В открытом коде видны политика исходящих сообщений, ручное согласование, дедупликация событий и полный набор тестов границ системы.</p></div>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-03" data-jump><span>03</span> Нейросеть не напишет клиенту</a><a href="#ob-07" data-jump><span>07</span> Разберём по записям</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-th" aria-label="Рублёвские сказки">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Семейный театр · сайт и внутренняя система</p>
+      <h2>Рублёвские сказки</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/rublevskie-skazki-case" target="_blank" rel="noopener noreferrer">Кейс на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/th-1.webp" alt="Главная страница театра" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Главная &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/th-2.webp" alt="Афиша спектаклей" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Афиша &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/th-3.webp" alt="Оформление билета" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Покупка билета &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/th-4.webp" alt="Касса администратора: продажа и погашение сертификата" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Касса от стойки &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/th-5.webp" alt="Кабинет руководителя: продажи и отчёты по сменам" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Кабинет руководителя &middot; демонстрационные данные</figcaption>
+        </figure>
+      </div>
+      <div class="gal__bar">
+        <p class="gal__n"><span data-i>1</span> / 5</p>
+        <div class="gal__nav">
+          <button class="track__arw" type="button" data-gprev aria-label="Предыдущий кадр">&#8592;</button>
+          <button class="track__arw" type="button" data-gnext aria-label="Следующий кадр">&#8594;</button>
+        </div>
+      </div>
+    </div>
+    <div class="sheet__pair">
+      <div><p class="lab">Было</p><p class="txt">Билеты и подарочные сертификаты продавали вручную, а сведение смен и выручки жило в переписке.</p></div>
+      <div><p class="lab">Стало</p><p class="txt">Публичный сайт с афишей и покупкой, кабинет клиента с его билетами, касса администратора с проверкой и погашением сертификата, кабинет руководителя с продажами и отчётами по сменам.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Граница</p>
+      <p class="sheet__then-t">Онлайн-оплата намеренно не входит в объём: способ оплаты фиксируется, деньги идут мимо сайта.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">Node.js · Express · PostgreSQL</dd></div>
+      <div><dt class="lab">Роли</dt><dd class="txt">клиент · администратор · руководитель</dd></div>
+      <div><dt class="lab">Состояние</dt><dd class="txt">кабинеты готовы, серверная часть в работе</dd></div>
+    </dl>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-02" data-jump><span>02</span> Прошлое не переедет</a><a href="#ob-07" data-jump><span>07</span> Разберём по записям</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-es" aria-label="Калькулятор смет">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Строительная компания · внутренний сервис</p>
+      <h2>Калькулятор смет</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/estimate-calculator-case" target="_blank" rel="noopener noreferrer">Кейс на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/es-1.webp" alt="Редактор сметы: разделы, позиции, итоги" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Редактор сметы &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/es-2.webp" alt="Опросник: тип объекта и площадь" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Опросник, шаг первый &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/es-3.webp" alt="Опросник: уровень отделки" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Опросник, шаг третий &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/es-4.webp" alt="Общий каталог работ и материалов" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Каталог работ &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/es-5.webp" alt="Аналитика по сметам" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Аналитика &middot; демонстрационные данные</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/es-6.webp" alt="Список смет" loading="lazy" decoding="async" width="1000" height="624"></button>
+          <figcaption class="lab gal__cap">Список смет &middot; демонстрационные данные</figcaption>
+        </figure>
+      </div>
+      <div class="gal__bar">
+        <p class="gal__n"><span data-i>1</span> / 6</p>
+        <div class="gal__nav">
+          <button class="track__arw" type="button" data-gprev aria-label="Предыдущий кадр">&#8592;</button>
+          <button class="track__arw" type="button" data-gnext aria-label="Следующий кадр">&#8594;</button>
+        </div>
+      </div>
+    </div>
+    <div class="sheet__pair">
+      <div><p class="lab">Было</p><p class="txt">Каждую смету собирали заново в Excel, цены брали из головы и старых файлов. У разных менеджеров выходили разные суммы за одинаковую работу.</p></div>
+      <div><p class="lab">Стало</p><p class="txt">Менеджер отвечает на короткий опросник — тип объекта, площадь, состояние, уровень отделки — и получает черновик сметы с объёмами и ценами из общего каталога.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Ещё</p>
+      <p class="sheet__then-t">Чужие сметы и прайсы подтягиваются импортом из Excel, PDF, Word и CSV. Выгрузка — в PDF и Excel.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">React · TypeScript · Express</dd></div>
+      <div><dt class="lab">Импорт</dt><dd class="txt">Excel · PDF · Word · CSV</dd></div>
+      <div><dt class="lab">Правила</dt><dd class="txt">объёмы и цены — в общем каталоге, а не у менеджера в голове</dd></div>
+    </dl>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-04" data-jump><span>04</span> Правила лежат отдельно</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-sp" aria-label="SMM-платформа">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Контент-маркетинг · развитие бота в платформу</p>
+      <h2>SMM-платформа</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/smm-platform-case" target="_blank" rel="noopener noreferrer">Кейс на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="sheet__pair">
+      <div><p class="lab">Было</p><p class="txt">Бот умел один канал и одну нишу. Расширять его значило копировать код.</p></div>
+      <div><p class="lab">Стало</p><p class="txt">Ядро генерации переехало в платформу и перестало зависеть от канала. Контент адаптируется под каждую площадку.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Граница</p>
+      <p class="sheet__then-t">Публикация — только после одобрения. Расписание готовит, человек выпускает.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">Python · планировщик · языковая модель</dd></div>
+      <div><dt class="lab">Выросло из</dt><dd class="txt">SMM-бота, без переписывания ядра</dd></div>
+    </dl>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-03" data-jump><span>03</span> Нейросеть не напишет клиенту</a><a href="#ob-05" data-jump><span>05</span> Вырастете — не перепишем</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-sb" aria-label="SMM-бот">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <p class="lab">Telegram-канал · ежедневный контент</p>
+      <h2>SMM-бот</h2>
+    </header>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/sb-1.webp" alt="Картинка к посту, сгенерированная ботом" loading="lazy" decoding="async" width="1000" height="1000"></button>
+          <figcaption class="lab gal__cap">Обложка поста &middot; сгенерировано ботом</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/sb-2.webp" alt="Другая сгенерированная обложка" loading="lazy" decoding="async" width="1000" height="1000"></button>
+          <figcaption class="lab gal__cap">Ещё вариант &middot; сгенерировано ботом</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/sb-3.webp" alt="Другая сгенерированная обложка" loading="lazy" decoding="async" width="1000" height="1000"></button>
+          <figcaption class="lab gal__cap">Ещё вариант &middot; сгенерировано ботом</figcaption>
+        </figure>
+      </div>
+      <div class="gal__bar">
+        <p class="gal__n"><span data-i>1</span> / 3</p>
+        <div class="gal__nav">
+          <button class="track__arw" type="button" data-gprev aria-label="Предыдущий кадр">&#8592;</button>
+          <button class="track__arw" type="button" data-gnext aria-label="Следующий кадр">&#8594;</button>
+        </div>
+      </div>
+    </div>
+    <div class="sheet__pair">
+      <div><p class="lab">Было</p><p class="txt">Пост писали руками или не писали вовсе.</p></div>
+      <div><p class="lab">Стало</p><p class="txt">Бот по расписанию готовит текст и картинку по каталогу товаров и присылает владельцу: одобрить, перегенерировать, поправить текст, заменить фото.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Участие</p>
+      <p class="sheet__then-t">Одно нажатие в сутки. Без него в канал не уходит ничего.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">Python · aiogram · планировщик</dd></div>
+      <div><dt class="lab">Цикл</dt><dd class="txt">подготовка → одобрение → публикация</dd></div>
+    </dl>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-03" data-jump><span>03</span> Нейросеть не напишет клиенту</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-rb" aria-label="Relayboard">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Открытый код · MIT</p>
+      <h2>Relayboard</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/relayboard" target="_blank" rel="noopener noreferrer">Код на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/rb-1.webp" alt="Панель Relayboard: входящие события и их состояния" loading="lazy" decoding="async" width="1000" height="918"></button>
+          <figcaption class="lab gal__cap">Панель событий &middot; открытый код</figcaption>
+        </figure>
+      </div>
+    </div>
+    <div class="sheet__pair">
+      <div><p class="lab">Что это</p><p class="txt">Панель, через которую видно каждое входящее событие и всю его судьбу: принято, проверено, обработано, повторено.</p></div>
+      <div><p class="lab">Зачем</p><p class="txt">Оператор получает последнее слово там, где процессу нужен человеческий разбор.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Открыто</p>
+      <p class="sheet__then-t">Читается целиком, без NDA и без клиентских данных.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">TypeScript · React · Express</dd></div>
+      <div><dt class="lab">Лицензия</dt><dd class="txt">MIT</dd></div>
+    </dl>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-03" data-jump><span>03</span> Нейросеть не напишет клиенту</a><a href="#ob-07" data-jump><span>07</span> Разберём по записям</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-bd" aria-label="booking-rules-demo">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Открытый код · публичный технический пример</p>
+      <h2>booking-rules-demo</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/booking-rules-demo" target="_blank" rel="noopener noreferrer">Код на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="sheet__pair">
+      <div><p class="lab">Что это</p><p class="txt">Небольшая служба бронирования, где запрет пересечений стоит ограничением базы данных.</p></div>
+      <div><p class="lab">Зачем</p><p class="txt">Чтобы обещание из первого пункта можно было проверить, а не принять на веру.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Как запустить</p>
+      <p class="sheet__then-t">Одна команда — и на вашем ноутбуке работает то же правило, что в студии.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">Python · FastAPI · PostgreSQL · Docker</dd></div>
+      <div><dt class="lab">Запуск</dt><dd class="txt">docker compose up</dd></div>
+    </dl>
+    <nav class="sheet__ob">
+      <p class="lab">Подтверждает обязательства</p>
+      <div class="sheet__ob-list"><a href="#ob-01" data-jump><span>01</span> Двойной брони не будет</a></div>
+    </nav>
+  </div>
+</dialog>
+<dialog class="sheet" id="d-at" aria-label="AppTimer">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Приложение для macOS · в строке меню</p>
+      <h2>AppTimer</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/AppTimer" target="_blank" rel="noopener noreferrer">Код на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
+    </header>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/at-1.webp" alt="AppTimer в строке меню macOS" loading="lazy" decoding="async" width="1000" height="562"></button>
+          <figcaption class="lab gal__cap">В строке меню &middot; моё приложение</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/at-2.webp" alt="Распределение времени по проектам за день" loading="lazy" decoding="async" width="1000" height="750"></button>
+          <figcaption class="lab gal__cap">Фокус на сегодня &middot; моё приложение</figcaption>
+        </figure>
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/at-3.webp" alt="Недельная сводка" loading="lazy" decoding="async" width="1000" height="750"></button>
+          <figcaption class="lab gal__cap">Неделя &middot; моё приложение</figcaption>
+        </figure>
+      </div>
+      <div class="gal__bar">
+        <p class="gal__n"><span data-i>1</span> / 3</p>
+        <div class="gal__nav">
+          <button class="track__arw" type="button" data-gprev aria-label="Предыдущий кадр">&#8592;</button>
+          <button class="track__arw" type="button" data-gnext aria-label="Следующий кадр">&#8594;</button>
+        </div>
+      </div>
+    </div>
+    <div class="sheet__pair">
+      <div><p class="lab">Правило</p><p class="txt">Приложение никогда не назначает проект само. Отсчёт начинается только после того, как вы выбрали проект руками.</p></div>
+      <div><p class="lab">Локально</p><p class="txt">Данные лежат на вашем Маке. Ни аккаунта, ни синхронизации, ни телеметрии.</p></div>
+    </div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Зачем оно здесь</p>
+      <p class="sheet__then-t">По нему видно, как я делаю, — ещё до разговора со мной.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">Swift · SwiftUI</dd></div>
+      <div><dt class="lab">Установка</dt><dd class="txt">brew install --cask apptimer</dd></div>
+      <div><dt class="lab">Цена</dt><dd class="txt">бесплатно</dd></div>
     </dl>
   </div>
-  </div>
-
-  <div class="lab" data-lab="booking">
-    <div class="lab__head">
-      <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
-      <span class="lab__src">app/domain/scheduling.py · migrations/0001_initial.py</span>
-    </div>
-    <div class="lab__grid">
-      <div class="lab__code">
-        <pre class="code" data-code="py"><code>def occupied_interval(
-    starts_at: datetime,
-    ends_at: datetime,
-    buffer_before_min: int,
-    buffer_after_min: int,
-) -&gt; Interval:
-    # Интервал, который бронь реально занимает с учётом буферов (правило 4.1).
-    # Именно по нему БД проверяет пересечения, а не по времени съёмки.
-    ensure_aware(starts_at, "starts_at")
-    ensure_aware(ends_at, "ends_at")
-    if ends_at &lt;= starts_at:
-  raise InvalidInterval("ends_at должен быть строго позже starts_at")
-    if buffer_before_min &lt; 0 or buffer_after_min &lt; 0:
-  raise InvalidInterval("Буферы не могут быть отрицательными")
-
-    return Interval(
-  start=starts_at - timedelta(minutes=buffer_before_min),
-  end=ends_at + timedelta(minutes=buffer_after_min),
-    )</code></pre>
-        <pre class="code" data-code="sql"><code>ALTER TABLE bookings ADD CONSTRAINT bookings_no_overlap_resource
-EXCLUDE USING gist (
-    resource_id WITH =,
-    tstzrange(slot_start, slot_end) WITH &amp;&amp;
-)
-WHERE (status IN ('pending_payment', 'confirmed', 'in_progress'))</code></pre>
-      </div>
-      <div class="stage">
-        <div class="stage__controls">
-          <label><span lang="ru">Начало</span><span lang="en">Start</span>
-            <select data-in="start">
-              <option value="10">10:00</option><option value="11">11:00</option>
-              <option value="12" selected>12:00</option><option value="13">13:00</option>
-              <option value="14">14:00</option><option value="15">15:00</option>
-              <option value="16">16:00</option><option value="17">17:00</option>
-              <option value="18">18:00</option><option value="19">19:00</option>
-            </select>
-          </label>
-          <label><span lang="ru">Часов</span><span lang="en">Hours</span>
-            <select data-in="dur">
-              <option>1</option><option selected>2</option><option>3</option><option>4</option>
-            </select>
-          </label>
-          <label><span lang="ru">Буфер, мин</span><span lang="en">Buffer, min</span>
-            <select data-in="buf">
-              <option value="0">0</option><option value="15">15</option>
-              <option value="30" selected>30</option><option value="60">60</option>
-            </select>
-          </label>
-          <button type="button" class="runbtn" data-run>
-            <span lang="ru">Забронировать</span><span lang="en">Book it</span>
-          </button>
-        </div>
-        <div class="stage__view" data-view></div>
-        <div class="stage__out" data-out role="status" aria-atomic="true"></div>
-      </div>
-    </div>
-    <p class="lab__note">
-      <span lang="ru">Слева — код из репозитория. Справа он же и работает: границы считает <code>occupied_interval</code>, вердикт выносит <code>EXCLUDE</code>-ограничение.</span>
-      <span lang="en">The code on the left is from the repository. On the right it runs: <code>occupied_interval</code> computes the bounds, the <code>EXCLUDE</code> constraint delivers the verdict.</span>
-    </p>
-  </div>
-
-  <a class="spread__next" href="#case-chcrm">
-    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
-    <span class="spread__next-v"><b>02</b> Chip House CRM</span>
-    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
-  </a>
-</article>
-
-<article class="spread spread--r pal-chcrm" id="case-chcrm" data-label-ru="Chip House CRM" data-label-en="Chip House CRM" data-no="02">
-  <header class="spread__head">
-    <span class="spread__no">02</span>
-    <span class="spread__label">Chip House CRM</span>
-    <p class="spread__meta"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span> · CRM + <span lang="ru">табло</span><span lang="en">live display</span> · 2026</p>
-  </header>
-  <h3 class="spread__title"><span lang="ru">Турнир, который ведёт себя сам</span><span lang="en">A tournament that runs itself</span></h3>
-  <div class="spread__lead">
-  <div class="spread__media">
-  <div class="shots" data-gallery>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/crm-display.jpg"
-              data-ru="Уровень, таймер, блайнды и статистика турнира" data-en="Level, timer, blinds and tournament stats" data-title-ru="ТВ-табло в зале" data-title-en="The room’s TV board">
-        <img src="assets/shots/crm-display-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">ТВ-табло в зале</span><span lang="en">The room’s TV board</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/crm-seating.jpg"
-              data-ru="Ре-энтри, аддон, пересадка и чек игрока" data-en="Re-entry, add-on, table change and the player’s tab" data-title-ru="Рассадка за столом" data-title-en="Table seating">
-        <img src="assets/shots/crm-seating-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Рассадка за столом</span><span lang="en">Table seating</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/crm-dashboard.jpg"
-              data-ru="Оборот, явка и кто прямо сейчас в игре" data-en="Turnover, attendance and who is playing right now" data-title-ru="Сводка по клубу" data-title-en="Club dashboard">
-        <img src="assets/shots/crm-dashboard-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Сводка по клубу</span><span lang="en">Club dashboard</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/crm-standings.jpg"
-              data-ru="Очки, турниры, победы и фильтр по сериям" data-en="Points, entries, wins and a filter by series" data-title-ru="Рейтинг сезона" data-title-en="Season standings">
-        <img src="assets/shots/crm-standings-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Рейтинг сезона</span><span lang="en">Season standings</span></figcaption>
-    </figure>
-  </div>
-  <p class="shots__note">
-    <span lang="ru">Настоящие экраны системы, снятые на демонстрационных данных. Нажмите, чтобы открыть крупно.</span>
-    <span lang="en">Real screens from the system, captured on demo data. Click to open full size.</span>
-  </p>
-  </div>
-
-  <div class="spread__text">
-    <div class="case__prose">
-      <h4><span lang="ru">Было</span><span lang="en">Before</span></h4>
-      <p lang="ru">Рассадку по столам, подсчёт очков и рейтинг вели вручную. Табло с уровнями блайндов — отдельный ноутбук и человек рядом с ним. Оргвзносы сходились в конце вечера, если сходились.</p>
-      <p lang="en">Seating, scoring and rankings were done by hand. The blind-level display meant a separate laptop and a person next to it. Fees added up at the end of the night — when they added up at all.</p>
-      <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
-      <p lang="ru">Турнир ведётся с планшета: регистрация, рассадка и балансировка столов, вылеты, призовые. Телевизоры в зале — отдельный экран системы, обновляется мгновенно. Очки, рейтинг сезона и взносы считаются по правилам клуба, вынесенным в отдельный проверяемый модуль.</p>
-      <p lang="en">The tournament is run from a tablet: registration, seating and table balancing, bust-outs, payouts. The TVs in the room are a dedicated system screen, updating instantly. Points, standings and fees follow the club’s own rules, isolated in a separately tested module.</p>
-    </div>
-    <dl class="spec">
-      <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>TypeScript · NestJS · React · PostgreSQL · Socket.IO</dd></div>
-      <div><dt lang="ru">Объём</dt><dt lang="en">Size</dt><dd>21 <span lang="ru">модуль бэкенда</span><span lang="en">backend modules</span></dd></div>
-      <div><dt lang="ru">База</dt><dt lang="en">Database</dt><dd>20 <span lang="ru">миграций</span><span lang="en">migrations</span></dd></div>
-      <div><dt lang="ru">Статус</dt><dt lang="en">Status</dt><dd lang="ru">работает на боевом сервере</dd><dd lang="en">running in production</dd></div>
-    </dl>
-  </div>
-  </div>
-
-  <div class="lab" data-lab="seating">
-    <div class="lab__head">
-      <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
-      <span class="lab__src">packages/shared/src/domain/seating.ts</span>
-    </div>
-    <div class="lab__grid">
-      <div class="lab__code">
-        <pre class="code" data-code="ts"><code>export function autoSeat(
-  tables: string[],
-  entries: AutoSeatEntry[],
-  seatsPerTable = SEATS_PER_TABLE,
-): SeatAssignment[] {
-  const occupancy = new Map&lt;string, Set&lt;number&gt;&gt;();
-  for (const t of tables) occupancy.set(t, new Set&lt;number&gt;());
-
-  for (const e of entries) {
-    if (e.status === "in" &amp;&amp; e.table &amp;&amp; e.seat != null) {
-occupancy.get(e.table)?.add(e.seat);
-    }
-  }
-
-  const assignments: SeatAssignment[] = [];
-  const unseated = entries.filter((e) =&gt; e.status === "in" &amp;&amp; !e.table);
-
-  for (const e of unseated) {
-    // каждый следующий садится за наименее занятый стол
-    let bestTable: string | null = null;
-    let bestCount = Infinity;
-    for (const t of tables) {
-const occ = occupancy.get(t);
-if (occ &amp;&amp; occ.size &lt; seatsPerTable &amp;&amp; occ.size &lt; bestCount) {
-  bestTable = t;
-  bestCount = occ.size;
-}
-    }
-    if (!bestTable) break; // свободных мест не осталось
-
-    const occ = occupancy.get(bestTable)!;
-    let seat = 1;
-    while (occ.has(seat)) seat++;
-    occ.add(seat);
-    assignments.push({ playerId: e.playerId, table: bestTable, seat });
-  }
-  return assignments;
-}</code></pre>
-      </div>
-      <div class="stage">
-        <div class="stage__controls">
-          <button type="button" class="runbtn" data-act="add">+ <span lang="ru">игрок</span><span lang="en">player</span></button>
-          <button type="button" class="runbtn" data-act="add10">+10</button>
-          <button type="button" class="runbtn" data-act="bust">— <span lang="ru">вылет</span><span lang="en">bust</span></button>
-          <button type="button" class="runbtn" data-act="table">+ <span lang="ru">стол</span><span lang="en">table</span></button>
-          <button type="button" class="runbtn" data-act="reset"><span lang="ru">Сброс</span><span lang="en">Reset</span></button>
-        </div>
-        <div class="stage__view" data-view></div>
-        <div class="stage__out" data-out role="status" aria-atomic="true"></div>
-      </div>
-    </div>
-    <p class="lab__note">
-      <span lang="ru">Это та самая функция из проекта — в браузере выполняется она сама, без упрощений: столы заполняются по наименее занятому.</span>
-      <span lang="en">This is the project’s own function, running here unmodified: every next player takes a seat at the least-occupied table.</span>
-    </p>
-  </div>
-
-  <a class="spread__next" href="#case-chclub">
-    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
-    <span class="spread__next-v"><b>03</b> Chip House Club</span>
-    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
-  </a>
-</article>
-
-<!-- ─────────────────────── ПЕРВЫЙ ЭТАП ─────────────────────── -->
-<section class="commercial-stage" id="first-stage">
-  <div class="wrap commercial-stage__inner">
-    <div>
-      <p class="commercial-kicker"><span lang="ru">Первый этап</span><span lang="en">First stage</span></p>
-      <h2><span lang="ru">Не «разработка когда-нибудь».<br>Рабочая часть процесса.</span><span lang="en">Not “development someday”.<br>A working part of the process.</span></h2>
-      <p class="commercial-stage__lead"><span lang="ru">После разбора фиксируем первый контур: то, что можно открыть, отдать сотруднику и использовать в работе. Дальше система прирастает такими же этапами.</span><span lang="en">After mapping the workflow, we define the first usable boundary: something an employee can already open and use. The system grows in further stages from there.</span></p>
-    </div>
-    <ol class="stage-list">
-      <li><b>01</b><div><h3><span lang="ru">Разбираем процесс</span><span lang="en">Map the workflow</span></h3><p><span lang="ru">Показываете, где сейчас теряются время, деньги и ответственность.</span><span lang="en">You show where time, money and responsibility are currently lost.</span></p></div></li>
-      <li><b>02</b><div><h3><span lang="ru">Фиксируем первый контур</span><span lang="en">Define the first boundary</span></h3><p><span lang="ru">Записываем правила и границы первой работающей части.</span><span lang="en">We write down the rules and limits of the first usable part.</span></p></div></li>
-      <li><b>03</b><div><h3><span lang="ru">Открываем рабочий этап</span><span lang="en">Open a working stage</span></h3><p><span lang="ru">Это не макет: сотрудник может использовать результат в работе.</span><span lang="en">This is not a mock-up: an employee can use the result in their work.</span></p></div></li>
-    </ol>
-  </div>
-</section>
-
-<!-- ─────────────────────────────  ПРОЦЕСС  ───────────────────────────── -->
-<section class="band" id="process">
-  <div class="wrap">
-    <header class="shead">
-      <p class="shead__idx">03</p>
-      <h2 class="shead__title"><span lang="ru">Как я работаю</span><span lang="en">How I work</span></h2>
-      <p class="shead__note">
-        <span lang="ru">Четыре шага — от разбора процесса до боевого сервера</span>
-        <span lang="en">Four steps — from mapping the process to the production server</span>
-      </p>
+</dialog>
+<dialog class="sheet" id="d-cv" aria-label="ClipboardVault">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Приложение для macOS · история буфера обмена</p>
+      <h2>ClipboardVault</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/ClipboardVault" target="_blank" rel="noopener noreferrer">Код на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
     </header>
-    <div>
-      <ol class="steps">
-        <li>
-          <h3><span lang="ru">Разбираем процесс и пишем ТЗ</span><span lang="en">We map the process and write the spec</span></h3>
-          <p lang="ru">До первой строчки кода на бумаге появляется, что система делает, чего она делать не будет и по каким правилам считает деньги. Это дешевле любой переделки.</p>
-          <p lang="en">Before the first line of code, it is written down what the system does, what it deliberately will not do, and by which rules it counts money. That is cheaper than any rework.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Собираем этапами</span><span lang="en">We build in stages</span></h3>
-          <p lang="ru">Каждый этап — работающая часть, которую можно открыть и потрогать, а не обещание к концу проекта. Приоритет у того, что снимает боль сегодня.</p>
-          <p lang="en">Each stage is a working piece you can open and use, not a promise for the end of the project. Whatever removes today’s pain goes first.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Правила защищаем проверками</span><span lang="en">Rules are protected by checks</span></h3>
-          <p lang="ru">Ключевые правила — занятость слота, расчёт цены, судьба предоплаты — закрыты автоматическими тестами, которые прогоняются на каждое изменение. «Вроде работает» заменяется на «проверено».</p>
-          <p lang="en">The critical rules — slot availability, price calculation, what happens to a deposit — are covered by automated tests that run on every change. “Seems to work” becomes “verified”.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Ставим в работу и остаёмся на связи</span><span lang="en">We go live and I stay reachable</span></h3>
-          <p lang="ru">Сервер, домен, перенос старых данных, обучение сотрудников. Дальше — доработки по мере того, как процесс меняется, потому что он меняется.</p>
-          <p lang="en">Server, domain, migration of old data, training the team. Then changes as the process evolves — because it will.</p>
-        </li>
-      </ol>
+    <div class="gal" data-gal>
+      <div class="gal__track" tabindex="0" role="group" aria-label="Кадры системы, листайте вбок">
+        <figure>
+          <button class="gal__zoom" type="button" aria-label="Открыть кадр во весь экран"><img src="shots/cv-1.webp" alt="История буфера обмена с поиском" loading="lazy" decoding="async" width="1000" height="979"></button>
+          <figcaption class="lab gal__cap">Окно истории &middot; моё приложение</figcaption>
+        </figure>
+      </div>
     </div>
-  </div>
-</section>
-
-
-
-<article class="spread spread--l pal-chclub" id="case-chclub" data-label-ru="Chip House Club" data-label-en="Chip House Club" data-no="03">
-  <header class="spread__head">
-    <span class="spread__no">03</span>
-    <span class="spread__label">Chip House Club</span>
-    <p class="spread__meta"><span lang="ru">Покерный клуб</span><span lang="en">Poker club</span> · PWA · 2026</p>
-  </header>
-  <h3 class="spread__title"><span lang="ru">Приложение игрока на общем движке клуба</span><span lang="en">A player app on the club’s own engine</span></h3>
-  <div class="spread__lead">
-  <div class="spread__media">
-  <div class="shots shots--phone" data-gallery>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/club-home.jpg"
-              data-ru="Что идёт прямо сейчас и место в сезоне" data-en="What is running right now and your season standing" data-title-ru="Главная" data-title-en="Home">
-        <img src="assets/shots/club-home-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Главная</span><span lang="en">Home</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/club-standings.jpg"
-              data-ru="Пьедестал и липкая плашка «ваше место»" data-en="The podium and a sticky “your place” bar" data-title-ru="Рейтинг" data-title-en="Standings">
-        <img src="assets/shots/club-standings-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Рейтинг</span><span lang="en">Standings</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/club-trophies.jpg"
-              data-ru="Серебро → Золото → Бриллиант → Аметист" data-en="Silver → Gold → Diamond → Amethyst" data-title-ru="Достижения" data-title-en="Achievements">
-        <img src="assets/shots/club-trophies-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Достижения</span><span lang="en">Achievements</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/club-trophies-badges.jpg"
-              data-ru="Полученные и закрытые, с условием получения" data-en="Earned and locked, each with its condition" data-title-ru="Значки" data-title-en="Badges">
-        <img src="assets/shots/club-trophies-badges-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Значки</span><span lang="en">Badges</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/club-tournaments.jpg"
-              data-ru="Запись до старта и отсчёт времени" data-en="Sign-up until start, with a countdown" data-title-ru="Турниры" data-title-en="Tournaments">
-        <img src="assets/shots/club-tournaments-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Турниры</span><span lang="en">Tournaments</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/club-profile.jpg"
-              data-ru="Уровень, стрик недель и статистика" data-en="Level, weekly streak and stats" data-title-ru="Профиль" data-title-en="Profile">
-        <img src="assets/shots/club-profile-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Профиль</span><span lang="en">Profile</span></figcaption>
-    </figure>
-  </div>
-  <p class="shots__note">
-    <span lang="ru">Настоящие экраны системы, снятые на демонстрационных данных. Нажмите, чтобы открыть крупно.</span>
-    <span lang="en">Real screens from the system, captured on demo data. Click to open full size.</span>
-  </p>
-  </div>
-
-  <div class="spread__text">
-    <div class="case__prose">
-      <h4><span lang="ru">Задача</span><span lang="en">Brief</span></h4>
-      <p lang="ru">Дать игрокам то, за чем они всё равно писали администратору: место в рейтинге, трофеи, расписание турниров и запись.</p>
-      <p lang="en">Give players what they messaged the admin for anyway: their standing, trophies, the tournament schedule and self-registration.</p>
-      <h4><span lang="ru">Решение</span><span lang="en">Solution</span></h4>
-      <p lang="ru">Приложение ставится на телефон с сайта, без магазинов приложений. Рейтинг с подсветкой «это я», значки за достижения, публичный профиль, запись на турнир до старта. Данные — из той же базы, что и CRM клуба.</p>
-      <p lang="en">Installs on a phone straight from the site, no app stores. Standings with a “this is me” highlight, achievement badges, a public profile, self-registration up to start time. It reads the same database as the club CRM.</p>
+    <div class="sheet__pair">
+      <div><p class="lab">Что делает</p><p class="txt">Хранит скопированный текст и изображения, включая снимки экрана, и возвращает их в буфер одним нажатием.</p></div>
+      <div><p class="lab">Приватность</p><p class="txt">Всё лежит локально. Сбор истории останавливается одной кнопкой в строке меню.</p></div>
     </div>
-    <dl class="spec">
-      <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>React · TypeScript · Vite · Tailwind · PWA</dd></div>
-      <div><dt lang="ru">Экраны</dt><dt lang="en">Screens</dt><dd>13</dd></div>
-      <div><dt lang="ru">Основа</dt><dt lang="en">Backend</dt><dd lang="ru">общая с CRM клуба</dd><dd lang="en">shared with the club CRM</dd></div>
+    <div class="sheet__then">
+      <p class="lab lab--a">Мелочи</p>
+      <p class="sheet__then-t">Избранное переживает очистку, одинаковое не дублируется, поиск по всей истории.</p>
+    </div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Стек</dt><dd class="txt">Swift · SwiftUI</dd></div>
+      <div><dt class="lab">Вызов</dt><dd class="txt">⌥⌘V</dd></div>
+      <div><dt class="lab">Установка</dt><dd class="txt">DMG с GitHub</dd></div>
     </dl>
   </div>
-  </div>
-
-  <div class="lab" data-lab="points">
-    <div class="lab__head">
-      <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
-      <span class="lab__src">packages/shared/src/domain/points.ts</span>
-    </div>
-    <div class="lab__grid">
-      <div class="lab__code">
-        <pre class="code" data-code="ts"><code>export const DEFAULT_BASE_POINTS = 10;
-
-/**
- * Очки за место по авто-формуле: base · √N / √place.
- * Награждает за крупные турниры и высокие места.
- */
-export function autoPoints(
-  place: number,
-  fieldSize: number,
-  base = DEFAULT_BASE_POINTS,
-): number {
-  const n = Math.max(1, Math.floor(Number(fieldSize) || 1));
-  const p = Math.max(1, Math.floor(Number(place) || 1));
-  const b = Number(base) || DEFAULT_BASE_POINTS;
-  return Math.round((b * Math.sqrt(n)) / Math.sqrt(p));
-}</code></pre>
-      </div>
-      <div class="stage">
-        <div class="stage__controls stage__controls--range">
-          <label><span lang="ru">Место</span><span lang="en">Place</span>
-            <input type="range" data-in="place" min="1" max="60" value="3">
-            <span class="outv" data-outv="place" aria-hidden="true">3</span>
-          </label>
-          <label><span lang="ru">Игроков</span><span lang="en">Field</span>
-            <input type="range" data-in="field" min="2" max="120" value="48">
-            <span class="outv" data-outv="field" aria-hidden="true">48</span>
-          </label>
-          <label><span lang="ru">База</span><span lang="en">Base</span>
-            <input type="range" data-in="base" min="5" max="30" value="10">
-            <span class="outv" data-outv="base" aria-hidden="true">10</span>
-          </label>
-        </div>
-        <div class="stage__view" data-view></div>
-        <div class="stage__out" data-out role="status" aria-atomic="true"></div>
-      </div>
-    </div>
-    <p class="lab__note">
-      <span lang="ru">Формула клуба целиком: крупный турнир весит больше, но второе место никогда не догонит первое. Столбики — очки за места с 1-го по 12-е при выбранном поле.</span>
-      <span lang="en">The club’s whole formula: a bigger field weighs more, yet second place never catches first. The bars are points for places 1–12 at the chosen field size.</span>
-    </p>
-  </div>
-
-  <a class="spread__next" href="#case-theatre">
-    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
-    <span class="spread__next-v"><b>04</b> <span lang="ru">Рублёвские сказки</span><span lang="en">Rublyovskie Skazki</span></span>
-    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
-  </a>
-</article>
-
-<article class="spread spread--r pal-theatre" id="case-theatre" data-label-ru="Рублёвские сказки" data-label-en="Rublyovskie Skazki family theatre" data-no="04">
-  <header class="spread__head">
-    <span class="spread__no">04</span>
-    <span class="spread__label"><span lang="ru">Рублёвские сказки</span><span lang="en">Rublyovskie Skazki</span></span>
-    <p class="spread__meta"><span lang="ru">Семейный театр</span><span lang="en">Family theatre</span> · <span lang="ru">сайт + CRM</span><span lang="en">site + CRM</span> · 2026</p>
-  </header>
-  <h3 class="spread__title"><span lang="ru">Билеты, сертификаты и три кабинета</span><span lang="en">Tickets, gift certificates and three back offices</span></h3>
-  <div class="spread__lead">
-  <div class="spread__media">
-  <div class="shots" data-gallery>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/theatre-home.jpg"
-              data-ru="Первый экран сайта театра" data-en="The theatre site’s opening screen" data-title-ru="Главная" data-title-en="Home">
-        <img src="assets/shots/theatre-home-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Главная</span><span lang="en">Home</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/theatre-afisha.jpg"
-              data-ru="Репертуар, возраст, длительность, сеансы" data-en="Repertoire, age rating, running time, showtimes" data-title-ru="Афиша" data-title-en="Programme">
-        <img src="assets/shots/theatre-afisha-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Афиша</span><span lang="en">Programme</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/theatre-booking.jpg"
-              data-ru="Карта зала: зоны, цены, занятые места" data-en="Seat map: zones, prices, taken seats" data-title-ru="Покупка билета" data-title-en="Ticket purchase">
-        <img src="assets/shots/theatre-booking-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Покупка билета</span><span lang="en">Ticket purchase</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/theatre-kassa.jpg"
-              data-ru="Открытая смена и продажа с места" data-en="An open shift and a sale from the desk" data-title-ru="Касса от стойки" data-title-en="Front-desk till">
-        <img src="assets/shots/theatre-kassa-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Касса от стойки</span><span lang="en">Front-desk till</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/theatre-admin.jpg"
-              data-ru="Все продажи в одной базе, отчёты, экспорт" data-en="Every sale in one base, reports, export" data-title-ru="Кабинет руководителя" data-title-en="Owner’s office">
-        <img src="assets/shots/theatre-admin-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Кабинет руководителя</span><span lang="en">Owner’s office</span></figcaption>
-    </figure>
-  </div>
-  <p class="shots__note">
-    <span lang="ru">Настоящие экраны системы, снятые на демонстрационных данных. Нажмите, чтобы открыть крупно.</span>
-    <span lang="en">Real screens from the system, captured on demo data. Click to open full size.</span>
-  </p>
-  </div>
-
-  <div class="spread__text">
-    <div class="case__prose">
-      <h4><span lang="ru">Задача</span><span lang="en">Brief</span></h4>
-      <p lang="ru">Театр продавал билеты и подарочные сертификаты вручную, а сведение смен и выручки жило в переписке.</p>
-      <p lang="en">The theatre sold tickets and gift certificates by hand, and reconciling shifts and revenue lived in chat threads.</p>
-      <h4><span lang="ru">Решение</span><span lang="en">Solution</span></h4>
-      <p lang="ru">Публичный сайт с афишей и оформлением заказа, кабинет клиента с его билетами и сертификатами, кабинет администратора — смены, продажи от стойки, проверка и погашение сертификата, — и кабинет руководителя: все продажи, клиентская база, аналитика, отчёты по сменам. Онлайн-оплата в объём намеренно не входит: способ оплаты фиксируется, деньги идут мимо сайта.</p>
-      <p lang="en">A public site with the programme and an order flow, a client account with their tickets and certificates, an admin office — shifts, front-desk sales, certificate validation and redemption — and an owner’s office: all sales, the customer base, analytics and shift reports. Online payment is deliberately out of scope: the method is recorded, the money goes around the site.</p>
-    </div>
-    <dl class="spec">
-      <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>Node.js · Express · PostgreSQL · Prisma</dd></div>
-      <div><dt lang="ru">Страницы</dt><dt lang="en">Pages</dt><dd>11</dd></div>
-      <div><dt lang="ru">Роли</dt><dt lang="en">Roles</dt><dd lang="ru">клиент · администратор · руководитель</dd><dd lang="en">client · admin · owner</dd></div>
-      <div><dt lang="ru">Статус</dt><dt lang="en">Status</dt><dd lang="ru">интерфейс всех кабинетов готов, серверная часть в работе</dd><dd lang="en">all three offices built; server side in progress</dd></div>
-    </dl>
-  </div>
-  </div>
-
-  <div class="lab" data-lab="cert">
-    <div class="lab__head">
-      <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
-      <span class="lab__src">public/assets/app.js</span>
-    </div>
-    <div class="lab__grid">
-      <div class="lab__code">
-        <pre class="code" data-code="js"><code>// active | used | expired
-function certStatus(c) {
-  if (!c) return 'invalid';
-  if (c.used) return 'used';
-  if (c.expiresAt &amp;&amp; new Date(c.expiresAt) &lt; new Date()) return 'expired';
-  return 'active';
-}
-
-// погашение — разовое, списание целиком, остаток сгорает
-if (c &amp;&amp; !c.used &amp;&amp; certStatus(c) === 'active') {
-  c.used = true; c.status = 'used';
-  c.usedAt = order.createdAt;
-  c.usedOrder = order.number;
-  c.orderTotal = payload.total;
-  c.burned = Math.max(0, c.nominal - payload.total); // сгоревший остаток
-  c.appliedBy = payload.cashier
-    ? ('Касса · ' + payload.cashier)
-    : payload.email;
-}</code></pre>
-      </div>
-      <div class="stage">
-        <div class="stage__controls">
-          <label><span lang="ru">Сертификат</span><span lang="en">Certificate</span>
-            <select data-in="cert">
-              <option value="0">RS-8KQP-4M2X</option>
-              <option value="1">RS-T3VN-9WQ7</option>
-              <option value="2">RS-Z5HD-2LP4</option>
-            </select>
-          </label>
-          <label><span lang="ru">Сумма заказа</span><span lang="en">Order total</span>
-            <select data-in="total">
-              <option value="2400">2 400 ₽</option>
-              <option value="4000" selected>4 000 ₽</option>
-              <option value="5600">5 600 ₽</option>
-            </select>
-          </label>
-          <button type="button" class="runbtn" data-run><span lang="ru">Погасить</span><span lang="en">Redeem</span></button>
-          <button type="button" class="runbtn" data-act="reset"><span lang="ru">Сброс</span><span lang="en">Reset</span></button>
-        </div>
-        <div class="stage__view" data-view></div>
-        <div class="stage__out" data-out role="status" aria-atomic="true"></div>
-      </div>
-    </div>
-    <p class="lab__note">
-      <span lang="ru">Правило театра: сертификат гасится один раз и целиком, остаток сгорает, и всё это фиксируется — кто погасил, каким заказом и сколько сгорело. Спор на стойке закрывается за минуту.</span>
-      <span lang="en">The theatre’s rule: a certificate is redeemed once and in full, the remainder burns, and all of it is recorded — who redeemed it, against which order, and how much burned. A front-desk dispute closes in a minute.</span>
-    </p>
-  </div>
-
-  <a class="spread__next" href="#case-estimate">
-    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
-    <span class="spread__next-v"><b>05</b> <span lang="ru">Калькулятор смет</span><span lang="en">Estimate calculator</span></span>
-    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
-  </a>
-</article>
-
-<!-- ─────────────────────────────  ГРАНИЦЫ  ───────────────────────────── -->
-<section class="band" id="limits">
-  <div class="wrap">
-    <header class="shead">
-      <p class="shead__idx">04</p>
-      <h2 class="shead__title"><span lang="ru">Чего я не делаю</span><span lang="en">What I don’t take on</span></h2>
-      <p class="shead__note">
-        <span lang="ru">Границы, о которых честнее договориться на первом разговоре</span>
-        <span lang="en">Boundaries it is fairer to agree on in the first conversation</span>
-      </p>
+</dialog>
+<dialog class="sheet" id="d-hb" aria-label="homebrew-tap">
+  <form method="dialog" class="sheet__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="sheet__in">
+    <header class="sheet__head">
+      <div class="sheet__head-l"><p class="lab">Инфраструктура · доставка собственных программ</p>
+      <h2>homebrew-tap</h2></div>
+      <a class="sheet__repo" href="https://github.com/artyomliske/homebrew-tap" target="_blank" rel="noopener noreferrer">Код на GitHub <svg viewBox="0 0 16 16" width="11" height="11" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M6 3h7v7"/><path d="M13 3 3.5 12.5"/></svg></a>
     </header>
-    <div>
-      <ul class="limits">
-        <li>
-          <h3><span lang="ru">Не берусь, если задачу закрывает готовая коробка</span><span lang="en">I pass when an off-the-shelf tool already solves it</span></h3>
-          <p lang="ru">Если процесс укладывается в готовую CRM или в таблицу — скажу это на первом разговоре. Своя система оправдана тогда, когда процесс не влезает в чужую логику, а не тогда, когда хочется своё.</p>
-          <p lang="en">If your process fits an existing CRM or even a spreadsheet, I will say so in the first conversation. A custom system earns its cost when the process does not fit someone else’s logic — not when custom simply sounds better.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Не переписываю большой чужой код с нуля</span><span lang="en">I don’t rewrite a large existing codebase from scratch</span></h3>
-          <p lang="ru">Могу встроиться рядом и забрать на себя часть процесса. А «перепишем всё за месяц» — обещание, которое почти никогда не сбывается, и я его не даю.</p>
-          <p lang="en">I can build alongside it and take over part of the process. “We’ll rewrite everything in a month” is a promise that almost never holds, so I don’t make it.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Не рисую макеты отдельно от разработки</span><span lang="en">I don’t deliver mock-ups detached from the build</span></h3>
-          <p lang="ru">Интерфейс собираю сразу в коде — его можно открыть и потрогать на своём телефоне, а не смотреть на картинку и додумывать, как это себя поведёт.</p>
-          <p lang="en">I build the interface directly in code — you can open it on your own phone instead of studying a picture and guessing how it would behave.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Не начинаю без письменного ТЗ</span><span lang="en">I don’t start without a written spec</span></h3>
-          <p lang="ru">Пока не записано, что система делает и чего она делать не будет, любая оценка сроков — выдумка. Это не бюрократия, а способ не платить дважды.</p>
-          <p lang="en">Until it is written down what the system does and what it deliberately will not do, any estimate is fiction. That is not bureaucracy — it is how you avoid paying twice.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Не занимаюсь трафиком и маркетингом</span><span lang="en">I don’t do marketing or lead generation</span></h3>
-          <p lang="ru">Собираю систему, которая держит процесс и деньги. Приводить клиентов и вести рекламу — не ко мне, и лучше вы услышите это сейчас, чем через месяц.</p>
-          <p lang="en">I build the system that holds your process and your money. Bringing in customers and running ads is someone else’s job — better you hear that now than a month in.</p>
-        </li>
-      </ul>
+    <div class="sheet__pair">
+      <div><p class="lab">Что это</p><p class="txt">Собственный репозиторий формул для Homebrew — стандартного способа ставить программы на Mac.</p></div>
+      <div><p class="lab">Зачем</p><p class="txt">Обновления приходят тем же путём, что и всё остальное на машине пользователя.</p></div>
     </div>
-  </div>
-</section>
-
-
-<article class="spread spread--l pal-estimate" id="case-estimate" data-label-ru="Калькулятор смет" data-label-en="Construction estimate calculator" data-no="05">
-  <header class="spread__head">
-    <span class="spread__no">05</span>
-    <span class="spread__label"><span lang="ru">Калькулятор смет</span><span lang="en">Estimate calculator</span></span>
-    <p class="spread__meta"><span lang="ru">Строительство</span><span lang="en">Construction</span> · <span lang="ru">внутренний сервис</span><span lang="en">internal tool</span> · 2026</p>
-  </header>
-  <h3 class="spread__title"><span lang="ru">Смета за пять минут вместо вечера в Excel</span><span lang="en">An estimate in five minutes instead of an evening in Excel</span></h3>
-  <div class="spread__lead">
-  <div class="spread__media">
-  <div class="shots" data-gallery>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/estimate-editor.jpg"
-              data-ru="Разделы, позиции, итоги и автосохранение" data-en="Sections, line items, totals and autosave" data-title-ru="Редактор сметы" data-title-en="Estimate editor">
-        <img src="assets/shots/estimate-editor-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Редактор сметы</span><span lang="en">Estimate editor</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/estimate-wizard-step1.jpg"
-              data-ru="Объект, площадь, проёмы — вычет считается сразу" data-en="Property, area, openings — the deduction is computed live" data-title-ru="Опросник · шаг 1" data-title-en="Questionnaire · step 1">
-        <img src="assets/shots/estimate-wizard-step1-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Опросник · шаг 1</span><span lang="en">Questionnaire · step 1</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/estimate-wizard-step3.jpg"
-              data-ru="Состав работ одним экраном" data-en="The scope of work on a single screen" data-title-ru="Опросник · шаг 3" data-title-en="Questionnaire · step 3">
-        <img src="assets/shots/estimate-wizard-step3-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Опросник · шаг 3</span><span lang="en">Questionnaire · step 3</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/estimate-catalog.jpg"
-              data-ru="Импорт прайсов из Excel, CSV, Word и PDF" data-en="Price lists imported from Excel, CSV, Word and PDF" data-title-ru="Каталог работ" data-title-en="Work catalogue">
-        <img src="assets/shots/estimate-catalog-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Каталог работ</span><span lang="en">Work catalogue</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/estimate-analytics.jpg"
-              data-ru="Клиенты, месяцы и самые частые работы" data-en="Clients, months and the most frequent jobs" data-title-ru="Аналитика" data-title-en="Analytics">
-        <img src="assets/shots/estimate-analytics-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Аналитика</span><span lang="en">Analytics</span></figcaption>
-    </figure>
-    <figure class="shot">
-      <button type="button" class="shot__btn" data-full="assets/shots/estimate-list.jpg"
-              data-ru="Все сметы с заказчиком, адресом и суммой" data-en="Every estimate with client, address and total" data-title-ru="Список смет" data-title-en="Estimate list">
-        <img src="assets/shots/estimate-list-t.jpg" alt="" loading="lazy" decoding="async">
-      </button>
-      <figcaption><span lang="ru">Список смет</span><span lang="en">Estimate list</span></figcaption>
-    </figure>
-  </div>
-  <p class="shots__note">
-    <span lang="ru">Настоящие экраны системы, снятые на демонстрационных данных. Нажмите, чтобы открыть крупно.</span>
-    <span lang="en">Real screens from the system, captured on demo data. Click to open full size.</span>
-  </p>
-  </div>
-
-  <div class="spread__text">
-    <div class="case__prose">
-      <h4><span lang="ru">Было</span><span lang="en">Before</span></h4>
-      <p lang="ru">Каждую смету собирали заново в Excel, цены брали из головы и старых файлов, у разных менеджеров получались разные суммы за одну и ту же работу.</p>
-      <p lang="en">Every estimate was rebuilt from scratch in Excel, prices came from memory and old files, and two managers quoted different totals for identical work.</p>
-      <h4><span lang="ru">Стало</span><span lang="en">After</span></h4>
-      <p lang="ru">Менеджер отвечает на короткий опросник — тип объекта, площадь, состояние, уровень отделки — и получает черновик сметы с объёмами и ценами из общего каталога. Чужие сметы и прайсы подтягиваются импортом из Excel, PDF, Word и CSV.</p>
-      <p lang="en">The manager answers a short questionnaire — property type, area, condition, finish level — and gets a draft estimate with quantities and prices from the shared catalogue. Third-party estimates and price lists are pulled in from Excel, PDF, Word and CSV.</p>
+    <div class="sheet__then">
+      <p class="lab lab--a">Что это говорит</p>
+      <p class="sheet__then-t">Я довожу работу до доставки, а не до архива с файлом.</p>
     </div>
-    <dl class="spec">
-      <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>React · TypeScript · Express</dd></div>
-      <div><dt lang="ru">Импорт</dt><dt lang="en">Import</dt><dd>Excel · PDF · Word · CSV</dd></div>
-      <div><dt lang="ru">Экспорт</dt><dt lang="en">Export</dt><dd>PDF · Excel</dd></div>
+    <dl class="sheet__spec">
+      <div><dt class="lab">Установка</dt><dd class="txt">brew tap artyomliske/tap</dd></div>
+      <div><dt class="lab">Затем</dt><dd class="txt">brew install --cask apptimer</dd></div>
     </dl>
   </div>
-  </div>
-
-  <div class="lab" data-lab="wall">
-    <div class="lab__head">
-      <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
-      <span class="lab__src">client/src/types/wizard.ts</span>
-    </div>
-    <div class="lab__grid">
-      <div class="lab__code">
-        <pre class="code" data-code="ts"><code>/** Площадь проёмов (окна + двери), м² */
-function openingsArea(a: WizardAnswers): number {
-  return (a.windows || 0) * 1.8 + (a.doorways || 0) * 2.0;
-}
-
-/** Чистая площадь стен за вычетом проёмов
- *  (не опускается ниже 50% от валовой) */
-export function wallArea(a: WizardAnswers): number {
-  const gross = a.perimeter * a.ceilingHeight;
-  const net = gross - openingsArea(a);
-  return Math.max(net, gross * 0.5);
-}</code></pre>
-      </div>
-      <div class="stage">
-        <div class="stage__controls stage__controls--range">
-          <label><span lang="ru">Периметр, м</span><span lang="en">Perimeter, m</span>
-            <input type="range" data-in="perimeter" min="10" max="80" value="28">
-            <span class="outv" data-outv="perimeter" aria-hidden="true">28</span>
-          </label>
-          <label><span lang="ru">Потолок, м</span><span lang="en">Ceiling, m</span>
-            <input type="range" data-in="height" min="20" max="45" value="27">
-            <span class="outv" data-outv="height" aria-hidden="true">2.7</span>
-          </label>
-          <label><span lang="ru">Окон</span><span lang="en">Windows</span>
-            <input type="range" data-in="windows" min="0" max="12" value="2">
-            <span class="outv" data-outv="windows" aria-hidden="true">2</span>
-          </label>
-          <label><span lang="ru">Проёмов</span><span lang="en">Doorways</span>
-            <input type="range" data-in="doorways" min="0" max="12" value="3">
-            <span class="outv" data-outv="doorways" aria-hidden="true">3</span>
-          </label>
-        </div>
-        <div class="stage__view" data-view></div>
-        <div class="stage__out" data-out role="status" aria-atomic="true"></div>
-      </div>
-    </div>
-    <p class="lab__note">
-      <span lang="ru">Из этих метров считается вся малярка и штукатурка сметы. Нижняя граница в 50% — защита от «периметра на глаз»: смета не обнулится, если менеджер напутал с проёмами.</span>
-      <span lang="en">All plastering and painting in the estimate is derived from these square metres. The 50% floor guards against a guessed perimeter: the estimate cannot collapse to nothing if the manager miscounts openings.</span>
-    </p>
-  </div>
-
-  <a class="spread__next" href="#case-smm">
-    <span class="spread__next-k"><span lang="ru">Следующий кейс</span><span lang="en">Next case</span></span>
-    <span class="spread__next-v"><b>06</b> <span lang="ru">SMM-бот</span><span lang="en">SMM bot</span></span>
-    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
-  </a>
-</article>
-
-<article class="spread spread--text pal-smm" id="case-smm" data-label-ru="SMM-бот" data-label-en="SMM bot" data-no="06">
-  <header class="spread__head">
-    <span class="spread__no">06</span>
-    <span class="spread__label"><span lang="ru">SMM-бот</span><span lang="en">SMM bot</span></span>
-    <p class="spread__meta"><span lang="ru">Контент-маркетинг</span><span lang="en">Content marketing</span> · <span lang="ru">бот</span><span lang="en">bot</span> · 2026</p>
-  </header>
-  <h3 class="spread__title"><span lang="ru">Ежедневный пост без ежедневного человека</span><span lang="en">A daily post without a daily person</span></h3>
-  <div class="spread__lead">
-    <div class="case__prose">
-      <h4><span lang="ru">Задача</span><span lang="en">Brief</span></h4>
-      <p lang="ru">Канал требует поста каждый день. Придумывать, писать и оформлять — час в сутки, который всегда откладывается.</p>
-      <p lang="en">The channel needs a post every day. Thinking it up, writing it and making the image is an hour a day that always gets postponed.</p>
-      <h4><span lang="ru">Решение</span><span lang="en">Solution</span></h4>
-      <p lang="ru">Бот по расписанию сам готовит текст и картинку по каталогу товаров и присылает владельцу на модерацию: одобрить, перегенерировать, поправить текст или заменить фото. Публикация в канал — по кнопке.</p>
-      <p lang="en">On a schedule, the bot writes the copy and generates the image from the product catalogue, then sends it to the owner: approve, regenerate, edit the text or swap the photo. Publishing to the channel is one tap.</p>
-    </div>
-    <dl class="spec">
-      <div><dt lang="ru">Стек</dt><dt lang="en">Stack</dt><dd>Python · aiogram · APScheduler</dd></div>
-      <div><dt lang="ru">Цикл</dt><dt lang="en">Cycle</dt><dd lang="ru">генерация → модерация → публикация</dd><dd lang="en">generate → approve → publish</dd></div>
-      <div><dt lang="ru">Участие</dt><dt lang="en">Human input</dt><dd lang="ru">одно нажатие в сутки</dd><dd lang="en">one tap per day</dd></div>
-    </dl>
-  </div>
-
-  <div class="lab" data-lab="moderation">
-    <div class="lab__head">
-      <span class="lab__tag"><span lang="ru">Живой стенд</span><span lang="en">Live bench</span></span>
-      <span class="lab__src">bot.py</span>
-    </div>
-    <div class="lab__grid">
-      <div class="lab__code">
-        <pre class="code" data-code="py"><code>@dp.callback_query(F.data == "approve")
-async def handle_approve(callback: CallbackQuery) -&gt; None:
-    # Кнопка ✅ Одобрить: публикует связку в канал из .env (CHANNEL_ID).
-    draft = _drafts.get(callback.message.message_id)
-    if draft is None:
-  await callback.answer(
-      "Черновик не найден (бот перезапускался). Сгенерируй заново.",
-      show_alert=True,
-  )
-  return
-
-    await callback.answer("Публикую в канал...")
-    try:
-  await _publish_to_channel(callback.bot, draft)
-    except TelegramAPIError as err:
-  logger.error("Ошибка публикации в канал: %s", err)
-  await callback.message.answer(_publish_error_text(err))
-  return
-
-    # успех: убираем кнопки (чтобы не опубликовать дважды)
-    await callback.message.edit_reply_markup(reply_markup=None)
-    await callback.message.answer("Опубликовано ✅")
-    _drafts.pop(callback.message.message_id, None)</code></pre>
-      </div>
-      <div class="stage">
-        <div class="stage__view" data-view></div>
-        <div class="stage__out" data-out role="status" aria-atomic="true"></div>
-      </div>
-    </div>
-    <p class="lab__note">
-      <span lang="ru">Справа — то самое сообщение модерации. Нажмите «Одобрить»: кнопки снимаются тем же кодом, что и в боте, — чтобы один пост нельзя было опубликовать дважды.</span>
-      <span lang="en">On the right is the actual moderation message. Press “Approve”: the buttons are removed by the same code the bot runs — so one post can never be published twice.</span>
-    </p>
-  </div>
-
-  <a class="spread__next" href="#contact">
-    <span class="spread__next-k"><span lang="ru">Кейсы кончились</span><span lang="en">That was the last one</span></span>
-    <span class="spread__next-v"><b>07</b> <span lang="ru">Обсудить вашу задачу</span><span lang="en">Discuss your project</span></span>
-    <span class="spread__next-arw" aria-hidden="true">&#8594;</span>
-  </a>
-</article>
-
-<!-- ─────────────────────────────  СТЕК  ───────────────────────────── -->
-<section class="band" id="stack">
-  <div class="wrap">
-    <header class="shead">
-      <p class="shead__idx">05</p>
-      <h2 class="shead__title"><span lang="ru">Инструменты</span><span lang="en">Tools</span></h2>
-    </header>
-    <div>
-      <p class="stack__intro" lang="ru">Выбираю под задачу, а не под моду. То, на чём собраны системы выше:</p>
-      <p class="stack__intro" lang="en">Chosen to fit the task, not the trend. What the systems above are built on:</p>
-      <ul class="stack">
-        <li><span class="stack__k" lang="ru">Бэкенд</span><span class="stack__k" lang="en">Backend</span><span class="stack__v">Python · FastAPI · Node.js · NestJS · Express</span></li>
-        <li><span class="stack__k" lang="ru">Фронтенд</span><span class="stack__k" lang="en">Frontend</span><span class="stack__v">TypeScript · React · Vite · Tailwind · PWA</span></li>
-        <li><span class="stack__k" lang="ru">Данные</span><span class="stack__k" lang="en">Data</span><span class="stack__v">PostgreSQL · Prisma · SQLAlchemy · Alembic</span></li>
-        <li><span class="stack__k" lang="ru">Боты и реальное время</span><span class="stack__k" lang="en">Bots &amp; realtime</span><span class="stack__v">aiogram · Socket.IO · APScheduler</span></li>
-        <li><span class="stack__k" lang="ru">Эксплуатация</span><span class="stack__k" lang="en">Operations</span><span class="stack__v">Docker · nginx · GitHub Actions · Linux</span></li>
-      </ul>
-    </div>
-  </div>
+</dialog>
 </section>
 
+<section class="screen screen--tone">
+<div class="chap rise" id="kto">
+  <div class="chap__in">
+    <p class="chap__n">04</p>
+    <h2 class="chap__t">Кто это делает</h2>
+    <p class="chap__d">Один человек на всю цепочку.</p>
+  </div>
+</div>
 
-<!-- ─────────────────────────────  ВОПРОСЫ  ───────────────────────────── -->
-<section class="band" id="faq">
-  <div class="wrap">
-    <header class="shead">
-      <p class="shead__idx">06</p>
-      <h2 class="shead__title"><span lang="ru">Вопросы, которые задают</span><span lang="en">Questions people ask</span></h2>
-      <p class="shead__note">
-        <span lang="ru">Ответы, которые честнее услышать до первого разговора, чем после третьего</span>
-        <span lang="en">Answers better heard before the first call than after the third</span>
-      </p>
-    </header>
-    <div>
-      <ul class="faq">
-        <li>
-          <h3><span lang="ru">Сколько это стоит?</span><span lang="en">What does it cost?</span></h3>
-          <p lang="ru">Цена считается от объёма, а объём становится понятен после разбора процесса. Первый разговор бесплатный: по его итогам называю, что имеет смысл сделать первым этапом, сколько он займёт и сколько будет стоить. Оценки «по описанию в двух строчках» не даю — они всегда врут.</p>
-          <p lang="en">The price follows the scope, and the scope only becomes clear once we have mapped the process. The first call is free: after it I tell you what makes sense as the first stage, how long it takes and what it costs. I don’t quote from a two-line description — such quotes are always wrong.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Кому останется код?</span><span lang="en">Who ends up owning the code?</span></h3>
-          <p lang="ru">Договариваемся до начала работы и записываем в ТЗ. Бывает по-разному: где-то исходники и доступы переходят заказчику целиком, где-то система остаётся на моём сопровождении. Важно, что это решается на берегу, а не всплывает в день, когда вы захотите что-то поменять.</p>
-          <p lang="en">We agree before the work starts and write it into the spec. It varies: sometimes the source and every access key go to the client, sometimes the system stays under my maintenance. What matters is that this is settled up front, not discovered on the day you want to change something.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Что будет после запуска?</span><span lang="en">What happens after launch?</span></h3>
-          <p lang="ru">Первый месяц правок входит в работу — это то время, когда система встречается с живыми руками и вылезает всё, чего не было видно в ТЗ. Дальше доработки берутся как очередные этапы: оцениваются и делаются так же, как всё остальное.</p>
-          <p lang="en">The first month of fixes is included — that is when the system meets real hands and everything invisible at spec time comes out. After that, changes are taken on as further stages: estimated and built like everything else.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Как быстро я увижу первый результат?</span><span lang="en">How soon do I see something working?</span></h3>
-          <p lang="ru">Первый работающий этап — от трёх дней. Это не демонстрация и не макет: часть, которую можно открыть, отдать сотруднику и использовать в работе. Дальше система прирастает такими же кусками.</p>
-          <p lang="en">The first working stage takes three days and up. Not a demo and not a mock-up: a piece you can open, hand to an employee and put to work. The system then grows in pieces of the same kind.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">А если процесс поменяется?</span><span lang="en">What if the process changes?</span></h3>
-          <p lang="ru">Он поменяется — на этом и построена работа этапами. Ключевые правила закрыты автотестами, поэтому правка в одном месте не роняет соседнее молча: если что-то сломалось, это видно до того, как увидит ваш клиент.</p>
-          <p lang="en">It will change — that is exactly what building in stages is for. The critical rules are covered by automated tests, so a change in one place does not quietly break another: if something breaks, it shows before your client sees it.</p>
-        </li>
-        <li>
-          <h3><span lang="ru">Почему нельзя посмотреть код проектов?</span><span lang="en">Why can’t I see the projects’ code?</span></h3>
-          <p lang="ru">Репозитории закрыты: это чужие системы с чужими данными. Опубликованы фрагменты — те самые, что крутятся в живых стендах на этой странице. Остальное разбираю на созвоне: показываю экран и отвечаю на вопросы по архитектуре и решениям.</p>
-          <p lang="en">The repositories are private: they are other people’s systems holding other people’s data. What is published are the fragments — the very ones running in the live benches on this page. The rest I walk through on a call: I share the screen and answer questions about the architecture and the decisions.</p>
-        </li>
-      </ul>
+<section class="who rise">
+  <div class="who__portrait">
+    <div class="portrait portrait--mark" aria-label="Артём Лиске — работает лично, без посредников">
+      <p class="portrait__mark" aria-hidden="true">А·Л</p>
+      <p class="lab">Лично от разговора до запуска</p>
     </div>
+    <p class="txt" style="font-size:.8rem;padding-top:.9rem">Артём Лиске<br>Москва · работаю с командами удалённо<br><a href="https://t.me/artyomliske">t.me/artyomliske</a></p>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:1.6rem">
+    <h2>Между вами и работающей программой <em>нет никого</em></h2>
+    <p class="txt">Я разговариваю с вами, пишу правила, собираю программу, поднимаю сервер — и мне же приходит тревога, если ночью что-то встало. Нет менеджера, который «уточнит у разработчика».</p><p class="txt">За лето 2026 года так сделано тринадцать систем. Плюс два приложения для Mac, которые я написал себе и отдал людям — <span class="mono">brew install --cask apptimer</span>.</p></div>
+
+  <div style="display:flex;flex-direction:column">
+    <p class="lab" style="padding-bottom:.5rem">Как идёт работа</p>
+        <div class="step">
+          <div class="step__n">1</div>
+          <div><h3 style="font-size:clamp(1.15rem,1rem+.55vw,1.45rem)">Разбираюсь в деле</h3>
+          <p class="txt" style="font-size:.84rem;padding-top:.35rem">Как проходит ваш день, а не что написано в требованиях.</p></div>
+        </div>
+        <div class="step">
+          <div class="step__n">2</div>
+          <div><h3 style="font-size:clamp(1.15rem,1rem+.55vw,1.45rem)">Пишу правила словами</h3>
+          <p class="txt" style="font-size:.84rem;padding-top:.35rem">Спорить о тексте дёшево, о готовой программе — дорого.</p></div>
+        </div>
+        <div class="step">
+          <div class="step__n">3</div>
+          <div><h3 style="font-size:clamp(1.15rem,1rem+.55vw,1.45rem)">Показываю рано</h3>
+          <p class="txt" style="font-size:.84rem;padding-top:.35rem">Первое рабочее — через недели, не через полгода.</p></div>
+        </div>
+        <div class="step">
+          <div class="step__n">4</div>
+          <div><h3 style="font-size:clamp(1.15rem,1rem+.55vw,1.45rem)">Запускаю и остаюсь</h3>
+          <p class="txt" style="font-size:.84rem;padding-top:.35rem">Сервер, бэкапы, проверка живости, тревога мне в Telegram.</p></div>
+        </div>
+    <hr class="rule">
   </div>
 </section>
-
-
-<!-- ─────────────────────────────  КОНТАКТ  ───────────────────────────── -->
-<section class="spread spread--contact pal-self" id="contact">
-      <header class="spread__head">
-        <span class="spread__no">07</span>
-        <span class="spread__label"><span lang="ru">Связаться</span><span lang="en">Get in touch</span></span>
-        <p class="spread__meta"><span lang="ru">Первый разговор бесплатный</span><span lang="en">The first call is free</span></p>
-      </header>
-      <h3 class="spread__title"><span lang="ru">Расскажите, где болит процесс</span><span lang="en">Tell me where the process hurts</span></h3>
-      <p class="contact__lead" lang="ru">Расскажите, как устроен процесс сейчас и что в нём болит. Отвечу, что имеет смысл автоматизировать в первую очередь, сколько это займёт и где выгоднее ничего не трогать.</p>
-      <p class="contact__lead" lang="en">Tell me how the process works today and where it hurts. I will tell you what is worth automating first, how long it takes, and where you are better off leaving things alone.</p>
-
-      <dl class="terms">
-        <div>
-          <dt lang="ru">Первый разговор</dt><dt lang="en">First call</dt>
-          <dd lang="ru">бесплатно, 30–60 минут — разбираем ваш процесс</dd>
-          <dd lang="en">free, 30–60 minutes to map your process</dd>
-        </div>
-        <div>
-          <dt lang="ru">Первый работающий этап</dt><dt lang="en">First working stage</dt>
-          <dd lang="ru">от 3 дней — это часть, которую уже можно открыть и использовать</dd>
-          <dd lang="en">from 3 days — a piece you can already open and use</dd>
-        </div>
-        <div>
-          <dt lang="ru">Оплата</dt><dt lang="en">Payment</dt>
-          <dd lang="ru">предоплата в начале этапа, остаток — после сдачи</dd>
-          <dd lang="en">part up front at the start of a stage, the rest on delivery</dd>
-        </div>
-      </dl>
-
-      <aside class="brief-card">
-        <div class="brief-card__head"><span>BRIEF / 01</span><b><span lang="ru">входящий запрос</span><span lang="en">incoming request</span></b></div>
-        <p lang="ru">Не нужно заранее уметь писать ТЗ. В Telegram достаточно ответить в свободной форме на пять вопросов:</p>
-        <p lang="en">You do not need to know how to write a spec. In Telegram, answer these five questions in free form:</p>
-        <ol>
-          <li><span lang="ru">Чем занимается бизнес?</span><span lang="en">What does the business do?</span></li>
-          <li><span lang="ru">Где сейчас ведёте процесс?</span><span lang="en">Where is the process managed now?</span></li>
-          <li><span lang="ru">Что теряется или делается вручную?</span><span lang="en">What gets lost or handled manually?</span></li>
-          <li><span lang="ru">Что должно заработать первым?</span><span lang="en">What should work first?</span></li>
-          <li><span lang="ru">Есть ли желаемый срок?</span><span lang="en">Is there a desired deadline?</span></li>
-        </ol>
-      </aside>
-
-      <!-- Заявка. Пока data-endpoint пуст, форма не показывается: адрес
-           приёмника ставится один раз после того, как поднят tools/lead-proxy.
-           Токен бота в статике не лежит и лежать не может. -->
-      <form class="lead" id="lead" data-endpoint="" novalidate hidden>
-        <p class="lead__head">
-          <span lang="ru">Или оставьте заявку — прочитаю в тот же день</span>
-          <span lang="en">Or leave a note — I read it the same day</span>
-        </p>
-        <label class="lead__field">
-          <span class="lead__k"><span lang="ru">Как к вам обращаться</span><span lang="en">Your name</span></span>
-          <input name="name" type="text" maxlength="80" autocomplete="name" required>
-        </label>
-        <label class="lead__field">
-          <span class="lead__k"><span lang="ru">Telegram, телефон или почта</span><span lang="en">Telegram, phone or email</span></span>
-          <input name="contact" type="text" maxlength="120" required>
-        </label>
-        <label class="lead__field lead__field--wide">
-          <span class="lead__k"><span lang="ru">Что за процесс и где болит</span><span lang="en">What the process is and where it hurts</span></span>
-          <textarea name="task" rows="4" maxlength="1500" required></textarea>
-        </label>
-        <!-- ловушка для ботов: человек этого поля не видит и не заполнит -->
-        <input class="lead__trap" name="website" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button type="submit" class="btn btn--primary lead__send">
-          <span lang="ru">Отправить</span><span lang="en">Send</span>
-        </button>
-        <p class="lead__out" role="status" aria-live="polite"></p>
-      </form>
-
-      <div class="contact__cta">
-        <a class="btn btn--primary" href="https://t.me/artyomliske?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5%2C%20%D0%90%D1%80%D1%82%D1%91%D0%BC%21%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BE%D0%B1%D1%81%D1%83%D0%B4%D0%B8%D1%82%D1%8C%20%D0%B0%D0%B2%D1%82%D0%BE%D0%BC%D0%B0%D1%82%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8E%20%D0%BF%D1%80%D0%BE%D1%86%D0%B5%D1%81%D1%81%D0%B0." rel="noopener">
-          <span lang="ru">Написать в Telegram</span><span lang="en">Message me on Telegram</span>
-        </a>
-        <a class="btn" href="tel:+79778317563">
-          <span lang="ru">Позвонить</span><span lang="en">Call</span>
-        </a>
-      </div>
-
-      <ul class="contact">
-        <li>
-          <span class="contact__k">Telegram</span>
-          <a href="https://t.me/artyomliske" rel="noopener">@artyomliske</a>
-        </li>
-        <li>
-          <span class="contact__k" lang="ru">Телефон</span><span class="contact__k" lang="en">Phone</span>
-          <a href="tel:+79778317563">+7 977 831-75-63</a>
-        </li>
-        <li>
-          <span class="contact__k">GitHub</span>
-          <a href="https://github.com/artyomliske" target="_blank" rel="noreferrer">github.com/artyomliske ↗</a>
-        </li>
-        <li>
-          <span class="contact__k" lang="ru">Почта</span><span class="contact__k" lang="en">Email</span>
-          <a href="mailto:artyomliske@gmail.com">artyomliske@gmail.com</a>
-        </li>
-      </ul>
 </section>
 
+<section class="screen">
+<div class="chap rise" id="nachalo">
+  <div class="chap__in">
+    <p class="chap__n">05</p>
+    <h2 class="chap__t">Начало</h2>
+    <p class="chap__d">Чего я не беру и с чего начинаем.</p>
+  </div>
+</div>
+
+<section class="close">
+  <div>
+    <p class="lab" style="padding-bottom:.7rem">Чего я не беру</p>
+    <p class="txt" style="font-size:.86rem">Сайты-визитки. Правки в чужой код, который никто не сопровождает. Работу по чужому техзаданию без доступа к тому, как устроен ваш день. И задачи, где программа должна решать за человека то, за что человек отвечает деньгами.</p>
+  </div>
+  <div>
+    <p class="lab lab--a" style="padding-bottom:.7rem">С чего начинаем</p>
+    <p class="txt" style="font-size:.86rem">30–60 минут разговора о том, как проходит ваш день, — бесплатно и без обязательств. Поймём, нужна ли вам система, с чего начать и что не стоит автоматизировать. После этого я говорю, что вижу, какой следующий шаг разумен и сколько он стоит. Бывает, что честный ответ — «вам это не нужно»; его я тоже говорю.</p>
+  </div>
+  <a class="btn" href="https://t.me/artyomliske">Разобрать ваш процесс</a>
+</section>
+</section>
 </main>
 
-<footer class="foot">
-  <div class="wrap foot__inner">
-    <span>© 2026 <span lang="ru">Артём Лиске</span><span lang="en">Artyom Liske</span></span>
-    <span lang="ru">Публичные демо и технические кейсы — на GitHub; детали реализации разбираю на созвоне.</span>
-    <span lang="en">Public demos and technical case studies are on GitHub; happy to walk through implementation details on a call.</span>
-  </div>
+<footer>
+  <p class="lab">Артём Лиске · 2026</p>
+  <p class="lab"><a href="mailto:artyomliske@gmail.com">artyomliske@gmail.com</a></p>
+  <p class="lab"><a href="https://t.me/artyomliske">t.me/artyomliske</a></p>
+  <p class="lab" style="margin-left:auto"><a href="#top">Наверх ↑</a></p>
 </footer>
 
-<script src="assets/main.js?v=20260817-portfolio-refresh"></script>
-<script src="assets/labs.js"></script>
+<dialog class="lb" aria-label="Кадр во весь экран">
+  <form method="dialog" class="lb__x"><button aria-label="Закрыть">&#215;</button></form>
+  <div class="lb__track" tabindex="0" role="group" aria-label="Кадры, листайте вбок" data-lbtrack></div>
+  <div class="lb__bar">
+    <p class="lab" data-lbcap></p>
+    <p class="gal__n"><span data-lbi>1</span> / <span data-lbn>1</span></p>
+    <div class="gal__nav">
+      <button class="track__arw" type="button" data-lbprev aria-label="Предыдущий кадр">&#8592;</button>
+      <button class="track__arw" type="button" data-lbnext aria-label="Следующий кадр">&#8594;</button>
+    </div>
+  </div>
+</dialog>
+
+<script src="main.js?v=20260821" defer></script>
+
 </body>
 </html>

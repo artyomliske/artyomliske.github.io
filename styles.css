@@ -1,0 +1,997 @@
+/* Шрифты лежат рядом с сайтом, а не на fonts.googleapis.com: поход на чужой
+   домен задерживает первую отрисовку и даёт скачок вёрстки при подмене.
+   Взяты только используемые начертания (Cormorant 300/400 прямой и курсив,
+   Manrope 400/500) и только нужные подмножества — без греческого и вьетнамского. */
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Cormorant-300i-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Cormorant-300i-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Cormorant-300i-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Cormorant-300i-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Cormorant-400i-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Cormorant-400i-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Cormorant-400i-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Cormorant-400i-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Cormorant-300-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Cormorant-300-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Cormorant-300-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url('fonts/Cormorant-300-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Cormorant-400-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Cormorant-400-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Cormorant-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Cormorant';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Cormorant-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Manrope-400-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Manrope-400-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Manrope-400-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('fonts/Manrope-400-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/Manrope-500-cyrillic-ext.woff2') format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/Manrope-500-cyrillic.woff2') format('woff2');
+  unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/Manrope-500-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('fonts/Manrope-500-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* Тишина — светлая. Cormorant + Manrope, тёплый белый, бронза.
+   Статика без сборки: этот файл и index.html — всё, что нужно. */
+
+:root {
+  --bg:      #F6F3EE;
+  --ink:     #17181A;
+  --ink-2:   #5C5852;
+  --ink-3:   #6F6A62;   /* 4.5:1 даже на тонированной полосе */
+  --rule:    #E3DED5;
+  --rail:    #E9E4DB;
+  --field:   #E9E4DB;
+  --field-e: #DCD5C8;
+  --accent:  #8A6A24;
+  --accent-d:#6B521A;
+
+  --c:  'Cormorant', Georgia, 'Times New Roman', serif;
+  --m:  'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  --mono: ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  --pad:  clamp(1.25rem, .4rem + 3.6vw, 4.75rem);
+  /* Шкала воздуха: одна на весь сайт, чтобы ритм не расползался. */
+  --air-s: clamp(.85rem, 1.6vh, 1.4rem);
+  --air-m: clamp(1.9rem, 4vh, 3.25rem);
+  --air-l: clamp(3rem, 6.5vh, 5.5rem);
+  --gapl: clamp(2rem, 1rem + 4vw, 4.75rem);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* Без потолка по ширине на мониторе в 2000+ точек карточки раздувались
+   до 800 точек, а строки текста уезжали за читаемую меру. */
+body {
+  margin: 0 auto;
+  max-width: 100rem;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--m);
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* Две вертикали сетки — единственное украшение на всю страницу */
+.rails { position: fixed; top: 0; bottom: 0; left: 50%; transform: translateX(-50%);
+          width: min(100%, 100rem); pointer-events: none; z-index: 0; }
+.rails i { position: absolute; top: 0; bottom: 0; width: 1px; background: var(--rail); }
+.rails i:first-child { left: 27.5%; }
+.rails i:last-child  { left: 72.5%; }
+@media (max-width: 62rem) { .rails { display: none; } }
+
+main, header, footer { position: relative; z-index: 1; }
+
+/* ── типографика ── */
+.lab {
+  font-size: .625rem; letter-spacing: .32em; text-transform: uppercase;
+  color: var(--ink-3); margin: 0;
+}
+.lab--a { color: var(--accent); }
+.lab--ink { color: var(--ink); }
+.txt { margin: 0; font-size: clamp(.9rem, .86rem + .18vw, .97rem); line-height: 1.78; color: var(--ink-2); text-wrap: pretty; }
+.txt--l { font-size: clamp(1rem, .93rem + .3vw, 1.06rem); }
+.rule { height: 1px; background: var(--rule); border: 0; margin: 0; }
+.mono { font-family: var(--mono); font-size: .75rem; color: var(--accent); }
+
+h1, h2, h3 { margin: 0; font-family: var(--c); font-weight: 300; letter-spacing: -.014em; }
+h1 { font-size: clamp(2.6rem, 1.2rem + 6.2vw, 6.5rem); line-height: 1.02; }
+h2 { font-size: clamp(2rem, 1.1rem + 3.9vw, 4.75rem); line-height: 1.0; }
+h3 { font-size: clamp(1.35rem, 1.1rem + 1.1vw, 1.9rem); line-height: 1.1; }
+em { font-style: italic; color: var(--accent); }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--accent-d); }
+
+/* ── шапка ── */
+.top {
+  position: sticky; top: 0; z-index: 20;
+  display: flex; align-items: center; gap: 1.25rem;
+  padding: 1.15rem var(--pad);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .3s;
+}
+.top.is-stuck { border-bottom-color: var(--rule); }
+.top nav { display: flex; gap: 1.6rem; margin-left: auto; }
+.top nav a { color: var(--ink-3); }
+.top nav a:hover, .top nav a[aria-current] { color: var(--ink); }
+.btn {
+  font-family: var(--m); font-size: .78rem; font-weight: 500;
+  background: var(--ink); color: var(--bg);
+  padding: .8rem 1.5rem; display: inline-block; border: 0;
+}
+.btn:hover { background: #000; color: var(--bg); }
+@media (max-width: 56rem) { .top nav { display: none; } }
+
+/* ── обложка ── */
+.hero { display: flex; flex-direction: column; justify-content: center; gap: var(--gapl);
+        min-height: min(82vh, 46rem); padding: clamp(3rem, 6vw, 6rem) var(--pad) 0; }
+.hero__two { max-width: 54ch; }
+.hero__two .txt { font-size: clamp(1rem, .93rem + .35vw, 1.14rem); line-height: 1.72; }
+
+/* ── обязательства ── */
+.ob { padding: clamp(2.75rem, 5.5vw, 5.25rem) var(--pad) clamp(2.75rem, 5.5vw, 5.25rem); }
+.ob + .ob { border-top: 1px solid var(--rule); }
+.ob__head { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: clamp(1.25rem, 3vw, 2.75rem); align-items: start; }
+.ob__no { font-family: var(--c); font-weight: 300; font-size: clamp(3rem, 1.7rem + 4.2vw, 6.4rem);
+          line-height: .84; color: #D3CCBD; margin-top: -.03em; font-variant-numeric: tabular-nums; }
+.ob__head h2 { font-size: clamp(1.8rem, 1.1rem + 2.4vw, 3.15rem); max-width: 20ch; }
+.ob__sub { max-width: 40ch; padding-top: 1.05rem; color: var(--ink-3); }
+
+/* Пункт — разворот: слева утверждение, справа то, что его показывает. */
+.ob__grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.08fr);
+            gap: clamp(2.25rem, 5vw, 5.5rem); align-items: start; }
+@media (max-width: 68rem) { .ob__grid { grid-template-columns: 1fr; } }
+.ob__side { min-width: 0; }
+/* ── Три пункта без стенда получают свой приём ────────────────────
+   Не украшение: каждый показывает ровно то, что обещает пункт. */
+
+/* 03 · граница возможностей: два столбца через линию */
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 0; padding-top: .35rem; }
+.split__col { padding-right: clamp(1rem, 2.5vw, 2rem); }
+.split__col--no { padding: 0 0 0 clamp(1rem, 2.5vw, 2rem); border-left: 1px solid var(--rule); }
+.split__list { margin: .85rem 0 0; padding: 0; list-style: none;
+               display: flex; flex-direction: column; gap: .5rem; }
+.split__list li { font-size: .88rem; line-height: 1.45; color: var(--ink-2); }
+.split__col--no .split__list li { color: var(--ink); }
+.split__col--no .split__list li::before { content: '—'; color: var(--accent); margin-right: .5rem; }
+@media (max-width: 46rem) {
+  .split { grid-template-columns: 1fr; gap: 1.5rem; }
+  .split__col--no { padding: 1.25rem 0 0; border-left: 0; border-top: 1px solid var(--rule); }
+}
+
+/* 05 · две цепочки: из системы выросла система */
+.chain { display: flex; flex-direction: column; gap: 1.15rem; padding-top: .35rem; }
+/* Стрелка стоит ровно посередине строки — по вертикали между обеими
+   парами «имя + подпись», по горизонтали в своей колонке. */
+.chain__row { display: grid; grid-template-columns: minmax(0, 1fr) clamp(3rem, 7vw, 6rem) minmax(0, 1fr);
+              align-items: center; gap: .9rem;
+              padding-bottom: 1.05rem; border-bottom: 1px solid var(--rule); }
+.chain__n { margin: 0 0 .3rem; font-family: var(--c); font-weight: 300;
+            font-size: clamp(1.15rem, 1rem + .7vw, 1.55rem); line-height: 1.1; }
+.chain__to .chain__n { color: var(--accent); }
+.chain__arw { height: 1px; background: var(--field-e); position: relative; }
+.chain__arw::after { content: ''; position: absolute; right: -1px; top: -4px;
+                     border: 4.5px solid transparent; border-left-color: var(--ink-3); }
+.chain__note { margin: 0; font-size: .82rem; line-height: 1.6; color: var(--ink-3); max-width: 44ch; }
+@media (max-width: 34rem) {
+  .chain__row { grid-template-columns: 1fr; }
+  .chain__arw { width: 2rem; }
+}
+
+/* 07 · выписка из журнала */
+.ledger { display: flex; flex-direction: column; gap: .8rem; padding-top: .35rem; }
+.ledger__rows { display: flex; flex-direction: column; }
+.ledger__r { display: grid; grid-template-columns: 7.5rem 5rem 1fr auto; gap: .5rem 1rem;
+             padding: .6rem 0; border-top: 1px solid var(--rule);
+             font-family: var(--mono); font-size: .72rem; color: var(--ink-2); }
+.ledger__r:last-child { border-bottom: 1px solid var(--rule); }
+.ledger__r span:nth-child(3) { color: var(--ink); }
+.ledger__m { color: var(--accent); }
+@media (max-width: 40rem) {
+  .ledger__r { grid-template-columns: 1fr auto; }
+  .ledger__r span:nth-child(2) { display: none; }
+}
+
+/* Строка о деле садится на низ панели: высота ленты работает на
+   композицию, а не превращается в провал под содержимым. */
+.ob__where { display: flex; align-items: baseline; gap: .9rem; flex-wrap: wrap;
+             margin-top: auto; padding-top: var(--air-s);
+             border-top: 1px solid var(--rule); }
+.ob__where-n { font-family: var(--c); font-weight: 300; font-size: 1.5rem; line-height: 1; color: var(--ink); }
+
+/* ── дела ── */
+#dela { padding-bottom: 0; }
+
+/* ── список остальных дел ── */
+
+/* ── кто ── */
+.who { display: grid; grid-template-columns: 17.25rem 1fr 1fr; gap: clamp(1.75rem, 3.8vw, 3.75rem);
+       padding: clamp(3.5rem, 7vw, 7rem) var(--pad) 0; align-items: start; }
+@media (max-width: 64rem) {
+  .who { grid-template-columns: 14rem minmax(0, 1fr); }
+  .who > :last-child { grid-column: 1 / -1; padding-top: 1.5rem; }
+}
+@media (max-width: 46rem) { .who { grid-template-columns: 1fr; } .who > :last-child { padding-top: 0; } }
+.who h2 { max-width: 17ch; }
+.portrait { background: var(--field); border: 1px solid var(--field-e); aspect-ratio: 3/4;
+            display: flex; align-items: flex-end; padding: .8rem; }
+.step { display: grid; grid-template-columns: 2.1rem 1fr; gap: 1.15rem; align-items: baseline;
+        padding: 1.05rem 0; border-top: 1px solid var(--rule); }
+.step__n { font-family: var(--c); font-weight: 300; font-size: 1.6rem; color: var(--accent); }
+
+.close { display: grid; grid-template-columns: 1fr 1fr auto; gap: clamp(1.5rem, 3.8vw, 3.75rem);
+         align-items: end; padding: clamp(2.5rem, 5vw, 3.4rem) var(--pad) 2rem;
+         margin-top: 0; }
+@media (max-width: 58rem) { .close { grid-template-columns: 1fr; align-items: start; } }
+
+footer { padding: 2rem var(--pad) 3rem; display: flex; gap: 1.6rem; flex-wrap: wrap; align-items: baseline;
+         border-top: 1px solid var(--rule); }
+
+.skip { position: absolute; left: -9999px; }
+.skip:focus { left: var(--pad); top: .6rem; background: var(--ink); color: var(--bg); padding: .6rem 1rem; z-index: 40; }
+
+@media (prefers-reduced-motion: reduce) {
+  html, .track { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ══ Живые демонстрации ══════════════════════════════════════════ */
+
+.demo { display: flex; flex-direction: column; gap: 1rem; padding-top: .35rem; }
+@media (max-width: 68rem) { .demo { margin-top: 1.75rem; padding-top: 1.4rem; border-top: 1px solid var(--rule); } }
+.demo__head { display: flex; align-items: baseline; gap: 1rem; }
+.demo__hint { font-size: .78rem; color: var(--ink-3); }
+.demo__note { margin: 0; font-size: .78rem; line-height: 1.6; color: var(--ink-3); max-width: 46ch; }
+.demo__grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem 2.1rem; }
+@media (max-width: 46rem) { .demo__grid { grid-template-columns: 1fr; } }
+
+.tap {
+  font-family: var(--m); font-size: .78rem; font-weight: 500; color: var(--ink);
+  background: none; border: 1px solid var(--rule); padding: .72rem 1.15rem;
+  cursor: pointer; transition: border-color .18s, color .18s, background .18s;
+}
+.tap:hover { border-color: var(--ink); }
+.tap[aria-pressed="true"] { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.tap:disabled { color: var(--ink-3); cursor: default; border-color: var(--rule); }
+.taps { display: flex; gap: .5rem; flex-wrap: wrap; }
+
+.slot { display: flex; flex-direction: column; gap: .5rem; padding: .85rem 0 0;
+         border-top: 1px solid var(--rule); height: 100%; }
+.slot__state { font-family: var(--mono); font-size: .72rem; letter-spacing: .04em; min-height: 1.1rem; }
+.ok   { color: var(--accent); }
+.no   { color: #9A3B2C; }
+
+.rng { -webkit-appearance: none; appearance: none; width: 100%; height: 1px; background: var(--field-e); outline: 0; margin: .9rem 0; }
+.rng::-webkit-slider-thumb { -webkit-appearance: none; width: 13px; height: 13px; background: var(--accent); cursor: grab; border-radius: 50%; }
+.rng::-moz-range-thumb { width: 13px; height: 13px; background: var(--accent); border: 0; cursor: grab; border-radius: 50%; }
+
+/* Числа садятся на общую линию, даже если над ними разное. */
+.num { font-family: var(--c); font-weight: 300; font-size: clamp(1.9rem, 1.4rem + 2vw, 3rem); line-height: 1;
+       margin-top: auto; padding-top: .3rem; }
+.num--a { color: var(--accent); }
+.num--mute { color: var(--ink-3); }
+
+.bars { display: flex; align-items: flex-end; gap: 4px; height: 5.5rem; }
+.bars i { flex: 1; background: var(--field-e); transition: height .28s ease, background .28s; }
+.bars i.hot { background: var(--accent); }
+
+.night { display: flex; flex-direction: column; gap: .75rem; }
+.clock { font-family: var(--c); font-weight: 300; font-size: clamp(3rem, 2rem + 4vw, 5.5rem); line-height: 1; letter-spacing: -.01em; }
+.log { display: flex; flex-direction: column; gap: .4rem; min-height: 5.6rem; }
+.log p { margin: 0; font-family: var(--mono); font-size: .72rem; color: var(--ink-3);
+         opacity: 0; transform: translateY(4px); transition: opacity .4s, transform .4s; }
+.log p.on { opacity: 1; transform: none; }
+.log p.hit { color: #9A3B2C; }
+.log p.fix { color: var(--accent); }
+
+/* ══ Появление ══════════════════════════════════════════════════ */
+/* Прячем только если скрипт точно жив: без него страница видна целиком. */
+.js .rise { opacity: 0; transform: translateY(14px); transition: opacity .62s ease-out, transform .62s ease-out; }
+.js .rise.in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .js .rise { opacity: 1; transform: none; } }
+
+/* ══ Карточки дел ═══════════════════════════════════════════════ */
+
+/* Дела — лента вбок, как обязательства: тринадцать карточек и
+   приглашение четырнадцатым. Сеткой они не помещались в экран, и
+   вся глава расползалась на три прокрутки. */
+.deals { display: flex; flex-direction: column; gap: 1rem; min-width: 0; }
+.deals__track {
+  display: flex; gap: 1px; min-width: 0;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity; scrollbar-width: none;
+  background: var(--rule); border-block: 1px solid var(--rule);
+  padding-inline: var(--pad);
+}
+.deals__track::-webkit-scrollbar { display: none; }
+.deals__track:focus-visible { outline: 1px solid var(--accent); outline-offset: -2px; }
+.deals__bar { display: flex; align-items: center; gap: .75rem; padding-inline: var(--pad); }
+.deals__bar .lab { margin-right: auto; }
+
+.card {
+  appearance: none; border: 0; margin: 0; cursor: pointer; text-align: left;
+  background: var(--bg); color: var(--ink); font-family: var(--m);
+  padding: clamp(1.4rem, 2.2vw, 1.9rem);
+  border-top: 3px solid var(--tone, var(--rule));
+  display: flex; flex-direction: column; gap: .55rem;
+  flex: 0 0 clamp(17rem, 24vw, 22rem); scroll-snap-align: start;
+  min-height: clamp(14rem, 30vh, 18.5rem);
+  transition: background .2s;
+}
+.card:hover, .card:focus-visible { background: #FAF8F4; outline: 0; }
+.card:focus-visible { box-shadow: inset 0 0 0 1px var(--accent); }
+.card__kind { font-size: .58rem; letter-spacing: .28em; text-transform: uppercase; color: var(--ink-3); }
+.card__name { font-family: var(--c); font-weight: 300;
+              font-size: clamp(1.4rem, 1.15rem + .7vw, 1.85rem); line-height: 1.04; }
+.card__line { font-size: .8rem; line-height: 1.55; color: var(--ink-2); text-wrap: pretty; }
+.card__more { margin-top: auto; font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+              color: var(--accent); display: flex; align-items: center; gap: .5rem; }
+.card__more i { display: block; width: 14px; height: 1px; background: var(--accent); transition: width .22s; }
+.card:hover .card__more i { width: 26px; }
+.card--cta { cursor: default; }
+.card--cta:hover { background: var(--bg); }
+
+/* ══ Раскрытая карточка дела ════════════════════════════════════
+   Кадр во всю ширину, крупное имя, «было/стало» парой,
+   «что было дальше» — выделенной полосой: это главное в кейсе. */
+
+.sheet {
+  width: min(62rem, 94vw); max-height: 90vh; padding: 0;
+  border: 0; background: var(--bg); color: var(--ink);
+  overflow: auto; overscroll-behavior: contain;
+  box-shadow: 0 1.5rem 4rem rgba(23, 24, 26, .16);
+}
+.sheet::backdrop { background: rgba(23, 24, 26, .5); }
+.sheet[open] { animation: sheet-in .32s cubic-bezier(.22, .61, .36, 1) both; }
+@keyframes sheet-in { from { opacity: 0; transform: translateY(1.25rem); } }
+@media (prefers-reduced-motion: reduce) { .sheet[open] { animation: none; } }
+
+.sheet__x { position: fixed; margin: 0; z-index: 3; }
+.sheet__x button {
+  appearance: none; background: var(--bg); border: 0; cursor: pointer;
+  width: 2.6rem; height: 2.6rem; line-height: 1; font-size: 1.05rem;
+  color: var(--ink-2); font-family: var(--m);
+}
+.sheet__x button:hover { color: var(--ink); }
+
+/* ── Контактный лист кадров ──────────────────────────────────────
+   Снимки одной высоты, каждый своей естественной ширины: широкое
+   табло, вертикальная сводка и телефонный экран стоят в ряд, и
+   ничего не режется и не болтается в пустой рамке. Следующий кадр
+   выглядывает из-за края — видно, что ряд листается. */
+.gal { display: flex; flex-direction: column; gap: .9rem; min-width: 0; }
+
+.gal__track {
+  display: flex; gap: .9rem; align-items: flex-start;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x proximity; scrollbar-width: none;
+  padding-bottom: .2rem;
+  /* Без этого лента как флекс-элемент не сжимается ниже ширины
+     содержимого: переполнения не возникает, и листать нечего. */
+  min-width: 0;
+}
+.gal__track::-webkit-scrollbar { display: none; }
+.gal__track:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
+
+.gal__track figure {
+  margin: 0; flex: 0 0 auto; scroll-snap-align: start;
+  display: flex; flex-direction: column; gap: .55rem; max-width: 100%;
+}
+.gal__zoom {
+  appearance: none; padding: 0; margin: 0; border: 1px solid var(--field-e);
+  background: var(--field); display: block; cursor: zoom-in; max-width: 100%;
+  transition: border-color .18s;
+}
+.gal__zoom:hover, .gal__zoom:focus-visible { border-color: var(--accent); outline: 0; }
+.gal__track img {
+  display: block; width: auto; height: clamp(11rem, 26vw, 18.5rem);
+  max-width: 100%; object-fit: contain;
+}
+.gal__cap { color: var(--ink-3); }
+
+.gal__bar { display: flex; align-items: center; gap: .75rem; }
+.gal__n { margin: 0; margin-right: auto; font-family: var(--mono); font-size: .72rem;
+          letter-spacing: .1em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.gal__n span { color: var(--ink); }
+.gal__nav { display: flex; gap: .35rem; }
+.gal__nav .track__arw { width: 2.1rem; height: 2.1rem; font-size: .85rem; }
+
+.sheet__in { padding: clamp(1.6rem, 3.4vw, 3.25rem); display: flex; flex-direction: column;
+             gap: clamp(1.6rem, 3vw, 2.5rem); min-width: 0; }
+.sheet__in > * { min-width: 0; }
+
+.sheet__head { display: flex; align-items: flex-end; justify-content: space-between;
+                gap: 1rem 1.5rem; flex-wrap: wrap; }
+.sheet__head-l { display: flex; flex-direction: column; gap: .9rem; min-width: 0; }
+.sheet__head h2 { font-size: clamp(2rem, 1.3rem + 3vw, 3.6rem); line-height: 1; }
+.sheet__repo {
+  display: inline-flex; align-items: center; gap: .55rem; flex: none;
+  font-family: var(--m); font-size: .75rem; letter-spacing: .04em; color: var(--ink);
+  border: 1px solid var(--rule); padding: .7rem 1.05rem;
+  transition: border-color .18s, color .18s;
+}
+.sheet__repo:hover { border-color: var(--accent); color: var(--accent); }
+.sheet__repo svg { flex: none; }
+
+.sheet__pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+               gap: clamp(1.25rem, 3vw, 2.75rem); }
+.sheet__pair > div { display: flex; flex-direction: column; gap: .7rem;
+                     padding-top: 1.05rem; border-top: 1px solid var(--rule); }
+@media (max-width: 46rem) { .sheet__pair { grid-template-columns: 1fr; } }
+
+.sheet__then { display: flex; flex-direction: column; gap: .9rem;
+               padding: clamp(1.25rem, 2.6vw, 1.9rem) 0;
+               border-block: 1px solid var(--rule); }
+.sheet__then-t { margin: 0; font-family: var(--c); font-weight: 300;
+                 font-size: clamp(1.35rem, 1.05rem + 1.35vw, 2.05rem); line-height: 1.28;
+                 color: var(--ink); max-width: 34ch; text-wrap: pretty; }
+
+.sheet__spec { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+               gap: 1px; margin: 0; background: var(--rule);
+               border: 1px solid var(--rule); }
+.sheet__spec > div { background: var(--bg); padding: .95rem 1.05rem;
+                     display: flex; flex-direction: column; gap: .4rem; }
+.sheet__spec dt { margin: 0; }
+.sheet__spec dd { margin: 0; font-size: .84rem; line-height: 1.55; }
+@media (max-width: 46rem) { .sheet__spec { grid-template-columns: 1fr; } }
+
+.sheet__ob { display: flex; flex-direction: column; gap: .9rem; }
+.sheet__ob-list { display: flex; flex-wrap: wrap; gap: .6rem; }
+.sheet__ob a {
+  font-family: var(--m); font-size: .78rem; line-height: 1.3;
+  color: var(--ink); border: 1px solid var(--rule); padding: .6rem .9rem;
+  display: flex; align-items: baseline; gap: .5rem; transition: border-color .18s;
+}
+.sheet__ob a:hover { border-color: var(--accent); color: var(--ink); }
+.sheet__ob a span { font-family: var(--mono); font-size: .7rem; color: var(--accent); }
+
+/* ── две колонки в обязательстве вместо трёх ── */
+
+/* ── один раздел проверки на все семь пунктов ── */
+.proof { display: grid; grid-template-columns: 1fr 1.35fr; gap: clamp(1.75rem, 4vw, 4.75rem); align-items: start; }
+@media (max-width: 58rem) { .proof { grid-template-columns: 1fr; } }
+.proof__row { display: flex; flex-direction: column; gap: .5rem; padding: 1.15rem 0; border-top: 1px solid var(--rule); }
+.proof__row:last-child { border-bottom: 1px solid var(--rule); }
+
+/* ══ Лента обязательств ══════════════════════════════════════════
+   Родная привязка прокрутки по X. Колёсико не перехватываем:
+   вертикальная прокрутка страницы работает как обычно. */
+
+.track-wrap { border-block: 1px solid var(--rule); }
+
+.track {
+  display: grid; grid-auto-flow: column; grid-auto-columns: 100%;
+  overflow-x: auto; overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+.track::-webkit-scrollbar { display: none; }
+.track:focus-visible { outline: 1px solid var(--accent); outline-offset: -1px; }
+
+.track > .ob {
+  scroll-snap-align: start;
+  display: flex; flex-direction: column;
+  padding-block: var(--air-m);
+  border-top: 0;
+}
+.track > .ob .ob__where { margin-top: clamp(1.4rem, 2.6vw, 2rem); }
+
+.track__bar {
+  display: flex; align-items: center; gap: clamp(1rem, 2.5vw, 2.25rem);
+  padding: .9rem var(--pad); border-top: 1px solid var(--rule);
+}
+.track__dots { display: flex; gap: .4rem; margin-right: auto; }
+/* Видимая линия тонкая, а нажимать можно по всей высоте. */
+.track__dot {
+  appearance: none; border: 0; background: none; cursor: pointer; padding: 0;
+  height: 1.5rem; display: flex; align-items: center;
+}
+.track__dot::before {
+  content: ''; display: block; width: 1.5rem; height: 2px;
+  background: var(--field-e); transition: background .22s, width .22s;
+}
+.track__dot:hover::before { background: var(--ink-3); }
+.track__dot[aria-current="true"]::before { background: var(--accent); width: 2.4rem; }
+.track__dot:focus-visible { outline: 1px solid var(--accent); outline-offset: 2px; }
+.track__count { margin: 0; font-family: var(--mono); font-size: .72rem;
+                letter-spacing: .12em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+.track__count span { color: var(--ink); }
+.track__nav { display: flex; gap: .4rem; }
+.track__arw {
+  appearance: none; background: none; border: 1px solid var(--rule); cursor: pointer;
+  width: 2.3rem; height: 2.3rem; line-height: 1; font-size: .95rem; color: var(--ink-2);
+  font-family: var(--m); transition: border-color .18s, color .18s;
+}
+.track__arw:hover { border-color: var(--ink); color: var(--ink); }
+.track__arw:disabled { color: var(--field-e); border-color: var(--rule); cursor: default; }
+
+@media (max-width: 46rem) {
+  .track__dots { display: none; }
+}
+
+/* ══ Кадр во весь экран ══════════════════════════════════════════
+   Открывается поверх раскрытого дела: вложенный диалог ложится
+   в верхний слой, поэтому Esc и возврат фокуса работают сами. */
+
+.lb {
+  width: 100vw; max-width: 100vw; height: 100vh; max-height: 100vh;
+  margin: 0; padding: 0; border: 0; background: #111214;
+  display: none; overflow: hidden;
+}
+.lb[open] { display: block; animation: lb-in .22s ease-out both; }
+@keyframes lb-in { from { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .lb[open] { animation: none; } }
+.lb::backdrop { background: #111214; }
+
+/* Лента во весь экран: привязка родная, поэтому тачпад и палец
+   листают сами, без перехвата событий. */
+.lb__track {
+  display: flex; width: 100vw; height: 100vh;
+  overflow-x: auto; overscroll-behavior: contain;
+  scroll-snap-type: x mandatory; scrollbar-width: none;
+}
+.lb__track::-webkit-scrollbar { display: none; }
+.lb__track:focus-visible { outline: 0; }
+.lb__track figure {
+  flex: 0 0 100vw; height: 100vh; margin: 0;
+  scroll-snap-align: center; display: grid; place-items: center;
+  padding: clamp(2.5rem, 6vh, 4.5rem) clamp(1rem, 4vw, 4rem) clamp(4rem, 9vh, 5.5rem);
+}
+.lb__track img {
+  display: block; max-width: 100%; max-height: 100%;
+  width: auto; height: auto; object-fit: contain;
+}
+
+.lb__x { position: fixed; top: 0; right: 0; margin: 0; z-index: 2; }
+.lb__x button {
+  appearance: none; background: none; border: 0; cursor: pointer;
+  width: 3.4rem; height: 3.4rem; font-size: 1.3rem; line-height: 1;
+  color: #8B9190; font-family: var(--m);
+}
+.lb__x button:hover { color: #EDE9E3; }
+
+.lb__bar {
+  position: fixed; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; gap: 1.25rem;
+  padding: 1rem clamp(1rem, 3vw, 2.5rem);
+}
+.lb__bar .lab { color: #8B9190; margin-right: auto; }
+.lb__bar .gal__n { color: #8B9190; }
+.lb__bar .gal__n span { color: #EDE9E3; }
+.lb__bar .track__arw { border-color: #2A2E30; color: #8B9190; width: 2.4rem; height: 2.4rem; }
+.lb__bar .track__arw:hover { border-color: #545A5C; color: #EDE9E3; }
+.lb__bar .track__arw:disabled { color: #3A3E40; border-color: #212426; }
+
+/* ══ Ночная панель ═══════════════════════════════════════════════
+   Шестое обязательство — про то, что происходит, когда все спят.
+   Переопределяем только токены: всё внутри собрано на них, поэтому
+   заголовок, линейки, стенд и подписи переворачиваются сами. */
+
+.ob--night {
+  --bg:      #14171A;
+  --ink:     #EDE9E3;
+  --ink-2:   #A8AEB0;
+  --ink-3:   #7E8688;
+  --rule:    #262B2E;
+  --field:   #1B1F22;
+  --field-e: #2A3033;
+  --accent:  #C9A227;
+  background: var(--bg); color: var(--ink);
+}
+.ob--night .ob__no { color: #2E3438; }
+.ob--night .log p.hit { color: #D46A4E; }
+.ob--night .tap { color: var(--ink); border-color: #313739; }
+.ob--night .tap:hover { border-color: var(--ink-3); }
+.ob--night .tap:disabled { color: #4A5052; border-color: #262B2E; }
+
+/* ══ Главы ═══════════════════════════════════════════════════════
+   Блоки перетекали друг в друга, и было непонятно, где кончился
+   один и начался другой. Теперь у каждого своя шапка с номером и
+   свой тон подложки — страница читается как четыре отдельных экрана. */
+
+.chap { padding: 0 var(--pad); }
+
+/* Шапка главы — одна строка: номер, название и пояснение на общей
+   базовой линии, под ними волосяная линейка. Стопкой она занимала
+   треть экрана ради двух строк текста. */
+.chap__in {
+  display: flex; align-items: baseline; flex-wrap: wrap;
+  gap: .5rem clamp(.9rem, 2vw, 1.75rem);
+  padding-bottom: var(--air-s);
+  border-bottom: 1px solid var(--rule);
+}
+.chap__n {
+  margin: 0; font-family: var(--c); font-weight: 300;
+  font-size: clamp(1.15rem, .95rem + .6vw, 1.6rem); line-height: 1;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+}
+.chap__t {
+  margin: 0; font-family: var(--c); font-weight: 300;
+  font-size: clamp(1.75rem, 1.2rem + 2.1vw, 3rem); line-height: 1.02; letter-spacing: -.014em;
+}
+.chap__d {
+  margin: 0 0 0 auto; max-width: 44ch; text-align: right;
+  font-size: clamp(.82rem, .8rem + .15vw, .92rem); line-height: 1.5; color: var(--ink-3);
+}
+@media (max-width: 52rem) {
+  .chap__d { margin-left: 0; text-align: left; flex-basis: 100%; }
+}
+
+/* Разворот о себе больше не тянет собственную линейку — её ведёт глава. */
+
+/* ══ Экраны ══════════════════════════════════════════════════════
+   Каждая глава занимает экран, прокрутка мягко притягивается к
+   следующей. Притяжение именно proximity, а не mandatory: длинные
+   блоки (сетка дел) должны листаться обычным образом, иначе
+   прокрутка внутри них залипает. */
+
+html { scroll-snap-type: y proximity; scroll-padding-top: 4.25rem; }
+
+.screen {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: center;
+  gap: var(--air-m);
+  padding-block: var(--air-l);
+  background: var(--bg);
+}
+.screen--hero { justify-content: center; padding-block: 0; }
+.screen--tone { background: #EFEBE3; }
+.screen--tone .card { background: #EFEBE3; }
+.screen--tone .deals__track { background: var(--rule); }
+.screen--tone .card:hover, .screen--tone .card:focus-visible { background: #F5F2EC; }
+
+/* Блок выше экрана не центрируется, иначе верх уезжает под шапку. */
+
+@media (prefers-reduced-motion: reduce) { html { scroll-snap-type: none; } }
+@media (max-width: 44rem) { .screen { min-height: 0; padding-block: clamp(2.5rem, 6vh, 4rem); } }
+
+/* ── мелочи, дописанные по итогам проверки ── */
+.hero__accent { color: var(--accent); font-style: italic; }
+.proof__list { display: flex; flex-direction: column; }
+.who__portrait { display: flex; flex-direction: column; gap: var(--air-s); min-width: 0; }
+.chain__from, .chain__to { min-width: 0; }
+
+
+/* ── Состояния фокуса ────────────────────────────────────────────
+   Раньше их имели только ссылки и ленты; кнопки полагались на
+   системный контур, который на бумажном фоне почти не виден. */
+.tap:focus-visible,
+.btn:focus-visible,
+.sheet__repo:focus-visible,
+.track__arw:focus-visible,
+.sheet__x button:focus-visible,
+.lb__x button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Область нажатия ─────────────────────────────────────────────
+   Видимый размер стрелок оставляем прежним, но на касание даём
+   сорок четыре точки — иначе пальцем в них не попасть. */
+@media (pointer: coarse) {
+  .track__arw, .gal__nav .track__arw, .lb__bar .track__arw,
+  .sheet__x button, .lb__x button {
+    min-width: 2.75rem; min-height: 2.75rem;
+  }
+  .track__dot { height: 2.75rem; }
+}
+
+/* ── Первый шаг и главные истории ────────────────────────────────
+   В первом экране посетителю сразу понятно, что произойдёт после
+   нажатия. Перед полной лентой — три сильные истории, с которых
+   проще начать знакомство. */
+.hero__start {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .8rem 1.15rem;
+  padding-top: clamp(1.35rem, 3vh, 2.15rem);
+}
+.hero__note {
+  margin: 0;
+  max-width: 47ch;
+  color: var(--ink-3);
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+.flagships {
+  display: grid;
+  grid-template-columns: minmax(13rem, .82fr) minmax(0, 2.18fr);
+  gap: clamp(1.75rem, 4vw, 4.75rem);
+  align-items: start;
+  padding: 0 var(--pad);
+}
+.flagships__intro {
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+.flagships__intro h3 {
+  max-width: 15ch;
+}
+.flagships__list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  background: var(--rule);
+  gap: 1px;
+  border: 1px solid var(--rule);
+}
+.flagship {
+  appearance: none;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: .85rem;
+  padding: 1.15rem 1.05rem 1.25rem;
+  border: 0;
+  background: var(--bg);
+  color: var(--ink);
+  cursor: pointer;
+  text-align: left;
+  font-family: var(--m);
+  transition: background .18s, color .18s;
+}
+.flagship:hover,
+.flagship:focus-visible {
+  background: #FAF8F4;
+  outline: 0;
+}
+.flagship:focus-visible {
+  box-shadow: inset 0 0 0 2px var(--accent);
+}
+.flagship__n {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: .69rem;
+  letter-spacing: .08em;
+  padding-top: .2rem;
+}
+.flagship strong,
+.flagship small {
+  display: block;
+}
+.flagship strong {
+  font-family: var(--c);
+  font-weight: 300;
+  font-size: clamp(1.4rem, 1.1rem + .65vw, 1.85rem);
+  line-height: 1.02;
+}
+.flagship small {
+  margin-top: .6rem;
+  color: var(--ink-2);
+  font-size: .76rem;
+  line-height: 1.55;
+}
+@media (max-width: 68rem) {
+  .flagships { grid-template-columns: 1fr; }
+}
+@media (max-width: 50rem) {
+  .flagships__list { grid-template-columns: 1fr; }
+}
+@media (max-width: 34rem) {
+  .hero__start { align-items: flex-start; flex-direction: column; }
+}
+
+/* ── Проверяемые факты в флагманских кейсах ────────────────────── */
+.flagship__fact {
+  display: inline-block;
+  margin-top: .85rem;
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: .63rem;
+  font-weight: 400;
+  letter-spacing: .045em;
+  line-height: 1.45;
+}
+.sheet__proof {
+  display: flex;
+  flex-direction: column;
+  gap: .55rem;
+  padding: 1rem 1.1rem;
+  border-left: 2px solid var(--accent);
+  background: #F1EDE5;
+}
+.sheet__proof .txt {
+  max-width: 68ch;
+  font-size: .84rem;
+}
+
+/* ── Личный знак вместо временной заглушки портрета ────────────── */
+.portrait--mark {
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+.portrait--mark::before {
+  content: '';
+  position: absolute;
+  inset: 1rem;
+  border: 1px solid var(--field-e);
+}
+.portrait--mark .lab,
+.portrait__mark {
+  position: relative;
+  z-index: 1;
+}
+.portrait__mark {
+  margin: 0;
+  color: var(--accent);
+  font-family: var(--c);
+  font-size: clamp(4rem, 7vw, 7rem);
+  font-weight: 300;
+  letter-spacing: -.08em;
+  line-height: .8;
+}

@@ -1,60 +1,27 @@
 <!doctype html>
-<html lang="ru" data-lang="ru">
+<html lang="ru">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Страница не найдена — Артём Лиске</title>
 <meta name="robots" content="noindex">
-<meta name="color-scheme" content="dark light">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/Oswald-500-cyrillic.woff2">
-<link rel="preload" as="font" type="font/woff2" crossorigin href="/assets/fonts/GolosText-400-cyrillic.woff2">
-<!-- пути абсолютные: эта страница отдаётся в ответ на любой несуществующий адрес,
-     в том числе вложенный, и относительные ссылки на нём сломались бы -->
-<link rel="stylesheet" href="/assets/styles.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Crect%20width='32'%20height='32'%20fill='%230D1214'/%3E%3Crect%20x='4'%20y='9'%20width='13'%20height='5'%20fill='%2358A79C'/%3E%3Crect%20x='19'%20y='9'%20width='9'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='4'%20y='18'%20width='7'%20height='5'%20fill='%23223032'/%3E%3Crect%20x='13'%20y='18'%20width='15'%20height='5'%20fill='%23E4A244'/%3E%3C/svg%3E">
+<title>Страница не найдена — Артём Лиске</title>
+<link rel="stylesheet" href="styles.css">
 <style>
-  .nf { display: grid; align-content: center; gap: 1.4rem; min-height: 68vh; }
-  .nf__code { font-family: var(--f-mono); font-size: var(--step--1); letter-spacing: .18em; text-transform: uppercase; color: var(--accent); }
-  .nf__title { font-family: var(--f-display); font-size: clamp(2rem, 1rem + 5vw, 4.4rem); line-height: .95; text-transform: uppercase; font-weight: 500; }
-  .nf p { color: var(--ink-2); max-width: 52ch; font-size: var(--step-1); }
-  .nf__back { display: flex; gap: .7rem; flex-wrap: wrap; }
+  .not-found { min-height:100vh; display:flex; align-items:center; padding:var(--pad); }
+  .not-found__in { max-width:44rem; }
+  .not-found h1 { margin:.8rem 0 1.25rem; }
+  .not-found .txt { max-width:48ch; }
+  .not-found .btn { margin-top:2rem; }
 </style>
 </head>
 <body>
-
-<header class="topbar">
-  <div class="wrap topbar__inner">
-    <a class="mark" href="/">
-      <span class="mark__glyph" aria-hidden="true"></span>
-      <span class="mark__name">Артём Лиске</span>
-    </a>
-    <div class="controls">
-      <button type="button" class="ctl" id="lang-toggle">
-        <span class="ctl__on">RU</span><span class="ctl__sep">/</span><span class="ctl__off">EN</span><span class="vh" id="lang-hint"> — переключить язык</span>
-      </button>
-      <button type="button" class="ctl" id="theme-toggle">
-        <span id="theme-label">Светлая</span><span class="vh" id="theme-hint"> тема</span>
-      </button>
-    </div>
-  </div>
-</header>
-
-<main class="band">
-  <div class="wrap nf">
-    <p class="nf__code">404</p>
-    <h1 class="nf__title">
-      <span lang="ru">Такой страницы<br>здесь нет</span>
-      <span lang="en">There is no<br>such page here</span>
-    </h1>
-    <p lang="ru">Похоже, ссылка устарела или в адресе опечатка. На главной — шесть систем, собранных под конкретные процессы, и живые стенды с кодом из них.</p>
-    <p lang="en">The link is probably outdated, or there is a typo in the address. The home page has six systems built around specific processes, with live benches running their own code.</p>
-    <div class="nf__back">
-      <a class="btn btn--primary" href="/"><span lang="ru">На главную</span><span lang="en">Home</span></a>
-      <a class="btn" href="/#contact"><span lang="ru">Написать</span><span lang="en">Get in touch</span></a>
-    </div>
+<main class="not-found">
+  <div class="not-found__in">
+    <p class="lab lab--a">404</p>
+    <h1>Этой страницы<br>здесь нет.</h1>
+    <p class="txt">Возможно, ссылка устарела. На главной — системы, которые снимают ручную работу и оставляют решение человеку.</p>
+    <a class="btn" href="/">Вернуться к портфолио</a>
   </div>
 </main>
-
-<script src="/assets/main.js"></script>
 </body>
 </html>
