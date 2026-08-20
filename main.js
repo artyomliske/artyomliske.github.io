@@ -423,7 +423,7 @@
     if (!track) return;
     /* Порядок ленты осознанный: 5 кейсов слева, центральная тройка,
        затем 5 оставшихся и приглашение как шестая карточка справа. */
-    var order = ['chc', 'th', 'es', 'sp', 'sb', 'ch', 'st', 'cx', 'rb', 'bd', 'at', 'cv', 'hb'];
+    var order = ['th', 'es', 'sp', 'sb', 'chc', 'ch', 'st', 'cx', 'rb', 'bd', 'at', 'cv', 'hb'];
     var all = [].slice.call(track.children);
     var byId = {};
     var invitation = null;
