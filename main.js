@@ -458,6 +458,7 @@
       at = Math.max(0, Math.min(items.length - 1, i));
       items.forEach(function (item, index) {
         item.dataset.active = index === at ? 'true' : 'false';
+        item.dataset.neighbor = Math.abs(index - at) === 1 ? 'true' : 'false';
       });
       if (num) num.textContent = at + 1;
       if (title) title.textContent = titleOf(items[at]);

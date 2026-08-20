@@ -1010,3 +1010,26 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 4.25rem; }
   letter-spacing: -.08em;
   line-height: .8;
 }
+
+/* Соседи активной карточки получают второй уровень внимания: это
+   формирует читаемую тройку, не превращая ряд в одинаковые крупные блоки. */
+.card[data-neighbor="true"] {
+  z-index: 1;
+  opacity: .82;
+  filter: saturate(.88);
+  transform: scale(.99);
+  background: #F8F5EF;
+}
+.card[data-neighbor="true"] .card__name {
+  font-size: clamp(1.5rem, 1.2rem + .72vw, 1.98rem);
+}
+.card[data-neighbor="true"]:hover,
+.card[data-neighbor="true"]:focus-visible {
+  z-index: 3;
+  opacity: 1;
+  filter: none;
+  transform: translateY(-.18rem) scale(1.045);
+}
+@media (max-width: 44rem) {
+  .card[data-neighbor="true"] { opacity: .92; transform: scale(.98); }
+}
