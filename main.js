@@ -416,48 +416,74 @@
   })();
 
   /* ── лента дел ────────────────────────────────────────────────
-     Карточки разной ширины не бывают, но считаем всё равно по
-     ближайшей: так корректно и при неполном последнем экране. */
+     Ближайшая к центру карточка — текущая. Так лента работает как
+     Dock: остальные дела остаются видимыми по краям, но одно ведёт взгляд. */
   (function () {
     var track = document.querySelector('.deals__track');
     if (!track) return;
     var items = [].slice.call(track.children);
     var num = document.querySelector('[data-di]');
+    var title = document.querySelector('[data-dtitle]');
     var prev = document.querySelector('[data-dprev]');
     var next = document.querySelector('[data-dnext]');
     var at = 0, tick = 0;
-    function nearest() {
-      var x = track.scrollLeft, best = 0, d = Infinity;
-      items.forEach(function (s, i) {
-        var v = Math.abs((s.offsetLeft - items[0].offsetLeft) - x);
-        if (v < d) { d = v; best = i; }
+
+    function titleOf(item) {
+      var name = item.querySelector('.card__name');
+      return name ? name.textContent : 'Следующее дело';
+    }
+    function nearestToCenter() {
+      var center = track.scrollLeft + track.clientWidth / 2;
+      var best = 0, distance = Infinity;
+      items.forEach(function (item, i) {
+        var itemCenter = item.offsetLeft + item.offsetWidth / 2;
+        var delta = Math.abs(itemCenter - center);
+        if (delta < distance) { distance = delta; best = i; }
       });
       return best;
     }
     function show(i) {
       at = Math.max(0, Math.min(items.length - 1, i));
+      items.forEach(function (item, index) {
+        item.dataset.active = index === at ? 'true' : 'false';
+      });
       if (num) num.textContent = at + 1;
-      var scrollable = track.scrollWidth > track.clientWidth + 2;
-      var atEnd = scrollable && track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+      if (title) title.textContent = titleOf(items[at]);
       if (prev) prev.disabled = at === 0;
-      if (next) next.disabled = at === items.length - 1 || atEnd;
+      if (next) next.disabled = at === items.length - 1;
     }
-    function go(i) {
+    function centeredLeft(i) {
+      var item = items[i];
+      return Math.max(0, Math.min(track.scrollWidth - track.clientWidth,
+        item.offsetLeft + item.offsetWidth / 2 - track.clientWidth / 2));
+    }
+    function go(i, behavior) {
       var n = Math.max(0, Math.min(items.length - 1, i));
-      track.scrollTo({ left: items[n].offsetLeft - items[0].offsetLeft,
-                       behavior: calm ? 'auto' : 'smooth' });
       show(n);
+      track.scrollTo({ left: centeredLeft(n), behavior: behavior || (calm ? 'auto' : 'smooth') });
     }
     track.addEventListener('scroll', function () {
       cancelAnimationFrame(tick);
-      tick = requestAnimationFrame(function () { show(nearest()); });
+      tick = requestAnimationFrame(function () { show(nearestToCenter()); });
     }, { passive: true });
     if (prev) prev.addEventListener('click', function () { go(at - 1); });
     if (next) next.addEventListener('click', function () { go(at + 1); });
     track.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowRight') { e.preventDefault(); go(at + 1); }
-      if (e.key === 'ArrowLeft')  { e.preventDefault(); go(at - 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(at - 1); }
+      if (e.key === 'Home') { e.preventDefault(); go(0); }
+      if (e.key === 'End') { e.preventDefault(); go(items.length - 1); }
     });
-    show(0);
+    items.forEach(function (item, index) {
+      item.addEventListener('focus', function () { go(index); });
+    });
+    var featured = items.reduce(function (result, item, index) {
+      if (item.hasAttribute('data-featured')) result.push(index);
+      return result;
+    }, []);
+    var initial = featured.length ? featured[Math.floor(featured.length / 2)] : 0;
+    show(initial);
+    requestAnimationFrame(function () { go(initial, 'auto'); });
+    window.addEventListener('resize', function () { go(at, 'auto'); });
   })();
 })();
