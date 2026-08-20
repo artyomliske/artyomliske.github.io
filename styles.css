@@ -891,94 +891,115 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 4.25rem; }
 }
 
 .flagships {
-  display: grid;
-  grid-template-columns: minmax(13rem, .82fr) minmax(0, 2.18fr);
-  gap: clamp(1.75rem, 4vw, 4.75rem);
-  align-items: start;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.5rem, 3vw, 2.75rem);
   padding: 0 var(--pad);
 }
-.flagships__intro {
+.flagships__head {
+  display: grid;
+  grid-template-columns: minmax(16rem, 1.2fr) minmax(18rem, .8fr);
+  gap: clamp(2rem, 6vw, 8rem);
+  align-items: end;
+}
+.flagships__head > div {
   display: flex;
   flex-direction: column;
   gap: .8rem;
 }
-.flagships__intro h3 {
-  max-width: 15ch;
+.flagships__head h3 { max-width: 19ch; }
+.flagships__lead {
+  margin: 0;
+  max-width: 40ch;
+  color: var(--ink-3);
+  font-size: clamp(.84rem, .8rem + .16vw, .96rem);
+  line-height: 1.6;
 }
 .flagships__list {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  background: var(--rule);
-  gap: 1px;
-  border: 1px solid var(--rule);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
 }
 .flagship {
   appearance: none;
+  width: 100%;
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr);
-  align-items: start;
-  gap: .85rem;
-  padding: 1.15rem 1.05rem 1.25rem;
+  grid-template-columns: 2.25rem minmax(14rem, 1.35fr) minmax(11rem, .72fr) auto;
+  align-items: center;
+  column-gap: clamp(1rem, 2.5vw, 2.5rem);
+  padding: clamp(1rem, 1.8vw, 1.5rem) 0;
   border: 0;
-  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  background: transparent;
   color: var(--ink);
   cursor: pointer;
   text-align: left;
   font-family: var(--m);
-  transition: background .18s, color .18s;
+  transition: color .18s, background .18s;
 }
+.flagship:last-child { border-bottom: 0; }
 .flagship:hover,
 .flagship:focus-visible {
   background: #FAF8F4;
   outline: 0;
 }
-.flagship:focus-visible {
-  box-shadow: inset 0 0 0 2px var(--accent);
-}
+.flagship:focus-visible { box-shadow: inset 0 0 0 2px var(--accent); }
 .flagship__n {
   color: var(--accent);
   font-family: var(--mono);
-  font-size: .69rem;
+  font-size: .68rem;
   letter-spacing: .08em;
-  padding-top: .2rem;
 }
-.flagship strong,
-.flagship small {
-  display: block;
-}
-.flagship strong {
+.flagship__body strong,
+.flagship__body small { display: block; }
+.flagship__body strong {
   font-family: var(--c);
   font-weight: 300;
-  font-size: clamp(1.4rem, 1.1rem + .65vw, 1.85rem);
-  line-height: 1.02;
+  font-size: clamp(1.55rem, 1.15rem + .75vw, 2.15rem);
+  line-height: 1;
 }
-.flagship small {
-  margin-top: .6rem;
+.flagship__body small {
+  margin-top: .42rem;
   color: var(--ink-2);
-  font-size: .76rem;
+  font-size: .78rem;
   line-height: 1.55;
 }
-@media (max-width: 68rem) {
-  .flagships { grid-template-columns: 1fr; }
+.flagship__fact {
+  color: var(--accent);
+  font-family: var(--mono);
+  font-size: .64rem;
+  font-weight: 400;
+  letter-spacing: .045em;
+  line-height: 1.5;
 }
-@media (max-width: 50rem) {
-  .flagships__list { grid-template-columns: 1fr; }
+.flagship__arrow {
+  color: var(--accent);
+  font-family: var(--c);
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1;
+  transition: transform .18s ease;
+}
+.flagship:hover .flagship__arrow,
+.flagship:focus-visible .flagship__arrow { transform: translateX(.28rem); }
+@media (max-width: 58rem) {
+  .flagships__head { grid-template-columns: 1fr; gap: .9rem; }
+  .flagships__lead { max-width: 54ch; }
+  .flagship {
+    grid-template-columns: 2rem minmax(0, 1fr) auto;
+    row-gap: .65rem;
+  }
+  .flagship__fact { grid-column: 2; }
+  .flagship__arrow { grid-column: 3; grid-row: 1 / span 2; }
+}
+@media (max-width: 34rem) {
+  .flagship { column-gap: .75rem; }
+  .flagship__body strong { font-size: 1.5rem; }
 }
 @media (max-width: 34rem) {
   .hero__start { align-items: flex-start; flex-direction: column; }
 }
 
-/* ── Проверяемые факты в флагманских кейсах ────────────────────── */
-.flagship__fact {
-  display: inline-block;
-  margin-top: .85rem;
-  color: var(--accent);
-  font-family: var(--mono);
-  font-size: .63rem;
-  font-weight: 400;
-  letter-spacing: .045em;
-  line-height: 1.45;
-}
+/* ── Доказательства внутри раскрытых кейсов ───────────────────── */
 .sheet__proof {
   display: flex;
   flex-direction: column;

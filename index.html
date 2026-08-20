@@ -22,7 +22,7 @@
 <link rel="canonical" href="https://artyomliske.github.io/">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/Cormorant-300-cyrillic.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/Manrope-400-cyrillic.woff2">
-<link rel="stylesheet" href="styles.css?v=20260821b">
+<link rel="stylesheet" href="styles.css?v=20260821c">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F6F3EE'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%238A6A24' text-anchor='middle'%3EА%3C/text%3E%3C/svg%3E">
 </head>
 <body>
@@ -343,19 +343,31 @@
 </div>
 
 <section class="flagships rise" aria-labelledby="flagships-title">
-  <div class="flagships__intro">
-    <p class="lab lab--a">Начните с них</p>
-    <h3 id="flagships-title">Три истории, в которых видно, как я работаю</h3>
-  </div>
+  <header class="flagships__head">
+    <div>
+      <p class="lab lab--a">Начните с них</p>
+      <h3 id="flagships-title">Три истории, в которых видно, как я работаю</h3>
+    </div>
+    <p class="flagships__lead">Не витрина экранов, а три разных способа убрать операционный риск из дня команды.</p>
+  </header>
   <div class="flagships__list">
     <button class="flagship" type="button" data-open="ch">
-      <span class="flagship__n">01</span><span><strong>Chip House</strong><small>Правила клуба, два приложения и эксплуатация одной системы.</small><b class="flagship__fact">Боевой сервер с июня 2026</b></span>
+      <span class="flagship__n">01</span>
+      <span class="flagship__body"><strong>Chip House</strong><small>Правила клуба, два приложения и эксплуатация одной системы.</small></span>
+      <b class="flagship__fact">Боевой сервер с июня 2026</b>
+      <span class="flagship__arrow" aria-hidden="true">→</span>
     </button>
     <button class="flagship" type="button" data-open="st">
-      <span class="flagship__n">02</span><span><strong>Studio CRM</strong><small>Бронь, деньги и производство без ручных пересчётов.</small><b class="flagship__fact">265 автоматических проверок</b></span>
+      <span class="flagship__n">02</span>
+      <span class="flagship__body"><strong>Studio CRM</strong><small>Бронь, деньги и производство без ручных пересчётов.</small></span>
+      <b class="flagship__fact">265 автоматических проверок</b>
+      <span class="flagship__arrow" aria-hidden="true">→</span>
     </button>
     <button class="flagship" type="button" data-open="cx">
-      <span class="flagship__n">03</span><span><strong>Commandex</strong><small>ИИ готовит черновики, но решение и отправка остаются у человека.</small><b class="flagship__fact">754 успешно пройденных теста</b></span>
+      <span class="flagship__n">03</span>
+      <span class="flagship__body"><strong>Commandex</strong><small>ИИ готовит черновики, но решение и отправка остаются у человека.</small></span>
+      <b class="flagship__fact">754 успешно пройденных теста</b>
+      <span class="flagship__arrow" aria-hidden="true">→</span>
     </button>
   </div>
 </section>
