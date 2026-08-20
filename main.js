@@ -421,6 +421,18 @@
   (function () {
     var track = document.querySelector('.deals__track');
     if (!track) return;
+    /* Порядок ленты осознанный: 5 кейсов слева, центральная тройка,
+       затем 5 оставшихся и приглашение как шестая карточка справа. */
+    var order = ['chc', 'th', 'es', 'sp', 'sb', 'ch', 'st', 'cx', 'rb', 'bd', 'at', 'cv', 'hb'];
+    var all = [].slice.call(track.children);
+    var byId = {};
+    var invitation = null;
+    all.forEach(function (item) {
+      if (item.hasAttribute('data-open')) byId[item.getAttribute('data-open')] = item;
+      else invitation = item;
+    });
+    order.forEach(function (id) { if (byId[id]) track.appendChild(byId[id]); });
+    if (invitation) track.appendChild(invitation);
     var items = [].slice.call(track.children);
     var num = document.querySelector('[data-di]');
     var title = document.querySelector('[data-dtitle]');
