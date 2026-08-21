@@ -1097,3 +1097,10 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 4.25rem; }
   .gal__n { grid-column: 1; grid-row: 2; margin-right: auto; }
   .gal__nav { grid-column: 2; grid-row: 2; justify-self: end; }
 }
+
+/* На планшете фиксированная кнопка закрытия ещё остаётся компактной, а
+   служебная строка уже поднимается слишком высоко. Добавляем ей безопасный
+   воздушный зазор, не меняя десктопную сетку галереи. */
+@media (min-width: 44.01rem) and (max-width: 52rem) {
+  .sheet__in { padding-top: 3.35rem; }
+}
