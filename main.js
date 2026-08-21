@@ -231,6 +231,12 @@
     function openCase(key) {
       var d = document.getElementById('d-' + key);
       if (!d || d.open) return false;
+      /* Первый кадр нужен сразу после открытия; остальные остаются lazy. */
+      var firstShot = d.querySelector('[data-gal] img[loading="lazy"]');
+      if (firstShot) {
+        firstShot.loading = 'eager';
+        firstShot.fetchPriority = 'high';
+      }
       if (typeof d.showModal === 'function') { d.showModal(); } else { d.setAttribute('open', ''); }
       document.documentElement.style.overflow = 'hidden';
       /* размеры лент внутри стали настоящими только сейчас */
@@ -363,8 +369,9 @@
     }
     function open(shots, i) {
       list = shots;
-      track.innerHTML = shots.map(function (s) {
-        return '<figure><img src="' + s.src + '" alt="' + s.alt.replace(/"/g, '&quot;') + '"></figure>';
+      track.innerHTML = shots.map(function (s, n) {
+        var eager = n === i;
+        return '<figure><img src="' + s.src + '" alt="' + s.alt.replace(/"/g, '&quot;') + '" loading="' + (eager ? 'eager' : 'lazy') + '" decoding="async"' + (eager ? ' fetchpriority="high"' : '') + '></figure>';
       }).join('');
       nEl.textContent = shots.length;
       prev.hidden = next.hidden = shots.length < 2;
@@ -438,7 +445,7 @@
     var title = document.querySelector('[data-dtitle]');
     var prev = document.querySelector('[data-dprev]');
     var next = document.querySelector('[data-dnext]');
-    var at = 0, tick = 0;
+    var at = 0, tick = 0, switchTimer = 0, pointerTarget = -1;
 
     function titleOf(item) {
       var name = item.querySelector('.card__name');
@@ -472,8 +479,16 @@
     }
     function go(i, behavior) {
       var n = Math.max(0, Math.min(items.length - 1, i));
+      var mode = behavior || (calm ? 'auto' : 'smooth');
       show(n);
-      track.scrollTo({ left: centeredLeft(n), behavior: behavior || (calm ? 'auto' : 'smooth') });
+      if (!calm && mode === 'smooth') {
+        track.classList.remove('is-switching');
+        void track.offsetWidth;
+        track.classList.add('is-switching');
+        clearTimeout(switchTimer);
+        switchTimer = setTimeout(function () { track.classList.remove('is-switching'); }, 520);
+      }
+      track.scrollTo({ left: centeredLeft(n), behavior: mode });
     }
     track.addEventListener('scroll', function () {
       cancelAnimationFrame(tick);
@@ -487,8 +502,26 @@
       if (e.key === 'Home') { e.preventDefault(); go(0); }
       if (e.key === 'End') { e.preventDefault(); go(items.length - 1); }
     });
+    /* Первый клик на соседнюю карточку плавно приводит её в центр.
+       Только повторный клик по уже активной карточке открывает подробный кейс. */
+    track.addEventListener('pointerdown', function (e) {
+      var item = e.target.closest('.card[data-open]');
+      pointerTarget = item && track.contains(item) ? items.indexOf(item) : -1;
+    }, { passive: true });
+    track.addEventListener('click', function (e) {
+      var item = e.target.closest('.card[data-open]');
+      if (!item || !track.contains(item)) return;
+      var index = items.indexOf(item);
+      pointerTarget = -1;
+      if (index === at) return;
+      e.preventDefault();
+      e.stopPropagation();
+      go(index, 'smooth');
+    }, true);
     items.forEach(function (item, index) {
-      item.addEventListener('focus', function () { go(index); });
+      item.addEventListener('focus', function () {
+        if (pointerTarget !== index) go(index);
+      });
     });
     var featured = items.reduce(function (result, item, index) {
       if (item.hasAttribute('data-featured')) result.push(index);

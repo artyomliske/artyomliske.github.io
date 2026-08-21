@@ -1033,3 +1033,28 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 4.25rem; }
 @media (max-width: 44rem) {
   .card[data-neighbor="true"] { opacity: .92; transform: scale(.98); }
 }
+
+/* Плавное переключение соседнего кейса: позиция ленты скользит нативно,
+   а карточки синхронно меняют масштаб и тон без резкого скачка. */
+.deals__track.is-switching .card {
+  transition-duration: .48s, .34s, .34s, .34s, .34s;
+  transition-timing-function: cubic-bezier(.2, .82, .22, 1), ease, ease, ease, ease;
+}
+.deals__track.is-switching .card[data-active="true"] {
+  animation: case-settle .48s cubic-bezier(.2, .82, .22, 1) both;
+}
+@keyframes case-settle {
+  0% { filter: saturate(.82); }
+  55% { filter: saturate(1.08); }
+  100% { filter: none; }
+}
+/* Строки могут сжиматься на малых ширинах без выхода за границы карточки. */
+.card__kind, .card__name, .card__line, .card__more {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.card__name { hyphens: auto; }
+@media (prefers-reduced-motion: reduce) {
+  .deals__track.is-switching .card { transition-duration: 0s; }
+  .deals__track.is-switching .card[data-active="true"] { animation: none; }
+}
