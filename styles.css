@@ -625,18 +625,25 @@ footer { padding: 2rem var(--pad) 3rem; display: flex; gap: 1.6rem; flex-wrap: w
 .gal__track:focus-visible { outline: 1px solid var(--accent); outline-offset: 4px; }
 
 .gal__track figure {
-  margin: 0; flex: 0 0 auto; scroll-snap-align: start;
-  display: flex; flex-direction: column; gap: .55rem; max-width: 100%;
+  /* Карточка следует реальному формату кадра: вертикальный экран не
+     получает искусственную широкую панель с пустым фоном справа. */
+  --shot-ratio: 1;
+  margin: 0;
+  flex: 0 0 min(100%, calc(clamp(11rem, 26vw, 18.5rem) * var(--shot-ratio)));
+  width: min(100%, calc(clamp(11rem, 26vw, 18.5rem) * var(--shot-ratio)));
+  min-width: 0;
+  scroll-snap-align: start;
+  display: flex; flex-direction: column; gap: .55rem;
 }
 .gal__zoom {
   appearance: none; padding: 0; margin: 0; border: 1px solid var(--field-e);
-  background: var(--field); display: block; cursor: zoom-in; max-width: 100%;
+  background: var(--field); display: block; width: 100%; cursor: zoom-in;
   transition: border-color .18s;
 }
 .gal__zoom:hover, .gal__zoom:focus-visible { border-color: var(--accent); outline: 0; }
 .gal__track img {
-  display: block; width: auto; height: clamp(11rem, 26vw, 18.5rem);
-  max-width: 100%; object-fit: contain;
+  display: block; width: 100%; height: clamp(11rem, 26vw, 18.5rem);
+  object-fit: contain;
 }
 .gal__cap { color: var(--ink-3); }
 

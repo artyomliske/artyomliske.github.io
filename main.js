@@ -292,6 +292,15 @@
     document.querySelectorAll('[data-gal]').forEach(function (gal) {
       var track = gal.querySelector('.gal__track');
       var shots = [].slice.call(track.querySelectorAll('figure'));
+      /* Атрибуты width/height — это исходная геометрия кадра. Передаём
+         соотношение в CSS, чтобы оболочка не оставляла поле рядом с
+         вертикальными экранами телефона. */
+      shots.forEach(function (shot) {
+        var image = shot.querySelector('img');
+        var w = image ? Number(image.getAttribute('width')) : 0;
+        var h = image ? Number(image.getAttribute('height')) : 0;
+        if (w > 0 && h > 0) shot.style.setProperty('--shot-ratio', (w / h).toFixed(5));
+      });
       if (shots.length < 2) return;
       var num = gal.querySelector('[data-i]');
       var prev = gal.querySelector('[data-gprev]');
