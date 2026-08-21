@@ -11,19 +11,74 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
 <!-- Абсолютный адрес обязателен: мессенджеры не понимают относительных путей.
-     Поменяйте домен, если сайт встанет не на artyomliske.github.io -->
-<meta property="og:url" content="https://artyomliske.github.io/">
+     Домен сайта — artyomliske.ru. -->
+<meta property="og:url" content="https://artyomliske.ru/">
 <meta property="og:site_name" content="Артём Лиске">
-<meta property="og:image" content="https://artyomliske.github.io/og.jpg">
+<meta property="og:image" content="https://artyomliske.ru/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Я отвечаю не за код. Я отвечаю за ваши вечера. Семь обязательств.">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://artyomliske.github.io/">
+<link rel="canonical" href="https://artyomliske.ru/">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/Cormorant-300-cyrillic.woff2">
 <link rel="preload" as="font" type="font/woff2" crossorigin href="fonts/Manrope-400-cyrillic.woff2">
 <link rel="stylesheet" href="styles.css?v=20260821n">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F6F3EE'/%3E%3Ctext x='16' y='23' font-family='Georgia,serif' font-size='20' fill='%238A6A24' text-anchor='middle'%3EА%3C/text%3E%3C/svg%3E">
+<!-- Разметка сущности: по ней поисковик и ИИ-ассистенты понимают, что страница
+     о человеке. Имя, варианты написания, ссылки-подтверждения на других доменах. -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://artyomliske.ru/#artyomliske",
+      "name": "Артём Лиске",
+      "alternateName": ["Артем Лиске", "Artyom Liske", "Artem Liske"],
+      "url": "https://artyomliske.ru/",
+      "image": "https://artyomliske.ru/og.jpg",
+      "jobTitle": "Разработчик систем для бизнеса",
+      "description": "Артём Лиске — разработчик из Москвы, работает с командами удалённо. Делает системы для действующего бизнеса в одиночку: разговор с владельцем, правила словами, программа, сервер, бэкапы и ночные проверки. За лето 2026 года сделано тринадцать систем, плюс два приложения для macOS.",
+      "homeLocation": { "@type": "Place", "name": "Москва" },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Москва",
+        "addressCountry": "RU"
+      },
+      "knowsLanguage": ["ru", "en"],
+      "knowsAbout": [
+        "разработка программного обеспечения",
+        "CRM для малого бизнеса",
+        "системы бронирования",
+        "автоматизация клубов и студий",
+        "администрирование серверов"
+      ],
+      "sameAs": [
+        "https://github.com/artyomliske",
+        "https://t.me/artyomliske"
+      ]
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://artyomliske.ru/#page",
+      "url": "https://artyomliske.ru/",
+      "name": "Артём Лиске — системы для действующего бизнеса",
+      "inLanguage": "ru-RU",
+      "mainEntity": { "@id": "https://artyomliske.ru/#artyomliske" },
+      "about": { "@id": "https://artyomliske.ru/#artyomliske" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://artyomliske.ru/#site",
+      "url": "https://artyomliske.ru/",
+      "name": "Артём Лиске",
+      "inLanguage": "ru-RU",
+      "publisher": { "@id": "https://artyomliske.ru/#artyomliske" }
+    }
+  ]
+}
+</script>
+<meta name="author" content="Артём Лиске">
 </head>
 <body>
 
