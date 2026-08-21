@@ -645,10 +645,23 @@ footer { padding: 2rem var(--pad) 3rem; display: flex; gap: 1.6rem; flex-wrap: w
   display: block; width: 100%; height: clamp(11rem, 26vw, 18.5rem);
   object-fit: contain;
 }
-.gal__cap { color: var(--ink-3); }
-
-.gal__bar { display: flex; align-items: center; gap: .75rem; }
-.gal__n { margin: 0; margin-right: auto; font-family: var(--mono); font-size: .72rem;
+/* Индивидуальная подпись остаётся в семантике figure, но в интерфейсе
+   показывается одна активная строка под всей лентой — иначе узкий портретный
+   кадр превращает текст в нечитаемую колонку. */
+.gal--ready .gal__track .gal__cap {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0;
+}
+.gal__bar {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: center; gap: .75rem;
+}
+.gal__activecap {
+  margin: 0; min-width: 0; color: var(--ink-3); font-family: var(--mono);
+  font-size: .67rem; line-height: 1.45; letter-spacing: .1em;
+  text-transform: uppercase; text-wrap: pretty;
+}
+.gal__n { margin: 0; font-family: var(--mono); font-size: .72rem;
           letter-spacing: .1em; color: var(--ink-3); font-variant-numeric: tabular-nums; }
 .gal__n span { color: var(--ink); }
 .gal__nav { display: flex; gap: .35rem; }

@@ -305,6 +305,20 @@
       var num = gal.querySelector('[data-i]');
       var prev = gal.querySelector('[data-gprev]');
       var next = gal.querySelector('[data-gnext]');
+      var caps = shots.map(function (shot) {
+        var cap = shot.querySelector('.gal__cap');
+        return cap ? cap.textContent.trim() : '';
+      });
+      var activeCap = null;
+      var bar = gal.querySelector('.gal__bar');
+      var count = gal.querySelector('.gal__n');
+      if (bar && count && caps.some(Boolean)) {
+        activeCap = document.createElement('p');
+        activeCap.className = 'gal__activecap';
+        activeCap.setAttribute('aria-live', 'polite');
+        bar.insertBefore(activeCap, count);
+        gal.classList.add('gal--ready');
+      }
       var at = 0, tick = 0;
 
       function nearest() {
@@ -318,6 +332,7 @@
       function show(i) {
         at = Math.max(0, Math.min(shots.length - 1, i));
         if (num) num.textContent = at + 1;
+        if (activeCap) activeCap.textContent = caps[at] || '';
         /* хвост ленты может показывать сразу несколько кадров —
            тогда дальше листать некуда, даже если номер не последний */
         var scrollable = track.scrollWidth > track.clientWidth + 2;
