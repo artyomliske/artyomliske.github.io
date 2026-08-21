@@ -1078,3 +1078,22 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 4.25rem; }
   .deals__track.is-switching .card { transition-duration: 0s; }
   .deals__track.is-switching .card[data-active="true"] { animation: none; }
 }
+
+/* ── Раскрытые кейсы на телефоне ────────────────────────────────
+   Закрытие не должно перекрывать служебную строку, а подпись кадра
+   не должна конкурировать за одну узкую строку со счётчиком и стрелками. */
+@media (max-width: 44rem) {
+  .sheet__x { position: absolute; top: .55rem; left: .55rem; }
+  .sheet__in { padding-top: 3.55rem; }
+  .gal__bar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: .55rem .75rem;
+  }
+  .gal__activecap {
+    grid-column: 1 / -1;
+    grid-row: 1;
+    max-width: 34ch;
+  }
+  .gal__n { grid-column: 1; grid-row: 2; margin-right: auto; }
+  .gal__nav { grid-column: 2; grid-row: 2; justify-self: end; }
+}
