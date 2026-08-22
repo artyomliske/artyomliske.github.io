@@ -1004,32 +1004,21 @@ html { scroll-snap-type: y proximity; scroll-padding-top: 4.25rem; }
 }
 
 /* ── Личный знак вместо временной заглушки портрета ────────────── */
-.portrait--mark {
-  position: relative;
-  align-items: center;
-  justify-content: space-between;
-  overflow: hidden;
+/* Портрет-фотография: снимок лежит под подписью, затемнение снизу
+   держит её читаемой независимо от того, что попало в кадр. */
+.portrait--photo { position: relative; overflow: hidden; }
+.portrait--photo img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
 }
-.portrait--mark::before {
+.portrait--photo::after {
   content: '';
-  position: absolute;
-  inset: 1rem;
-  border: 1px solid var(--field-e);
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(20,16,12,.66) 0, rgba(20,16,12,.2) 26%, transparent 52%);
 }
-.portrait--mark .lab,
-.portrait__mark {
-  position: relative;
-  z-index: 1;
-}
-.portrait__mark {
-  margin: 0;
-  color: var(--accent);
-  font-family: var(--c);
-  font-size: clamp(4rem, 7vw, 7rem);
-  font-weight: 300;
-  letter-spacing: -.08em;
-  line-height: .8;
-}
+.portrait--photo .lab { position: relative; z-index: 1; color: #F2EDE6; }
+
 
 /* Соседи активной карточки получают второй уровень внимания: это
    формирует читаемую тройку, не превращая ряд в одинаковые крупные блоки. */
