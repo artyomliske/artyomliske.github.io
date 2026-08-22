@@ -251,7 +251,14 @@
     });
 
     /* Публичные case-репозитории ведут сразу к нужному раскрытию. */
-    var caseByHash = { 'case-chcrm': 'ch', 'case-studio': 'st', 'case-commandex': 'cx' };
+    var caseByHash = {
+      'case-chcrm': 'ch', 'case-chclub': 'chc', 'case-studio': 'st',
+      'case-commadex': 'cx', 'case-theatre': 'th', 'case-estimate': 'es',
+      'case-smm': 'sp', 'case-relayboard': 'rb', 'case-booking': 'bd',
+      'case-apptimer': 'at', 'case-clipboardvault': 'cv', 'case-homebrew': 'hb',
+      /* прежнее написание: ссылки с ним уже разошлись по репозиториям */
+      'case-commandex': 'cx'
+    };
     var requestedCase = caseByHash[location.hash.slice(1)];
     if (requestedCase) {
       setTimeout(function () { openCase(requestedCase); }, calm ? 0 : 120);
